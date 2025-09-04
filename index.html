@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resolutiva | Soluciones en proyectos y mantenimiento</title>
+  <meta name="description" content="Resolutiva: planificación, desarrollo y mantenimiento. Sitio estático rápido y seguro en GitHub Pages.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:title" content="Resolutiva">
+  <meta property="og:description" content="Servicios profesionales de Resolutiva. Presencia web sin costos mensuales con GitHub Pages.">
+  <meta property="og:type" content="website">
+</head>
+<body>
+<header class="container header">
+  <div class="brand">
+    <a href="#inicio">Resolutiva<span>.cr</span></a>
+  </div>
+  <nav id="nav" class="nav">
+    <a href="#servicios">Servicios</a>
+    <a href="#portafolio">Portafolio</a>
+    <a href="#nosotros">Nosotros</a>
+    <a class="cta" href="#contacto">Contacto</a>
+  </nav>
+  <button class="menu" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
+</header>
+
+<section id="inicio" class="hero">
+  <div class="container">
+    <h1>Proyectos y mantenimiento, <span>confiables y eficientes</span></h1>
+    <p>Publica tu sitio de Resolutiva sin costos mensuales usando <strong>GitHub Pages</strong> y tu dominio propio.</p>
+    <div class="actions">
+      <a class="btn" href="#servicios">Servicios</a>
+      <a class="btn ghost" href="#contacto">Contáctanos</a>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" class="section container">
+  <h2>Servicios</h2>
+  <div class="grid">
+    <article class="card">
+      <h3>Planificación & presupuesto</h3>
+      <p>Estimaciones claras, cronogramas y control de costos.</p>
+    </article>
+    <article class="card">
+      <h3>Construcción y mantenimiento</h3>
+      <p>Ejecución técnica y mantenimiento preventivo/correctivo.</p>
+    </article>
+    <article class="card">
+      <h3>Soporte continuo</h3>
+      <p>Actualizaciones de contenido mensuales sin costos de hosting.</p>
+    </article>
+  </div>
+</section>
+
+<section id="portafolio" class="section container">
+  <h2>Portafolio</h2>
+  <div class="grid">
+    <figure class="card">
+      <img src="assets/placeholder.jpg" alt="Proyecto destacado">
+      <figcaption>Proyecto destacado</figcaption>
+    </figure>
+    <figure class="card">
+      <img src="assets/placeholder.jpg" alt="Instalación y mejora">
+      <figcaption>Instalación y mejora</figcaption>
+    </figure>
+    <figure class="card">
+      <img src="assets/placeholder.jpg" alt="Mantenimiento integral">
+      <figcaption>Mantenimiento integral</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="nosotros" class="section container">
+  <h2>Nosotros</h2>
+  <p>En Resolutiva nos enfocamos en soluciones profesionales, eficientes y transparentes. Reemplaza este texto por tu historia y propuesta de valor.</p>
+</section>
+
+<section id="contacto" class="section container">
+  <h2>Contacto</h2>
+  <p>Escríbenos a <a href="mailto:contacto@resolutivacr.com">contacto@resolutivacr.com</a> o completa el formulario.</p>
+  <!-- Para formularios sin backend, usa Formspree o Google Forms -->
+  <form action="#" method="POST" class="contact-form">
+    <label>Nombre <input name="nombre" required></label>
+    <label>Email <input type="email" name="email" required></label>
+    <label>Mensaje <textarea name="mensaje" rows="5" required></textarea></label>
+    <button class="btn" type="submit">Enviar</button>
+  </form>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© <span id="year"></span> Resolutiva — <a href="https://www.resolutivacr.com">www.resolutivacr.com</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
