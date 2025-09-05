@@ -10,7 +10,7 @@
       --green-900:#093a36;   /* cabecera base */
       --green-800:#0b4743;   /* degradado header */
       --beige:#f4ecdf;       /* fondo servicios */
-      --gold:#d1a72c;        /* botón primario/CTA */
+      --gold:#d1a72c;        /* botón primario/CTA y acentos */
       --text:#0f0f0f;
       --white:#ffffff;
       --radius:16px;
@@ -25,34 +25,37 @@
       background:#fff;
     }
 
-    /* ====== NAV + HEADER ====== */
+    /* ====== HEADER (solo barra) ====== */
     .site-header{
       position:sticky; top:0; z-index:1000;
-      color:var(--white);
-      padding-bottom:2rem;
       background: linear-gradient(180deg, var(--green-800) 0%, var(--green-900) 70%);
+      color:var(--white);
+      box-shadow:0 6px 18px rgba(0,0,0,.18);
     }
     .top-nav{
-      max-width:1100px; margin:0 auto; padding:1rem 1.25rem;
+      max-width:1100px; margin:0 auto;
+      height:80px;                 /* altura fija desktop */
+      padding:0 1.25rem;
       display:flex; align-items:center; justify-content:space-between; gap:10px;
-      flex-wrap:wrap; /* permite que el menú baje si el logo ocupa más espacio */
+      position:relative;
+    }
+    @media (max-width:900px){
+      .top-nav{ height:72px; }
     }
 
-    /* Logo PNG – solicitado a 300 px en desktop */
+    /* Logo PNG – 300px ancho, limitado por altura del header */
     .brand{ display:inline-flex; align-items:center; text-decoration:none; }
     .brand img{
-      width:300px;            /* << tamaño principal solicitado */
-      height:auto;            /* mantiene proporción */
-      max-width:100%;         /* evita overflow si el contenedor es más pequeño */
+      width:300px;
+      height:auto;
+      max-height:60px;     /* para que quepa dentro del header */
       display:block;
     }
-    /* tablet */
     @media (max-width:1024px){
-      .brand img{ width:220px; }
+      .brand img{ width:220px; max-height:56px; }
     }
-    /* móvil */
     @media (max-width:768px){
-      .brand img{ width:160px; }
+      .brand img{ width:160px; max-height:48px; }
     }
 
     /* Menú desktop */
@@ -85,13 +88,13 @@
     }
 
     /* ====== HERO ====== */
-    .hero{max-width:1100px; margin:0 auto; padding:3.5rem 1.25rem 3rem}
+    .hero{max-width:1100px; margin:0 auto; padding:3.2rem 1.25rem 3rem}
     .hero h1{
       font-size:clamp(2.1rem,4.2vw,3.3rem);
       line-height:1.1; margin:0 0 1rem; font-weight:800; color:#fff;
     }
     .hero-sub{
-      max-width:760px; margin:0 0 1.6rem; color:#eaf4f1; /* más legible */
+      max-width:760px; margin:0 0 1.6rem; color:#eaf4f1;
       font-size:clamp(1rem,1.2vw,1.1rem);
     }
     .hero-cta{display:flex; gap:.75rem; flex-wrap:wrap}
@@ -125,9 +128,37 @@
       padding:1.2rem 1.15rem;
       border:1px solid rgba(0,0,0,.05);
       box-shadow:0 8px 18px rgba(0,0,0,.08);
+      display:flex; flex-direction:column;
     }
-    .card h3{margin:.1rem 0 .35rem; font-size:clamp(1.1rem,1.4vw,1.25rem); font-weight:800; color:#1a1a1a}
-    .card p{margin:0; color:#2c2c2c; font-size:.98rem}
+    .card h3{
+      margin:.35rem 0 .45rem;
+      font-size:clamp(1.12rem,1.5vw,1.28rem);
+      font-weight:800; color:#1a1a1a;
+      letter-spacing:.2px;
+    }
+    .card p{
+      margin:0;
+      color:#2c2c2c;
+      font-size:1rem;
+      line-height:1.65;
+      hyphens:auto;
+    }
+
+    /* Badge de ícono */
+    .icon-badge{
+      width:48px; height:48px; border-radius:12px;
+      background: rgba(209,167,44,.10);           /* dorado suave */
+      border:1px solid rgba(209,167,44,.35);
+      display:grid; place-items:center;
+    }
+    .icon-badge svg{
+      width:26px; height:26px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
     /* ====== FOOTER ====== */
     .site-footer{background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem}
@@ -138,23 +169,26 @@
 
     /* ====== RESPONSIVE NAV ====== */
     @media (max-width:900px){
-      .menu{ display:none; position:relative; width:100%; order:3;
-             background:var(--green-900); padding:12px 20px; border-top:1px solid rgba(255,255,255,.1); }
+      .menu{ 
+        display:none;
+        position:absolute; left:0; right:0; top:100%; /* cuelga justo debajo de la barra */
+        background:var(--green-900);
+        padding:12px 20px; border-top:1px solid rgba(255,255,255,.1);
+      }
       .menu.open{ display:block; }
       .menu li{ margin:8px 0; }
       .menu a{ display:inline-block; padding:.4rem 0; }
       .menu .btn-cta{ display:inline-block; }
-      .menu-toggle{ display:inline-block; order:2; }
-      .top-nav{ position:relative; }
+      .menu-toggle{ display:inline-block; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== HEADER / NAV ===== -->
+  <!-- ===== HEADER ===== -->
   <header class="site-header">
     <nav class="top-nav" aria-label="Principal">
-      <!-- LOGO PNG (300px desktop) -->
+      <!-- LOGO PNG -->
       <a class="brand" href="/" aria-label="Resolutiva – Inicio">
         <img src="/assets/logo-resolutiva-light.png" alt="Resolutiva">
       </a>
@@ -170,20 +204,20 @@
         <li><a class="btn-cta" href="/contacto.html">Contacto</a></li>
       </ul>
     </nav>
-
-    <!-- ===== HERO ===== -->
-    <section class="hero">
-      <h1>Su aliado confiable en mantenimiento y construcción</h1>
-      <p class="hero-sub">
-        Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="/contacto.html">Solicitar cotización</a>
-        <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
-        <a class="btn btn-ghost" href="https://wa.me/50689980551" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
-    </section>
   </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" style="background:linear-gradient(180deg, rgba(9,58,54,0.06), rgba(9,58,54,0.0));">
+    <h1>Su aliado confiable en mantenimiento y construcción</h1>
+    <p class="hero-sub">
+      Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="/contacto.html">Solicitar cotización</a>
+      <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+      <a class="btn btn-ghost" href="https://wa.me/50689980551" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </section>
 
   <!-- ===== SERVICIOS ===== -->
   <section id="servicios" class="services">
@@ -191,34 +225,93 @@
       <h2>Nuestros servicios</h2>
 
       <div class="cards">
+        <!-- 1. Gestión de proyectos -->
         <article class="card">
+          <div class="icon-badge" aria-hidden="true">
+            <!-- Icono: Línea de tiempo -->
+            <svg viewBox="0 0 24 24">
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <circle cx="6" cy="12" r="2"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+              <circle cx="18" cy="12" r="2"></circle>
+            </svg>
+          </div>
           <h3>Gestión de proyectos</h3>
-          <p>Supervisamos y coordinamos su proyecto de inicio a fin.</p>
+          <p>Supervisamos y coordinamos su proyecto de inicio a fin con control de tiempos, costos y calidad.</p>
         </article>
 
+        <!-- 2. Mantenimiento y planes anuales -->
         <article class="card">
-          <h3>Mantenimiento preventivo</h3>
-          <p>Planeamos y realizamos el mantenimiento rutinario.</p>
+          <div class="icon-badge" aria-hidden="true">
+            <!-- Icono: Engranaje simple -->
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"></circle>
+              <line x1="12" y1="4" x2="12" y2="7"></line>
+              <line x1="12" y1="17" x2="12" y2="20"></line>
+              <line x1="4" y1="12" x2="7" y2="12"></line>
+              <line x1="17" y1="12" x2="20" y2="12"></line>
+              <line x1="6.2" y1="6.2" x2="8.4" y2="8.4"></line>
+              <line x1="15.6" y1="15.6" x2="17.8" y2="17.8"></line>
+              <line x1="6.2" y1="17.8" x2="8.4" y2="15.6"></line>
+              <line x1="15.6" y1="8.4" x2="17.8" y2="6.2"></line>
+            </svg>
+          </div>
+          <h3>Mantenimiento y planes anuales</h3>
+          <p>Diseñamos y ejecutamos planes de mantenimiento preventivo y correctivo, así como planes anuales de mantenimiento que garantizan continuidad y reducen costos imprevistos.</p>
         </article>
 
+        <!-- 3. Reparaciones generales -->
         <article class="card">
+          <div class="icon-badge" aria-hidden="true">
+            <!-- Icono: Herramientas cruzadas -->
+            <svg viewBox="0 0 24 24">
+              <rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(45 12 12)"></rect>
+              <rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(-45 12 12)"></rect>
+            </svg>
+          </div>
           <h3>Reparaciones generales</h3>
-          <p>Solucionamos problemas en estructuras de cualquier tipo.</p>
+          <p>Solucionamos averías en estructuras e instalaciones con respuesta rápida y mano de obra calificada.</p>
         </article>
 
+        <!-- 4. Limpieza de propiedades -->
         <article class="card">
+          <div class="icon-badge" aria-hidden="true">
+            <!-- Icono: Escoba -->
+            <svg viewBox="0 0 24 24">
+              <rect x="11" y="4" width="2" height="10" rx="1"></rect>
+              <polygon points="7,16 17,16 15,20 9,20"></polygon>
+            </svg>
+          </div>
           <h3>Limpieza de propiedades</h3>
-          <p>Brindamos servicios de limpieza interna y externa.</p>
+          <p>Servicios de limpieza interna y externa para oficinas, comercios, residencias y áreas comunes.</p>
         </article>
 
+        <!-- 5. Presupuestos y planos -->
         <article class="card">
+          <div class="icon-badge" aria-hidden="true">
+            <!-- Icono: Escuadra / plano -->
+            <svg viewBox="0 0 24 24">
+              <polygon points="6,6 6,16 16,16 6,6"></polygon>
+              <line x1="8" y1="12" x2="12" y2="12"></line>
+              <line x1="10" y1="14" x2="14" y2="14"></line>
+            </svg>
+          </div>
           <h3>Presupuestos y planos</h3>
-          <p>Elaboramos presupuestos, planos arquitectónicos y renderizados.</p>
+          <p>Elaboramos presupuestos precisos y presupuestos anuales de mantenimiento, junto con planos arquitectónicos y renderizados profesionales 3D.</p>
         </article>
 
+        <!-- 6. Procesos para licitaciones -->
         <article class="card">
+          <div class="icon-badge" aria-hidden="true">
+            <!-- Icono: Documento con check -->
+            <svg viewBox="0 0 24 24">
+              <rect x="6" y="4" width="12" height="16" rx="2"></rect>
+              <polyline points="9,13 11,15 15,10"></polyline>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+            </svg>
+          </div>
           <h3>Procesos para licitaciones</h3>
-          <p>Gestionamos los procesos necesarios para licitar proyectos.</p>
+          <p>Gestionamos y acompañamos los procesos de licitación con soporte técnico y documentación completa.</p>
         </article>
       </div>
     </div>
@@ -231,7 +324,7 @@
     </div>
   </footer>
 
-  <!-- ===== JS mínimo para menú móvil ===== -->
+  <!-- ===== JS: menú móvil ===== -->
   <script>
     const btn = document.querySelector('.menu-toggle');
     const menu = document.getElementById('menu');
@@ -244,4 +337,3 @@
   </script>
 </body>
 </html>
-
