@@ -30,10 +30,18 @@
       max-width:1100px; margin:0 auto; padding:1rem 1.25rem;
       display:flex; align-items:center; justify-content:space-between;
     }
+
+    /* BRAND como imagen PNG */
     .brand{
-      color:#cfe7e3; text-decoration:none; font-weight:700; letter-spacing:.2px;
-      font-size:1.1rem; opacity:.9;
+      display:inline-flex; align-items:center; text-decoration:none;
     }
+    .brand img{
+      height:44px; width:auto; display:block; /* 40–48px recomendado en desktop */
+    }
+    @media (max-width:768px){
+      .brand img{ height:36px; } /* tamaño en móvil */
+    }
+
     .menu{list-style:none; display:flex; gap:1rem; margin:0; padding:0}
     .menu a{color:var(--white); text-decoration:none; opacity:.95}
     .menu a:hover{opacity:1}
@@ -94,8 +102,17 @@
   <!-- ===== HEADER / NAV ===== -->
   <header class="site-header">
     <nav class="top-nav">
-      <!-- Cuando subas tu logo, reemplaza por <img src="/assets/logo.svg" ...> -->
-      <a class="brand" href="/">Resolutiva</a>
+      <!-- LOGO PNG: cambia la ruta si tu archivo está en otra carpeta -->
+      <a class="brand" href="/" aria-label="Resolutiva – Inicio">
+        <img
+          src="/assets/logo-resolutiva-light.png"
+          alt="Resolutiva"
+          decoding="async"
+          fetchpriority="high"
+          style="height:44px; width:auto"
+        />
+      </a>
+
       <ul class="menu">
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="/portafolio.html">Portafolio</a></li>
