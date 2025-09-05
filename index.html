@@ -3,100 +3,205 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Resolutiva | Soluciones en proyectos y mantenimiento</title>
-  <meta name="description" content="Resolutiva: planificación, desarrollo y mantenimiento. Sitio estático rápido y seguro en GitHub Pages.">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-  <meta property="og:title" content="Resolutiva">
-  <meta property="og:description" content="Servicios profesionales de Resolutiva. Presencia web sin costos mensuales con GitHub Pages.">
-  <meta property="og:type" content="website">
+  <title>Resolutiva | Proyectos, mantenimiento y limpieza</title>
+  <meta name="description" content="Tu aliado confiable en gestión integral de proyectos y mantenimiento de propiedades. Planificación, construcción y cuidado de inmuebles con transparencia y eficiencia.">
+  <style>
+    :root{
+      --green-900:#083b37;   /* fondo cabecera */
+      --beige:#f4ecdf;       /* fondo sección servicios */
+      --gold:#d1a72c;        /* botón primario */
+      --text:#0f0f0f;
+      --white:#ffffff;
+      --radius:16px;
+      --shadow:0 8px 24px rgba(0,0,0,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+      color:var(--text);
+      line-height:1.6;
+      background:#fff;
+    }
+    /* ===== HEADER ===== */
+    .site-header{
+      background:var(--green-900);
+      color:var(--white);
+      padding-bottom:2rem;
+    }
+    .top-nav{
+      max-width:1100px;
+      margin:0 auto;
+      padding:1rem 1.25rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    /* Si no quieres mostrar nada a la izquierda, deja .brand vacía o comenta el enlace */
+    .brand{
+      color:#c6e4df;
+      font-weight:700;
+      font-size:1.1rem;
+      text-decoration:none;
+      letter-spacing:.3px;
+      opacity:.85;
+    }
+    .menu{
+      list-style:none;
+      display:flex;
+      gap:1rem;
+      margin:0;
+      padding:0;
+    }
+    .menu a{
+      color:var(--white);
+      text-decoration:none;
+      opacity:.95;
+    }
+    .menu a:hover{opacity:1}
+
+    .hero{
+      max-width:1100px;
+      margin:0 auto;
+      padding:3.5rem 1.25rem 3rem;
+      text-align:left;
+    }
+    .hero h1{
+      font-size: clamp(1.9rem, 3.2vw, 3rem);
+      line-height:1.15;
+      margin:0 0 1rem 0;
+      font-weight:800;
+      color:var(--white);
+      letter-spacing:.2px;
+    }
+    .hero-sub{
+      max-width:750px;
+      margin:0 0 1.5rem 0;
+      font-size: clamp(1rem, 1.3vw, 1.1rem);
+      opacity:.95;
+    }
+    .hero-cta{
+      display:flex;
+      gap:.75rem;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding:.9rem 1.1rem;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+      border:1.5px solid rgba(255,255,255,.25);
+      transition:.2s ease-in-out;
+    }
+    .btn-primary{
+      background:var(--gold);
+      color:#1a1a1a;
+      border-color:transparent;
+    }
+    .btn-ghost{
+      color:var(--white);
+      background:transparent;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:var(--shadow);
+    }
+
+    /* ===== SERVICIOS ===== */
+    .services{
+      background:var(--beige);
+      padding:3rem 1.25rem;
+    }
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+    }
+    .services h2{
+      text-align:center;
+      margin:0 0 1.75rem 0;
+      font-size: clamp(1.6rem, 2.4vw, 2rem);
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:1rem;
+    }
+    .card{
+      grid-column: span 6;              /* 2 por fila en desktop */
+      background:#fff;
+      border-radius:var(--radius);
+      padding:1.25rem 1.2rem;
+      box-shadow:var(--shadow);
+    }
+    .card-ico{
+      font-size:1.6rem;
+      margin-bottom:.5rem;
+    }
+    .card h3{
+      margin:.25rem 0 .25rem 0;
+      font-size:1.15rem;
+    }
+    .card p{
+      margin:.35rem 0 0 0;
+      color:#333;
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer{
+      background:#0f2221;
+      color:#cde0df;
+      padding:1.2rem 1.25rem;
+    }
+    .site-footer .container{max-width:1100px; margin:0 auto}
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px){
+      .menu{display:none;} /* si no tienes menú móvil, lo ocultamos por ahora */
+      .card{grid-column: span 12;}  /* 1 por fila en móvil */
+      .hero-cta{gap:.6rem}
+    }
+  </style>
 </head>
 <body>
-<header class="container header">
-  <div class="brand">
-    <a href="#inicio" class="brand-link">
-      <img src="assets/logo.png" alt="Resolutiva" height="250">  
-    </a> 
-  </div>
-  <nav id="nav" class="nav">
-    <a href="#servicios">Servicios</a>
-    <a href="#portafolio">Portafolio</a>
-    <a href="#nosotros">Nosotros</a>
-    <a class="cta" href="#contacto">Contacto</a>
-  </nav>
-  <button class="menu" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
-</header>
 
-<section id="inicio" class="hero">
-  <div class="container">
-    <h1>Proyectos y mantenimiento, <span>confiables y eficientes</span></h1>
-    <p>Publica tu sitio de Resolutiva sin costos mensuales usando <strong>GitHub Pages</strong> y tu dominio propio.</p>
-    <div class="actions">
-      <a class="btn" href="#servicios">Servicios</a>
-      <a class="btn ghost" href="#contacto">Contáctanos</a>
-    </div>
-  </div>
-</section>
+  <!-- ======== HEADER / NAV ======== -->
+  <header class="site-header">
+    <nav class="top-nav">
+      <!-- Si luego subes tu logo, reemplaza este enlace por <img src="/ruta/logo.svg" ...> -->
+      <a class="brand" href="/">Resolutiva</a>
+      <ul class="menu">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="/portafolio.html">Portafolio</a></li>
+        <li><a href="/nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
 
-<section id="servicios" class="section container">
-  <h2>Servicios</h2>
-  <div class="grid">
-    <article class="card">
-      <h3>Planificación & presupuesto</h3>
-      <p>Estimaciones claras, cronogramas y control de costos.</p>
-    </article>
-    <article class="card">
-      <h3>Construcción y mantenimiento</h3>
-      <p>Ejecución técnica y mantenimiento preventivo/correctivo.</p>
-    </article>
-    <article class="card">
-      <h3>Soporte continuo</h3>
-      <p>Actualizaciones de contenido mensuales sin costos de hosting.</p>
-    </article>
-  </div>
-</section>
+    <section class="hero">
+      <h1>Tu aliado confiable en gestión integral de proyectos y mantenimiento de propiedades</h1>
+      <p class="hero-sub">Planificación, construcción y cuidado de inmuebles con transparencia y eficiencia.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/contacto.html">Solicitar cotización</a>
+        <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+        <a class="btn btn-ghost" href="https://wa.me/50689980551" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </section>
+  </header>
 
-<section id="portafolio" class="section container">
-  <h2>Portafolio</h2>
-  <div class="grid">
-    <figure class="card">
-      <img src="assets/placeholder.jpg" alt="Proyecto destacado">
-      <figcaption>Proyecto destacado</figcaption>
-    </figure>
-    <figure class="card">
-      <img src="assets/placeholder.jpg" alt="Instalación y mejora">
-      <figcaption>Instalación y mejora</figcaption>
-    </figure>
-    <figure class="card">
-      <img src="assets/placeholder.jpg" alt="Mantenimiento integral">
-      <figcaption>Mantenimiento integral</figcaption>
-    </figure>
-  </div>
-</section>
+  <!-- ======== SERVICIOS ======== -->
+  <section id="servicios" class="services">
+    <div class="container">
+      <h2>Nuestros servicios</h2>
 
-<section id="nosotros" class="section container">
-  <h2>Nosotros</h2>
-  <p>En Resolutiva nos enfocamos en soluciones profesionales, eficientes y transparentes. Reemplaza este texto por tu historia y propuesta de valor.</p>
-</section>
+      <div class="cards">
+        <!-- Asesoría y planificación -->
+        <article class="card">
+          <div class="card-ico" aria-hidden="true">🧭</div>
+          <h3>Asesoría y planificación</h3>
+          <p>Asesorías empresariales en mantenimiento y construcción. Elaboración de presupuestos precisos y anuales. Planificación de proyectos de inicio a fin. Acompañamiento y gestión de licitaciones.</p>
+        </article>
 
-<section id="contacto" class="section container">
-  <h2>Contacto</h2>
-  <p>Escríbenos a <a href="mailto:contacto@resolutivacr.com">contacto@resolutivacr.com</a> o completa el formulario.</p>
-  <!-- Para formularios sin backend, usa Formspree o Google Forms -->
-  <form action="#" method="POST" class="contact-form">
-    <label>Nombre <input name="nombre" required></label>
-    <label>Email <input type="email" name="email" required></label>
-    <label>Mensaje <textarea name="mensaje" rows="5" required></textarea></label>
-    <button class="btn" type="submit">Enviar</button>
-  </form>
-</section>
+        <!-- Diseño y desarrollo de proyectos -->
+        <article class="card">
+          <div class="card-ico" aria-hidden="tr
 
-<footer class="footer">
-  <div class="container">
-    <p>© <span id="year"></span> Resolutiva — <a href="https://www.resolutivacr.com">www.resolutivacr.com</a></p>
-  </div>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
