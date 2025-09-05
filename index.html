@@ -108,5 +108,140 @@
     .services{background:var(--beige); padding:3rem 1.25rem}
     .container{max-width:1100px; margin:0 auto}
     .services h2{
-      text-al
+      text-align:center; margin:0 0 1.75rem;
+      font-size:clamp(1.8rem,2.6vw,2.2rem); letter-spacing:.2px;
+    }
+
+    /* Grid 3xN desktop, 2xN tablet, 1xN móvil */
+    .cards{
+      display:grid; gap:1.25rem;
+      grid-template-columns:repeat(3, minmax(260px, 1fr));
+    }
+    @media (max-width:1024px){ .cards{grid-template-columns:repeat(2, minmax(260px,1fr))} }
+    @media (max-width:640px){ .cards{grid-template-columns:1fr} }
+
+    .card{
+      background:#fff; border-radius:var(--radius);
+      padding:1.2rem 1.15rem;
+      border:1px solid rgba(0,0,0,.05);
+      box-shadow:0 8px 18px rgba(0,0,0,.08);
+    }
+    .card h3{margin:.1rem 0 .35rem; font-size:clamp(1.1rem,1.4vw,1.25rem); font-weight:800; color:#1a1a1a}
+    .card p{margin:0; color:#2c2c2c; font-size:.98rem}
+
+    /* ====== FOOTER ====== */
+    .site-footer{background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem}
+    .site-footer .container{max-width:1100px; margin:0 auto}
+
+    /* ====== ACCESIBILIDAD ====== */
+    a:focus, button:focus{ outline: 3px solid rgba(239,203,104,.55); outline-offset: 2px; }
+
+    /* ====== RESPONSIVE NAV ====== */
+    @media (max-width:900px){
+      .menu{ display:none; position:relative; width:100%; order:3;
+             background:var(--green-900); padding:12px 20px; border-top:1px solid rgba(255,255,255,.1); }
+      .menu.open{ display:block; }
+      .menu li{ margin:8px 0; }
+      .menu a{ display:inline-block; padding:.4rem 0; }
+      .menu .btn-cta{ display:inline-block; }
+      .menu-toggle{ display:inline-block; order:2; }
+      .top-nav{ position:relative; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="site-header">
+    <nav class="top-nav" aria-label="Principal">
+      <!-- LOGO PNG (300px desktop) -->
+      <a class="brand" href="/" aria-label="Resolutiva – Inicio">
+        <img src="/assets/logo-resolutiva-light.png" alt="Resolutiva">
+      </a>
+
+      <!-- Botón menú móvil -->
+      <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false">Menú</button>
+
+      <!-- Menú -->
+      <ul id="menu" class="menu">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="/portafolio.html">Portafolio</a></li>
+        <li><a href="/nosotros.html">Nosotros</a></li>
+        <li><a class="btn-cta" href="/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <h1>Su aliado confiable en mantenimiento y construcción</h1>
+      <p class="hero-sub">
+        Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/contacto.html">Solicitar cotización</a>
+        <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+        <a class="btn btn-ghost" href="https://wa.me/50689980551" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </section>
+  </header>
+
+  <!-- ===== SERVICIOS ===== -->
+  <section id="servicios" class="services">
+    <div class="container">
+      <h2>Nuestros servicios</h2>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Gestión de proyectos</h3>
+          <p>Supervisamos y coordinamos su proyecto de inicio a fin.</p>
+        </article>
+
+        <article class="card">
+          <h3>Mantenimiento preventivo</h3>
+          <p>Planeamos y realizamos el mantenimiento rutinario.</p>
+        </article>
+
+        <article class="card">
+          <h3>Reparaciones generales</h3>
+          <p>Solucionamos problemas en estructuras de cualquier tipo.</p>
+        </article>
+
+        <article class="card">
+          <h3>Limpieza de propiedades</h3>
+          <p>Brindamos servicios de limpieza interna y externa.</p>
+        </article>
+
+        <article class="card">
+          <h3>Presupuestos y planos</h3>
+          <p>Elaboramos presupuestos, planos arquitectónicos y renderizados.</p>
+        </article>
+
+        <article class="card">
+          <h3>Procesos para licitaciones</h3>
+          <p>Gestionamos los procesos necesarios para licitar proyectos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Resolutiva. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- ===== JS mínimo para menú móvil ===== -->
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  </script>
+</body>
+</html>
 
