@@ -7,9 +7,10 @@
   <meta name="description" content="Su aliado confiable en mantenimiento y construcción. Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.">
   <style>
     :root{
-      --green-900:#093a36;   /* cabecera */
+      --green-900:#093a36;   /* cabecera base */
+      --green-800:#0b4743;   /* degradado header */
       --beige:#f4ecdf;       /* fondo servicios */
-      --gold:#d1a72c;        /* botón primario */
+      --gold:#d1a72c;        /* botón primario/CTA */
       --text:#0f0f0f;
       --white:#ffffff;
       --radius:16px;
@@ -25,26 +26,50 @@
     }
 
     /* ====== NAV + HEADER ====== */
-    .site-header{background:var(--green-900); color:var(--white); padding-bottom:2rem}
+    .site-header{
+      position:sticky; top:0; z-index:1000;
+      color:var(--white);
+      padding-bottom:2rem;
+      background: linear-gradient(180deg, var(--green-800) 0%, var(--green-900) 70%);
+    }
     .top-nav{
       max-width:1100px; margin:0 auto; padding:1rem 1.25rem;
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
     }
 
-    /* BRAND como imagen PNG */
-    .brand{
-      display:inline-flex; align-items:center; text-decoration:none;
-    }
-    .brand img{
-      height:44px; width:auto; display:block; /* 40–48px recomendado en desktop */
-    }
-    @media (max-width:768px){
-      .brand img{ height:36px; } /* tamaño en móvil */
-    }
+    /* Logo PNG */
+    .brand{ display:inline-flex; align-items:center; text-decoration:none; }
+    .brand img{ height:44px; width:auto; display:block; }
+    @media (max-width:768px){ .brand img{ height:36px; } }
 
-    .menu{list-style:none; display:flex; gap:1rem; margin:0; padding:0}
-    .menu a{color:var(--white); text-decoration:none; opacity:.95}
-    .menu a:hover{opacity:1}
+    /* Menú desktop */
+    .menu{
+      list-style:none; display:flex; gap:1rem; margin:0; padding:0; align-items:center;
+    }
+    .menu a{
+      color:#ffffff; text-decoration:none; opacity:.95;
+      font-size: clamp(1rem, 1.05vw, 1.125rem); /* ~16–18px */
+      font-weight:600; letter-spacing:.1px;
+      padding:.2rem 0;
+    }
+    .menu a:hover{ opacity:1; }
+
+    /* CTA en el menú */
+    .menu .btn-cta{
+      background: var(--gold); color:#1a1a1a;
+      padding:.6rem .9rem; border-radius:12px; border:1px solid transparent;
+      font-size: clamp(.95rem, 1vw, 1.05rem);
+      box-shadow:0 8px 20px rgba(209,167,44,.22);
+    }
+    .menu .btn-cta:hover{ filter:brightness(1.05); }
+
+    /* Botón menú móvil */
+    .menu-toggle{
+      display:none;
+      background:transparent; border:1px solid rgba(255,255,255,.35);
+      color:#fff; padding:.45rem .65rem; border-radius:10px;
+      font-weight:600;
+    }
 
     /* ====== HERO ====== */
     .hero{max-width:1100px; margin:0 auto; padding:3.5rem 1.25rem 3rem}
@@ -53,7 +78,7 @@
       line-height:1.1; margin:0 0 1rem; font-weight:800; color:#fff;
     }
     .hero-sub{
-      max-width:760px; margin:0 0 1.6rem; color:#e7efe9;
+      max-width:760px; margin:0 0 1.6rem; color:#eaf4f1; /* más legible */
       font-size:clamp(1rem,1.2vw,1.1rem);
     }
     .hero-cta{display:flex; gap:.75rem; flex-wrap:wrap}
@@ -71,12 +96,12 @@
     .container{max-width:1100px; margin:0 auto}
     .services h2{
       text-align:center; margin:0 0 1.75rem;
-      font-size:clamp(1.6rem,2.2vw,2rem);
+      font-size:clamp(1.8rem,2.6vw,2.2rem); letter-spacing:.2px;
     }
 
-    /* Grid 3x2 desktop, 2xN tablet, 1xN móvil */
+    /* Grid 3xN desktop, 2xN tablet, 1xN móvil */
     .cards{
-      display:grid; gap:1rem;
+      display:grid; gap:1.25rem;
       grid-template-columns:repeat(3, minmax(260px, 1fr));
     }
     @media (max-width:1024px){ .cards{grid-template-columns:repeat(2, minmax(260px,1fr))} }
@@ -84,39 +109,52 @@
 
     .card{
       background:#fff; border-radius:var(--radius);
-      padding:1.2rem 1.15rem; box-shadow:var(--shadow);
+      padding:1.2rem 1.15rem;
+      border:1px solid rgba(0,0,0,.05);
+      box-shadow:0 8px 18px rgba(0,0,0,.08);
     }
-    .card h3{margin:.1rem 0 .35rem; font-size:1.05rem; font-weight:800; color:#1a1a1a}
+    .card h3{margin:.1rem 0 .35rem; font-size:clamp(1.1rem,1.4vw,1.25rem); font-weight:800; color:#1a1a1a}
     .card p{margin:0; color:#2c2c2c; font-size:.98rem}
 
     /* ====== FOOTER ====== */
     .site-footer{background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem}
     .site-footer .container{max-width:1100px; margin:0 auto}
 
+    /* ====== ACCESIBILIDAD ====== */
+    a:focus, button:focus{ outline: 3px solid rgba(239,203,104,.55); outline-offset: 2px; }
+
     /* ====== RESPONSIVE NAV ====== */
-    @media (max-width:900px){ .menu{display:none} }
+    @media (max-width:900px){
+      .menu{ display:none; position:absolute; left:0; right:0; top:64px;
+             background:var(--green-900); padding:12px 20px; border-top:1px solid rgba(255,255,255,.1); }
+      .menu.open{ display:block; }
+      .menu li{ margin:8px 0; }
+      .menu a{ display:inline-block; padding:.4rem 0; }
+      .menu .btn-cta{ display:inline-block; }
+      .menu-toggle{ display:inline-block; }
+      .top-nav{ position:relative; }
+    }
   </style>
 </head>
 <body>
 
   <!-- ===== HEADER / NAV ===== -->
   <header class="site-header">
-    <nav class="top-nav">
-      <!-- LOGO PNG: cambia la ruta si tu archivo está en otra carpeta -->
+    <nav class="top-nav" aria-label="Principal">
+      <!-- LOGO PNG -->
       <a class="brand" href="/" aria-label="Resolutiva – Inicio">
-        <img
-          src="/assets/logo-resolutiva-light.png"
-          alt="Resolutiva"
-          decoding="async"
-          fetchpriority="high"
-          style="height:300px; width:auto"
-        />
+        <img src="/assets/logo-resolutiva-light.png" alt="Resolutiva">
       </a>
 
-      <ul class="menu">
+      <!-- Botón menú móvil -->
+      <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false">Menú</button>
+
+      <!-- Menú -->
+      <ul id="menu" class="menu">
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="/portafolio.html">Portafolio</a></li>
         <li><a href="/nosotros.html">Nosotros</a></li>
+        <li><a class="btn-cta" href="/contacto.html">Contacto</a></li>
       </ul>
     </nav>
 
@@ -180,5 +218,16 @@
     </div>
   </footer>
 
+  <!-- ===== JS mínimo para menú móvil ===== -->
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  </script>
 </body>
 </html>
