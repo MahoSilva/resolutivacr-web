@@ -7,144 +7,83 @@
   <meta name="description" content="Su aliado confiable en mantenimiento y construcción. Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.">
   <style>
     :root{
-      --green-900:#093a36;   /* cabecera/hero */
-      --green-800:#0b4743;   /* degradado header/hero */
-      --beige:#f4ecdf;       /* fondo servicios */
-      --gold:#d1a72c;        /* CTA e iconos */
+      --green-900:#093a36;
+      --green-800:#0b4743;
+      --beige:#f4ecdf;
+      --gold:#d1a72c;
       --text:#0f0f0f;
       --white:#ffffff;
       --radius:16px;
       --shadow:0 8px 24px rgba(0,0,0,.12);
     }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
-      color:var(--text);
-      line-height:1.6;
-      background:#fff;
-    }
+    body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif; color:var(--text); line-height:1.6; background:#fff; }
 
     /* ====== HEADER ====== */
     .site-header{
       position:sticky; top:0; z-index:1000;
-      background: linear-gradient(180deg, var(--green-800) 0%, var(--green-900) 70%);
-      color:var(--white);
-      box-shadow:0 6px 18px rgba(0,0,0,.18);
+      background:linear-gradient(180deg,var(--green-800) 0%, var(--green-900) 70%);
+      color:#fff; box-shadow:0 6px 18px rgba(0,0,0,.18);
     }
     .top-nav{
       max-width:1100px; margin:0 auto;
       height:80px; padding:0 1.25rem;
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      position:relative;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
     @media (max-width:900px){ .top-nav{ height:72px; } }
 
-    /* ====== LOGO con placa para resaltar ====== */
-    .brand{
-      display:inline-flex; align-items:center; text-decoration:none;
-      padding:6px 10px;                                   /* espacio de la placa */
-      border-radius:12px;
-      background: linear-gradient(180deg, rgba(244,236,223,.18), rgba(244,236,223,.12));
-      border:1px solid rgba(239,203,104,.38);             /* borde dorado suave */
-      box-shadow:
-        0 8px 22px rgba(0,0,0,.22),                       /* sombra externa */
-        inset 0 0 0 2px rgba(209,167,44,.10);             /* halo interno */
-      backdrop-filter: blur(4px);                          /* efecto glass */
-    }
-    .brand img{
-      width:300px; height:auto; max-height:60px; display:block;
-      filter: drop-shadow(0 2px 10px rgba(0,0,0,.25));     /* nitidez del PNG */
-    }
-    @media (max-width:1024px){
-      .brand img{ width:220px; max-height:56px; }
-    }
-    @media (max-width:768px){
-      .brand{ padding:4px 8px; }
-      .brand img{ width:160px; max-height:48px; }
-    }
+    /* ====== LOGO: nítido, sin placa, con retina y control por ALTURA ====== */
+    .brand{ display:inline-flex; align-items:center; text-decoration:none; }
+    .brand picture, .brand img{ display:block; }
+    /* altura fija → ancho automático; evita reescalado borroso */
+    .brand img{ height:60px; width:auto; }
+    @media (max-width:1024px){ .brand img{ height:56px; } }
+    @media (max-width:768px){ .brand img{ height:48px; } }
 
-    /* ====== MENÚ ====== */
+    /* MENÚ */
     .menu{ list-style:none; display:flex; gap:1rem; margin:0; padding:0; align-items:center; }
-    .menu a{
-      color:#ffffff; text-decoration:none; opacity:.95;
-      font-size: clamp(1rem, 1.05vw, 1.125rem);
-      font-weight:600; letter-spacing:.1px; padding:.2rem 0;
-    }
+    .menu a{ color:#fff; text-decoration:none; opacity:.95; font-size:clamp(1rem,1.05vw,1.125rem); font-weight:600; letter-spacing:.1px; padding:.2rem 0; }
     .menu a:hover{ opacity:1; }
-    .menu .btn-cta{
-      background: var(--gold); color:#1a1a1a;
-      padding:.6rem .9rem; border-radius:12px; border:1px solid transparent;
-      font-size: clamp(.95rem, 1vw, 1.05rem);
-      box-shadow:0 8px 20px rgba(209,167,44,.22);
-    }
+    .menu .btn-cta{ background:var(--gold); color:#1a1a1a; padding:.6rem .9rem; border-radius:12px; border:1px solid transparent; font-size:clamp(.95rem,1vw,1.05rem); box-shadow:0 8px 20px rgba(209,167,44,.22); }
     .menu .btn-cta:hover{ filter:brightness(1.05); }
-    .menu-toggle{
-      display:none; background:transparent; border:1px solid rgba(255,255,255,.35);
-      color:#fff; padding:.45rem .65rem; border-radius:10px; font-weight:600;
-    }
+    .menu-toggle{ display:none; background:transparent; border:1px solid rgba(255,255,255,.35); color:#fff; padding:.45rem .65rem; border-radius:10px; font-weight:600; }
 
     /* ====== HERO ====== */
-    .hero{
-      background: linear-gradient(180deg, var(--green-800) 0%, var(--green-900) 100%);
-      color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
-    }
+    .hero{ background:linear-gradient(180deg,var(--green-800) 0%, var(--green-900) 100%); color:#fff; border-bottom:1px solid rgba(255,255,255,.08);}
     .hero-inner{ max-width:1100px; margin:0 auto; padding:3.2rem 1.25rem 3rem; }
-    .hero h1{
-      font-size:clamp(2.1rem,4.2vw,3.3rem);
-      line-height:1.1; margin:0 0 1rem; font-weight:800; color:#fff;
-    }
-    .hero-sub{
-      max-width:760px; margin:0 0 1.6rem; color:#eaf4f1;
-      font-size:clamp(1rem,1.2vw,1.1rem);
-    }
-    .hero-cta{display:flex; gap:.75rem; flex-wrap:wrap}
-    .btn{ display:inline-block; padding:.9rem 1.1rem; border-radius:12px;
-      text-decoration:none; font-weight:600; border:1.5px solid rgba(255,255,255,.25);
-      transition:.2s ease-in-out;}
-    .btn-primary{background:var(--gold); color:#1a1a1a; border-color:transparent}
-    .btn-ghost{background:transparent; color:#fff}
-    .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
+    .hero h1{ font-size:clamp(2.1rem,4.2vw,3.3rem); line-height:1.1; margin:0 0 1rem; font-weight:800; }
+    .hero-sub{ max-width:760px; margin:0 0 1.6rem; color:#eaf4f1; font-size:clamp(1rem,1.2vw,1.1rem); }
+    .hero-cta{ display:flex; gap:.75rem; flex-wrap:wrap; }
+    .btn{ display:inline-block; padding:.9rem 1.1rem; border-radius:12px; text-decoration:none; font-weight:600; border:1.5px solid rgba(255,255,255,.25); transition:.2s ease-in-out; }
+    .btn-primary{ background:var(--gold); color:#1a1a1a; border-color:transparent; }
+    .btn-ghost{ background:transparent; color:#fff; }
+    .btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow); }
 
     /* ====== SERVICIOS ====== */
-    #servicios{ scroll-margin-top: 96px; }
-    .services{background:var(--beige); padding:3rem 1.25rem}
-    .container{max-width:1100px; margin:0 auto}
-    .services h2{ text-align:center; margin:0 0 1.75rem;
-      font-size:clamp(1.8rem,2.6vw,2.2rem); letter-spacing:.2px; color:#222;}
+    #servicios{ scroll-margin-top:96px; }
+    .services{ background:var(--beige); padding:3rem 1.25rem; }
+    .container{ max-width:1100px; margin:0 auto; }
+    .services h2{ text-align:center; margin:0 0 1.75rem; font-size:clamp(1.8rem,2.6vw,2.2rem); letter-spacing:.2px; color:#222; }
+    .cards{ display:grid; gap:1.25rem; grid-template-columns:repeat(3, minmax(260px,1fr)); }
+    @media (max-width:1024px){ .cards{ grid-template-columns:repeat(2, minmax(260px,1fr)); } }
+    @media (max-width:640px){ .cards{ grid-template-columns:1fr; } }
+    .card{ background:#fff; border-radius:var(--radius); padding:1.2rem 1.15rem; border:1px solid rgba(0,0,0,.05); box-shadow:0 8px 18px rgba(0,0,0,.08); display:flex; flex-direction:column; }
+    .card h3{ margin:.35rem 0 .45rem; font-size:clamp(1.12rem,1.5vw,1.28rem); font-weight:800; color:#1a1a1a; letter-spacing:.2px; }
+    .card p{ margin:0; color:#2c2c2c; font-size:1rem; line-height:1.65; }
 
-    .cards{ display:grid; gap:1.25rem; grid-template-columns:repeat(3, minmax(260px, 1fr)); }
-    @media (max-width:1024px){ .cards{grid-template-columns:repeat(2, minmax(260px,1fr))} }
-    @media (max-width:640px){ .cards{grid-template-columns:1fr} }
-
-    .card{
-      background:#fff; border-radius:var(--radius);
-      padding:1.2rem 1.15rem; border:1px solid rgba(0,0,0,.05);
-      box-shadow:0 8px 18px rgba(0,0,0,.08); display:flex; flex-direction:column;
-    }
-    .card h3{ margin:.35rem 0 .45rem; font-size:clamp(1.12rem,1.5vw,1.28rem);
-      font-weight:800; color:#1a1a1a; letter-spacing:.2px; }
-    .card p{ margin:0; color:#2c2c2c; font-size:1rem; line-height:1.65; hyphens:auto; }
-
-    .icon-badge{
-      width:48px; height:48px; border-radius:12px;
-      background: rgba(209,167,44,.10); border:1px solid rgba(209,167,44,.35);
-      display:grid; place-items:center;
-    }
-    .icon-badge svg{ width:26px; height:26px; stroke: var(--gold); fill:none;
-      stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+    .icon-badge{ width:48px; height:48px; border-radius:12px; background:rgba(209,167,44,.10); border:1px solid rgba(209,167,44,.35); display:grid; place-items:center; }
+    .icon-badge svg{ width:26px; height:26px; stroke:var(--gold); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
 
     /* ====== FOOTER ====== */
-    .site-footer{background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem}
-    .site-footer .container{max-width:1100px; margin:0 auto}
+    .site-footer{ background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem; }
+    .site-footer .container{ max-width:1100px; margin:0 auto; }
 
     /* ====== ACCESIBILIDAD ====== */
-    a:focus, button:focus{ outline: 3px solid rgba(239,203,104,.55); outline-offset: 2px; }
+    a:focus, button:focus{ outline:3px solid rgba(239,203,104,.55); outline-offset:2px; }
 
     /* ====== RESPONSIVE NAV ====== */
     @media (max-width:900px){
-      .menu{ display:none; position:absolute; left:0; right:0; top:100%;
-        background:var(--green-900); padding:12px 20px; border-top:1px solid rgba(255,255,255,.1); }
+      .menu{ display:none; position:absolute; left:0; right:0; top:100%; background:var(--green-900); padding:12px 20px; border-top:1px solid rgba(255,255,255,.1); }
       .menu.open{ display:block; }
       .menu li{ margin:8px 0; }
       .menu a{ display:inline-block; padding:.4rem 0; }
@@ -158,9 +97,19 @@
   <!-- ===== HEADER ===== -->
   <header class="site-header">
     <nav class="top-nav" aria-label="Principal">
-      <!-- LOGO sobre placa para mayor contraste -->
+      <!-- LOGO: SVG preferido + PNG retina como respaldo -->
       <a class="brand" href="/" aria-label="Resolutiva – Inicio" title="Resolutiva">
-        <img src="/assets/logo-resolutiva-light.png" alt="Resolutiva">
+        <picture>
+          <source srcset="/assets/logo-resolutiva-light.svg" type="image/svg+xml">
+          <img
+            src="/assets/logo-resolutiva-light.png"
+            srcset="/assets/logo-resolutiva-light.png 1x, /assets/logo-resolutiva-light@2x.png 2x"
+            alt="Resolutiva"
+            height="60"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </picture>
       </a>
 
       <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false">Menú</button>
@@ -196,49 +145,37 @@
 
       <div class="cards">
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><line x1="4" y1="12" x2="20" y2="12"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/></svg>
-          </div>
+          <div class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="4" y1="12" x2="20" y2="12"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/></svg></div>
           <h3>Gestión de proyectos</h3>
           <p>Supervisamos y coordinamos su proyecto de inicio a fin con control de tiempos, costos y calidad.</p>
         </article>
 
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><line x1="12" y1="4" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="20"/><line x1="4" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="20" y2="12"/><line x1="6.2" y1="6.2" x2="8.4" y2="8.4"/><line x1="15.6" y1="15.6" x2="17.8" y2="17.8"/><line x1="6.2" y1="17.8" x2="8.4" y2="15.6"/><line x1="15.6" y1="8.4" x2="17.8" y2="6.2"/></svg>
-          </div>
+          <div class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><line x1="12" y1="4" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="20"/><line x1="4" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="20" y2="12"/><line x1="6.2" y1="6.2" x2="8.4" y2="8.4"/><line x1="15.6" y1="15.6" x2="17.8" y2="17.8"/><line x1="6.2" y1="17.8" x2="8.4" y2="15.6"/><line x1="15.6" y1="8.4" x2="17.8" y2="6.2"/></svg></div>
           <h3>Mantenimiento y planes anuales</h3>
           <p>Diseñamos y ejecutamos planes de mantenimiento preventivo y correctivo, así como planes anuales de mantenimiento que garantizan continuidad y reducen costos imprevistos.</p>
         </article>
 
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(45 12 12)"/><rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(-45 12 12)"/></svg>
-          </div>
+          <div class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(45 12 12)"/><rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(-45 12 12)"/></svg></div>
           <h3>Reparaciones generales</h3>
           <p>Solucionamos averías en estructuras e instalaciones con respuesta rápida y mano de obra calificada.</p>
         </article>
 
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="11" y="4" width="2" height="10" rx="1"/><polygon points="7,16 17,16 15,20 9,20"/></svg>
-          </div>
+          <div class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="11" y="4" width="2" height="10" rx="1"/><polygon points="7,16 17,16 15,20 9,20"/></svg></div>
           <h3>Limpieza de propiedades</h3>
           <p>Servicios de limpieza interna y externa para oficinas, comercios, residencias y áreas comunes.</p>
         </article>
 
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><polygon points="6,6 6,16 16,16 6,6"/><line x1="8" y1="12" x2="12" y2="12"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-          </div>
+          <div class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6,6 6,16 16,16 6,6"/><line x1="8" y1="12" x2="12" y2="12"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
           <h3>Presupuestos y planos</h3>
           <p>Elaboramos presupuestos precisos y presupuestos anuales de mantenimiento, junto con planos arquitectónicos y renderizados profesionales 3D.</p>
         </article>
 
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="2"/><polyline points="9,13 11,15 15,10"/><line x1="9" y1="8" x2="15" y2="8"/></svg>
-          </div>
+          <div class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="2"/><polyline points="9,13 11,15 15,10"/><line x1="9" y1="8" x2="15" y2="8"/></svg></div>
           <h3>Procesos para licitaciones</h3>
           <p>Gestionamos y acompañamos los procesos de licitación con soporte técnico y documentación completa.</p>
         </article>
@@ -246,14 +183,12 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="container">
       <small>© Resolutiva. Todos los derechos reservados.</small>
     </div>
   </footer>
 
-  <!-- ===== JS: menú móvil ===== -->
   <script>
     const btn = document.querySelector('.menu-toggle');
     const menu = document.getElementById('menu');
