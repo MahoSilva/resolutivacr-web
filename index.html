@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Resolutiva | Proyectos, mantenimiento y limpieza</title>
-  <meta name="description" content="Tu aliado confiable en gestión integral de proyectos y mantenimiento de propiedades. Planificación, construcción y cuidado de inmuebles con transparencia y eficiencia.">
+  <title>Resolutiva | Mantenimiento y construcción</title>
+  <meta name="description" content="Su aliado confiable en mantenimiento y construcción. Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.">
   <style>
     :root{
-      --green-900:#083b37;   /* fondo cabecera */
-      --beige:#f4ecdf;       /* fondo sección servicios */
+      --green-900:#093a36;   /* cabecera */
+      --beige:#f4ecdf;       /* fondo servicios */
       --gold:#d1a72c;        /* botón primario */
       --text:#0f0f0f;
       --white:#ffffff;
@@ -23,152 +23,78 @@
       line-height:1.6;
       background:#fff;
     }
-    /* ===== HEADER ===== */
-    .site-header{
-      background:var(--green-900);
-      color:var(--white);
-      padding-bottom:2rem;
-    }
+
+    /* ====== NAV + HEADER ====== */
+    .site-header{background:var(--green-900); color:var(--white); padding-bottom:2rem}
     .top-nav{
-      max-width:1100px;
-      margin:0 auto;
-      padding:1rem 1.25rem;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+      max-width:1100px; margin:0 auto; padding:1rem 1.25rem;
+      display:flex; align-items:center; justify-content:space-between;
     }
-    /* Si no quieres mostrar nada a la izquierda, deja .brand vacía o comenta el enlace */
     .brand{
-      color:#c6e4df;
-      font-weight:700;
-      font-size:1.1rem;
-      text-decoration:none;
-      letter-spacing:.3px;
-      opacity:.85;
+      color:#cfe7e3; text-decoration:none; font-weight:700; letter-spacing:.2px;
+      font-size:1.1rem; opacity:.9;
     }
-    .menu{
-      list-style:none;
-      display:flex;
-      gap:1rem;
-      margin:0;
-      padding:0;
-    }
-    .menu a{
-      color:var(--white);
-      text-decoration:none;
-      opacity:.95;
-    }
+    .menu{list-style:none; display:flex; gap:1rem; margin:0; padding:0}
+    .menu a{color:var(--white); text-decoration:none; opacity:.95}
     .menu a:hover{opacity:1}
 
-    .hero{
-      max-width:1100px;
-      margin:0 auto;
-      padding:3.5rem 1.25rem 3rem;
-      text-align:left;
-    }
+    /* ====== HERO ====== */
+    .hero{max-width:1100px; margin:0 auto; padding:3.5rem 1.25rem 3rem}
     .hero h1{
-      font-size: clamp(1.9rem, 3.2vw, 3rem);
-      line-height:1.15;
-      margin:0 0 1rem 0;
-      font-weight:800;
-      color:var(--white);
-      letter-spacing:.2px;
+      font-size:clamp(2.1rem,4.2vw,3.3rem);
+      line-height:1.1; margin:0 0 1rem; font-weight:800; color:#fff;
     }
     .hero-sub{
-      max-width:750px;
-      margin:0 0 1.5rem 0;
-      font-size: clamp(1rem, 1.3vw, 1.1rem);
-      opacity:.95;
+      max-width:760px; margin:0 0 1.6rem; color:#e7efe9;
+      font-size:clamp(1rem,1.2vw,1.1rem);
     }
-    .hero-cta{
-      display:flex;
-      gap:.75rem;
-      flex-wrap:wrap;
-    }
+    .hero-cta{display:flex; gap:.75rem; flex-wrap:wrap}
     .btn{
-      display:inline-block;
-      padding:.9rem 1.1rem;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:600;
-      border:1.5px solid rgba(255,255,255,.25);
+      display:inline-block; padding:.9rem 1.1rem; border-radius:12px;
+      text-decoration:none; font-weight:600; border:1.5px solid rgba(255,255,255,.25);
       transition:.2s ease-in-out;
     }
-    .btn-primary{
-      background:var(--gold);
-      color:#1a1a1a;
-      border-color:transparent;
-    }
-    .btn-ghost{
-      color:var(--white);
-      background:transparent;
-    }
-    .btn:hover{
-      transform:translateY(-1px);
-      box-shadow:var(--shadow);
-    }
+    .btn-primary{background:var(--gold); color:#1a1a1a; border-color:transparent}
+    .btn-ghost{background:transparent; color:#fff}
+    .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
 
-    /* ===== SERVICIOS ===== */
-    .services{
-      background:var(--beige);
-      padding:3rem 1.25rem;
-    }
-    .container{
-      max-width:1100px;
-      margin:0 auto;
-    }
+    /* ====== SERVICIOS ====== */
+    .services{background:var(--beige); padding:3rem 1.25rem}
+    .container{max-width:1100px; margin:0 auto}
     .services h2{
-      text-align:center;
-      margin:0 0 1.75rem 0;
-      font-size: clamp(1.6rem, 2.4vw, 2rem);
-    }
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(12, 1fr);
-      gap:1rem;
-    }
-    .card{
-      grid-column: span 6;              /* 2 por fila en desktop */
-      background:#fff;
-      border-radius:var(--radius);
-      padding:1.25rem 1.2rem;
-      box-shadow:var(--shadow);
-    }
-    .card-ico{
-      font-size:1.6rem;
-      margin-bottom:.5rem;
-    }
-    .card h3{
-      margin:.25rem 0 .25rem 0;
-      font-size:1.15rem;
-    }
-    .card p{
-      margin:.35rem 0 0 0;
-      color:#333;
+      text-align:center; margin:0 0 1.75rem;
+      font-size:clamp(1.6rem,2.2vw,2rem);
     }
 
-    /* ===== FOOTER ===== */
-    .site-footer{
-      background:#0f2221;
-      color:#cde0df;
-      padding:1.2rem 1.25rem;
+    /* Grid 3x2 desktop, 2xN tablet, 1xN móvil */
+    .cards{
+      display:grid; gap:1rem;
+      grid-template-columns:repeat(3, minmax(260px, 1fr));
     }
+    @media (max-width:1024px){ .cards{grid-template-columns:repeat(2, minmax(260px,1fr))} }
+    @media (max-width:640px){ .cards{grid-template-columns:1fr} }
+
+    .card{
+      background:#fff; border-radius:var(--radius);
+      padding:1.2rem 1.15rem; box-shadow:var(--shadow);
+    }
+    .card h3{margin:.1rem 0 .35rem; font-size:1.05rem; font-weight:800; color:#1a1a1a}
+    .card p{margin:0; color:#2c2c2c; font-size:.98rem}
+
+    /* ====== FOOTER ====== */
+    .site-footer{background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem}
     .site-footer .container{max-width:1100px; margin:0 auto}
 
-    /* ===== Responsive ===== */
-    @media (max-width: 900px){
-      .menu{display:none;} /* si no tienes menú móvil, lo ocultamos por ahora */
-      .card{grid-column: span 12;}  /* 1 por fila en móvil */
-      .hero-cta{gap:.6rem}
-    }
+    /* ====== RESPONSIVE NAV ====== */
+    @media (max-width:900px){ .menu{display:none} }
   </style>
 </head>
 <body>
 
-  <!-- ======== HEADER / NAV ======== -->
+  <!-- ===== HEADER / NAV ===== -->
   <header class="site-header">
     <nav class="top-nav">
-      <!-- Si luego subes tu logo, reemplaza este enlace por <img src="/ruta/logo.svg" ...> -->
+      <!-- Cuando subas tu logo, reemplaza por <img src="/assets/logo.svg" ...> -->
       <a class="brand" href="/">Resolutiva</a>
       <ul class="menu">
         <li><a href="#servicios">Servicios</a></li>
@@ -177,9 +103,12 @@
       </ul>
     </nav>
 
+    <!-- ===== HERO ===== -->
     <section class="hero">
-      <h1>Tu aliado confiable en gestión integral de proyectos y mantenimiento de propiedades</h1>
-      <p class="hero-sub">Planificación, construcción y cuidado de inmuebles con transparencia y eficiencia.</p>
+      <h1>Su aliado confiable en mantenimiento y construcción</h1>
+      <p class="hero-sub">
+        Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.
+      </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="/contacto.html">Solicitar cotización</a>
         <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
@@ -188,20 +117,51 @@
     </section>
   </header>
 
-  <!-- ======== SERVICIOS ======== -->
+  <!-- ===== SERVICIOS ===== -->
   <section id="servicios" class="services">
     <div class="container">
       <h2>Nuestros servicios</h2>
 
       <div class="cards">
-        <!-- Asesoría y planificación -->
         <article class="card">
-          <div class="card-ico" aria-hidden="true">🧭</div>
-          <h3>Asesoría y planificación</h3>
-          <p>Asesorías empresariales en mantenimiento y construcción. Elaboración de presupuestos precisos y anuales. Planificación de proyectos de inicio a fin. Acompañamiento y gestión de licitaciones.</p>
+          <h3>Gestión de proyectos</h3>
+          <p>Supervisamos y coordinamos su proyecto de inicio a fin.</p>
         </article>
 
-        <!-- Diseño y desarrollo de proyectos -->
         <article class="card">
-          <div class="card-ico" aria-hidden="tr
+          <h3>Mantenimiento preventivo</h3>
+          <p>Planeamos y realizamos el mantenimiento rutinario.</p>
+        </article>
 
+        <article class="card">
+          <h3>Reparaciones generales</h3>
+          <p>Solucionamos problemas en estructuras de cualquier tipo.</p>
+        </article>
+
+        <article class="card">
+          <h3>Limpieza de propiedades</h3>
+          <p>Brindamos servicios de limpieza interna y externa.</p>
+        </article>
+
+        <article class="card">
+          <h3>Presupuestos y planos</h3>
+          <p>Elaboramos presupuestos, planos arquitectónicos y renderizados.</p>
+        </article>
+
+        <article class="card">
+          <h3>Procesos para licitaciones</h3>
+          <p>Gestionamos los procesos necesarios para licitar proyectos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Resolutiva. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+</body>
+</html>
