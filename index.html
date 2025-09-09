@@ -5,22 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Resolutiva | Mantenimiento y construcción</title>
   <meta name="description" content="Su aliado confiable en mantenimiento y construcción. Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.">
+
   <style>
     :root{
+      /* Paleta de marca */
       --green-900:#093a36;
       --green-800:#0b4743;
+      --green-950:#073531;   /* un poco más oscuro para dar profundidad al hero */
       --beige:#f4ecdf;
       --gold:#d1a72c;
       --text:#0f0f0f;
       --white:#ffffff;
+
+      /* UI */
       --radius:16px;
       --shadow:0 8px 24px rgba(0,0,0,.12);
 
-      /* Alturas del header para compensar el logo x3 */
-      --header-h:256px;     /* desktop */
+      /* Header equilibrado */
+      --header-h:120px; /* alto barra desktop */
     }
-    @media (max-width:1024px){ :root{ --header-h:220px; } } /* tablet */
-    @media (max-width:768px){  :root{ --header-h:184px; } } /* móvil */
+    @media (max-width:1024px){ :root{ --header-h:112px; } } /* tablet */
+    @media (max-width:768px){  :root{ --header-h:96px;  } } /* móvil */
 
     *{box-sizing:border-box}
     body{
@@ -29,14 +34,14 @@
       color:var(--text);
       line-height:1.6;
       background:#fff;
+      text-rendering:optimizeLegibility;
     }
 
-    /* ====== HEADER (claro para logo dark) ====== */
+    /* ====== HEADER (blanco para logo dark) ====== */
     .site-header{
       position:sticky; top:0; z-index:1000;
       background:#ffffff; color:var(--text);
       border-bottom:1px solid rgba(0,0,0,.06);
-      box-shadow:none; /* sin sombra en el header por si acaso */
     }
     .top-nav{
       max-width:1100px; margin:0 auto;
@@ -46,86 +51,92 @@
       position:relative;
     }
 
-    /* LOGO (SVG oscuro) – TRIPLE tamaño + sin sombra */
-    .brand{ display:inline-flex; align-items:center; text-decoration:none; box-shadow:none !important; filter:none !important; }
+    /* LOGO (dark) integrado y sin sombras */
+    .brand{ display:inline-flex; align-items:center; text-decoration:none; box-shadow:none!important; filter:none!important; }
     .brand img{
-      height:240px; width:auto; display:block;
-      box-shadow:none !important; filter:none !important; /* ← elimina toda sombra/efecto */
+      height:140px; width:auto; display:block; /* tamaño ideal para desktop */
+      box-shadow:none!important; filter:none!important;
     }
-    @media (max-width:1024px){ .brand img{ height:204px; } } /* tablet */
-    @media (max-width:768px){  .brand img{ height:168px; } } /* móvil */
+    @media (max-width:1024px){ .brand img{ height:120px; } } /* tablet */
+    @media (max-width:768px){  .brand img{ height:96px;  } } /* móvil */
 
     /* Menú */
-    .menu{ list-style:none; display:flex; gap:1rem; margin:0; padding:0; align-items:center; }
+    .menu{ list-style:none; display:flex; gap:1.1rem; margin:0; padding:0; align-items:center; }
     .menu a{
-      color:#1a1a1a; text-decoration:none; opacity:.95;
+      color:#161616; text-decoration:none; opacity:.95;
       font-size: clamp(1rem, 1.05vw, 1.125rem);
       font-weight:600; letter-spacing:.1px; padding:.2rem 0;
     }
     .menu a:hover{ opacity:1; color:var(--green-900); }
     .menu .btn-cta{
       background: var(--gold); color:#1a1a1a;
-      padding:.6rem .9rem; border-radius:12px; border:1px solid transparent;
+      padding:.68rem 1rem; border-radius:12px; border:1px solid transparent;
       font-size: clamp(.95rem, 1vw, 1.05rem);
-      box-shadow:0 8px 20px rgba(209,167,44,.22);
+      box-shadow:0 8px 20px rgba(209,167,44,.18);
+      transition:filter .15s ease, transform .15s ease;
     }
-    .menu .btn-cta:hover{ filter:brightness(1.05); }
+    .menu .btn-cta:hover{ filter:brightness(1.06); transform:translateY(-1px); }
     .menu-toggle{
       display:none; background:transparent; border:1px solid rgba(0,0,0,.18);
       color:#1a1a1a; padding:.45rem .65rem; border-radius:10px; font-weight:600;
     }
 
-    /* ====== HERO (oscuro) ====== */
+    /* ====== HERO (compacto, con profundidad) ====== */
     .hero{
-      background: linear-gradient(180deg, var(--green-800) 0%, var(--green-900) 100%);
+      background: linear-gradient(180deg, var(--green-800) 0%, var(--green-900) 58%, var(--green-950) 100%);
       color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
     }
-    /* Reducimos un poco el padding para que las tarjetas no “desaparezcan” bajo el doble scroll */
-    .hero-inner{ max-width:1100px; margin:0 auto; padding:2.2rem 1.25rem 2.2rem; }
+    .hero-inner{ max-width:1100px; margin:0 auto; padding:56px 1.25rem 48px; }
     .hero h1{
-      font-size:clamp(2.1rem,4.2vw,3.3rem);
-      line-height:1.1; margin:0 0 .9rem; font-weight:800; color:#fff;
+      font-size:clamp(2.2rem,4.4vw,3.4rem);
+      line-height:1.08; margin:0 0 1rem; font-weight:800; color:#fff; letter-spacing:.2px;
     }
     .hero-sub{
-      max-width:760px; margin:0 0 1.2rem; color:#eaf4f1;
+      max-width:760px; margin:0 0 1.4rem; color:#eaf4f1;
       font-size:clamp(1rem,1.2vw,1.1rem);
     }
-    .hero-cta{ display:flex; gap:.75rem; flex-wrap:wrap; }
+    .hero-cta{ display:flex; gap:.8rem; flex-wrap:wrap; }
     .btn{
-      display:inline-block; padding:.9rem 1.1rem; border-radius:12px;
-      text-decoration:none; font-weight:600; border:1.5px solid rgba(255,255,255,.25);
-      transition:.2s ease-in-out;
+      display:inline-block; padding:.95rem 1.15rem; border-radius:12px;
+      text-decoration:none; font-weight:700; border:1.5px solid rgba(255,255,255,.25);
+      transition:.18s ease-in-out;
     }
     .btn-primary{ background:var(--gold); color:#1a1a1a; border-color:transparent; }
     .btn-ghost{ background:transparent; color:#fff; }
     .btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow); }
 
     /* ====== SERVICIOS ====== */
-    /* Aseguramos que al hacer click en #servicios no quede oculto bajo el header grande */
-    #servicios{ scroll-margin-top: calc(var(--header-h) + 24px); }
-    .services{ background:var(--beige); padding:3rem 1.25rem; }
-    .container{ max-width:1100px; margin:0 auto; }
-    .services h2{ text-align:center; margin:0 0 1.75rem; font-size:clamp(1.8rem,2.6vw,2.2rem); letter-spacing:.2px; color:#222; }
+    /* ancla que no quede escondida bajo el header */
+    #servicios{ scroll-margin-top: calc(var(--header-h) + 16px); }
 
-    .cards{ display:grid; gap:1.25rem; grid-template-columns:repeat(3, minmax(260px, 1fr)); }
+    .services{ background:var(--beige); padding:40px 1.25rem 48px; } /* más cerca del hero */
+    .container{ max-width:1100px; margin:0 auto; }
+    .services h2{ text-align:center; margin:0 0 24px; font-size:clamp(1.9rem,2.6vw,2.25rem); letter-spacing:.2px; color:#222; }
+
+    .cards{ display:grid; gap:24px; grid-template-columns:repeat(3, minmax(260px, 1fr)); }
     @media (max-width:1024px){ .cards{ grid-template-columns:repeat(2, minmax(260px,1fr)); } }
     @media (max-width:640px){ .cards{ grid-template-columns:1fr; } }
 
     .card{
       background:#fff; border-radius:var(--radius);
       padding:1.2rem 1.15rem; border:1px solid rgba(0,0,0,.05);
-      box-shadow:0 8px 18px rgba(0,0,0,.08); display:flex; flex-direction:column;
+      box-shadow:0 8px 18px rgba(0,0,0,.08);
+      display:flex; flex-direction:column; min-height:228px; /* alturas consistentes */
     }
-    .card h3{ margin:.35rem 0 .45rem; font-size:clamp(1.12rem,1.5vw,1.28rem); font-weight:800; color:#1a1a1a; letter-spacing:.2px; }
+    @media (max-width:640px){ .card{ min-height:unset; } }
+    .card h3{ margin:.45rem 0 .55rem; font-size:clamp(1.18rem,1.6vw,1.32rem); font-weight:800; color:#1a1a1a; letter-spacing:.2px; }
     .card p{ margin:0; color:#2c2c2c; font-size:1rem; line-height:1.65; }
 
-    /* Iconos */
+    /* Iconos consistentes */
     .icon-badge{
       width:48px; height:48px; border-radius:12px;
       background:rgba(209,167,44,.10); border:1px solid rgba(209,167,44,.35);
-      display:grid; place-items:center;
+      display:grid; place-items:center; flex:0 0 auto;
     }
-    .icon-badge svg{ width:26px; height:26px; stroke:var(--gold); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+    .icon-badge svg{
+      width:26px; height:26px; stroke:var(--gold); fill:none;
+      stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;
+    }
 
     /* ====== FOOTER ====== */
     .site-footer{ background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem; }
@@ -134,7 +145,7 @@
     /* ====== ACCESIBILIDAD ====== */
     a:focus, button:focus{ outline:3px solid rgba(239,203,104,.55); outline-offset:2px; }
 
-    /* ====== RESPONSIVE NAV ====== */
+    /* ====== NAV RESPONSIVE ====== */
     @media (max-width:900px){
       .menu{
         display:none; position:absolute; left:0; right:0; top:100%;
@@ -150,12 +161,12 @@
 </head>
 <body>
 
-  <!-- ===== HEADER (claro) ===== -->
+  <!-- ===== HEADER ===== -->
   <header class="site-header">
     <nav class="top-nav" aria-label="Principal">
-      <!-- LOGO oscuro x3 (sin sombra) -->
+      <!-- LOGO DARK integrado -->
       <a class="brand" href="/" aria-label="Resolutiva – Inicio" title="Resolutiva">
-        <img src="/assets/logo-resolutiva-dark.svg?v=6" alt="Resolutiva" height="240">
+        <img src="/assets/logo-resolutiva-dark.svg?v=8" alt="Resolutiva">
       </a>
 
       <!-- Menú -->
@@ -169,7 +180,7 @@
     </nav>
   </header>
 
-  <!-- ===== HERO (oscuro) ===== -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-inner">
       <h1>Su aliado confiable en mantenimiento y construcción</h1>
