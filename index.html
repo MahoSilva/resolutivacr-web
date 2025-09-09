@@ -7,15 +7,21 @@
   <meta name="description" content="Su aliado confiable en mantenimiento y construcción. Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.">
   <style>
     :root{
-      --green-900:#093a36;   /* verdes de marca */
+      --green-900:#093a36;
       --green-800:#0b4743;
-      --beige:#f4ecdf;       /* fondo de sección servicios */
-      --gold:#d1a72c;        /* CTA / acentos */
+      --beige:#f4ecdf;
+      --gold:#d1a72c;
       --text:#0f0f0f;
       --white:#ffffff;
       --radius:16px;
       --shadow:0 8px 24px rgba(0,0,0,.12);
+
+      /* Alturas del header para compensar el logo x3 */
+      --header-h:256px;     /* desktop */
     }
+    @media (max-width:1024px){ :root{ --header-h:220px; } } /* tablet */
+    @media (max-width:768px){  :root{ --header-h:184px; } } /* móvil */
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -33,18 +39,17 @@
     }
     .top-nav{
       max-width:1100px; margin:0 auto;
-      height:96px; /* alto para logo grande */
+      height:var(--header-h);
       padding:0 1.25rem;
       display:flex; align-items:center; justify-content:space-between; gap:12px;
       position:relative;
     }
-    @media (max-width:900px){ .top-nav{ height:88px; } }
 
-    /* LOGO (SVG oscuro) – grande */
+    /* LOGO (SVG oscuro) – TRIPLE tamaño */
     .brand{ display:inline-flex; align-items:center; text-decoration:none; }
-    .brand img{ height:80px; width:auto; display:block; }   /* 80px desktop */
-    @media (max-width:1024px){ .brand img{ height:68px; } } /* tablet */
-    @media (max-width:768px){ .brand img{ height:56px; } }  /* móvil */
+    .brand img{ height:240px; width:auto; display:block; }      /* desktop (x3 de 80) */
+    @media (max-width:1024px){ .brand img{ height:204px; } }    /* tablet */
+    @media (max-width:768px){  .brand img{ height:168px; } }    /* móvil */
 
     /* Menú */
     .menu{ list-style:none; display:flex; gap:1rem; margin:0; padding:0; align-items:center; }
@@ -91,7 +96,7 @@
     .btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow); }
 
     /* ====== SERVICIOS ====== */
-    #servicios{ scroll-margin-top: 120px; } /* para header de 96px */
+    #servicios{ scroll-margin-top: calc(var(--header-h) + 16px); }
     .services{ background:var(--beige); padding:3rem 1.25rem; }
     .container{ max-width:1100px; margin:0 auto; }
     .services h2{ text-align:center; margin:0 0 1.75rem; font-size:clamp(1.8rem,2.6vw,2.2rem); letter-spacing:.2px; color:#222; }
@@ -142,9 +147,9 @@
   <!-- ===== HEADER (claro) ===== -->
   <header class="site-header">
     <nav class="top-nav" aria-label="Principal">
-      <!-- LOGO oscuro -->
+      <!-- LOGO oscuro x3 -->
       <a class="brand" href="/" aria-label="Resolutiva – Inicio" title="Resolutiva">
-        <img src="/assets/logo-resolutiva-dark.svg?v=3" alt="Resolutiva" height="80">
+        <img src="/assets/logo-resolutiva-dark.svg?v=4" alt="Resolutiva" height="240">
       </a>
 
       <!-- Menú -->
@@ -202,86 +207,4 @@
               <line x1="12" y1="17" x2="12" y2="20"></line>
               <line x1="4" y1="12" x2="7" y2="12"></line>
               <line x1="17" y1="12" x2="20" y2="12"></line>
-              <line x1="6.2" y1="6.2" x2="8.4" y2="8.4"></line>
-              <line x1="15.6" y1="15.6" x2="17.8" y2="17.8"></line>
-              <line x1="6.2" y1="17.8" x2="8.4" y2="15.6"></line>
-              <line x1="15.6" y1="8.4" x2="17.8" y2="6.2"></line>
-            </svg>
-          </div>
-          <h3>Mantenimiento y planes anuales</h3>
-          <p>Diseñamos y ejecutamos planes de mantenimiento preventivo y correctivo, así como planes anuales de mantenimiento que garantizan continuidad y reducen costos imprevistos.</p>
-        </article>
-
-        <!-- 3 -->
-        <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(45 12 12)"></rect>
-              <rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(-45 12 12)"></rect>
-            </svg>
-          </div>
-          <h3>Reparaciones generales</h3>
-          <p>Solucionamos averías en estructuras e instalaciones con respuesta rápida y mano de obra calificada.</p>
-        </article>
-
-        <!-- 4 -->
-        <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <rect x="11" y="4" width="2" height="10" rx="1"></rect>
-              <polygon points="7,16 17,16 15,20 9,20"></polygon>
-            </svg>
-          </div>
-          <h3>Limpieza de propiedades</h3>
-          <p>Servicios de limpieza interna y externa para oficinas, comercios, residencias y áreas comunes.</p>
-        </article>
-
-        <!-- 5 -->
-        <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <polygon points="6,6 6,16 16,16 6,6"></polygon>
-              <line x1="8" y1="12" x2="12" y2="12"></line>
-              <line x1="10" y1="14" x2="14" y2="14"></line>
-            </svg>
-          </div>
-          <h3>Presupuestos y planos</h3>
-          <p>Elaboramos presupuestos precisos y presupuestos anuales de mantenimiento, junto con planos arquitectónicos y renderizados profesionales 3D.</p>
-        </article>
-
-        <!-- 6 -->
-        <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <rect x="6" y="4" width="12" height="16" rx="2"></rect>
-              <polyline points="9,13 11,15 15,10"></polyline>
-              <line x1="9" y1="8" x2="15" y2="8"></line>
-            </svg>
-          </div>
-          <h3>Procesos para licitaciones</h3>
-          <p>Gestionamos y acompañamos los procesos de licitación con soporte técnico y documentación completa.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <div class="container">
-      <small>© Resolutiva. Todos los derechos reservados.</small>
-    </div>
-  </footer>
-
-  <!-- ===== JS: menú móvil ===== -->
-  <script>
-    const btn = document.querySelector('.menu-toggle');
-    const menu = document.getElementById('menu');
-    if (btn && menu) {
-      btn.addEventListener('click', () => {
-        const open = menu.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-  </script>
-</body>
-</html>
+              <line x1="6.2" y1="6.2" x2="8.4" y2="8.4"
