@@ -36,6 +36,7 @@
       position:sticky; top:0; z-index:1000;
       background:#ffffff; color:var(--text);
       border-bottom:1px solid rgba(0,0,0,.06);
+      box-shadow:none; /* sin sombra en el header por si acaso */
     }
     .top-nav{
       max-width:1100px; margin:0 auto;
@@ -45,11 +46,14 @@
       position:relative;
     }
 
-    /* LOGO (SVG oscuro) – TRIPLE tamaño */
-    .brand{ display:inline-flex; align-items:center; text-decoration:none; }
-    .brand img{ height:240px; width:auto; display:block; }      /* desktop (x3 de 80) */
-    @media (max-width:1024px){ .brand img{ height:204px; } }    /* tablet */
-    @media (max-width:768px){  .brand img{ height:168px; } }    /* móvil */
+    /* LOGO (SVG oscuro) – TRIPLE tamaño + sin sombra */
+    .brand{ display:inline-flex; align-items:center; text-decoration:none; box-shadow:none !important; filter:none !important; }
+    .brand img{
+      height:240px; width:auto; display:block;
+      box-shadow:none !important; filter:none !important; /* ← elimina toda sombra/efecto */
+    }
+    @media (max-width:1024px){ .brand img{ height:204px; } } /* tablet */
+    @media (max-width:768px){  .brand img{ height:168px; } } /* móvil */
 
     /* Menú */
     .menu{ list-style:none; display:flex; gap:1rem; margin:0; padding:0; align-items:center; }
@@ -76,13 +80,14 @@
       background: linear-gradient(180deg, var(--green-800) 0%, var(--green-900) 100%);
       color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
     }
-    .hero-inner{ max-width:1100px; margin:0 auto; padding:3.2rem 1.25rem 3rem; }
+    /* Reducimos un poco el padding para que las tarjetas no “desaparezcan” bajo el doble scroll */
+    .hero-inner{ max-width:1100px; margin:0 auto; padding:2.2rem 1.25rem 2.2rem; }
     .hero h1{
       font-size:clamp(2.1rem,4.2vw,3.3rem);
-      line-height:1.1; margin:0 0 1rem; font-weight:800; color:#fff;
+      line-height:1.1; margin:0 0 .9rem; font-weight:800; color:#fff;
     }
     .hero-sub{
-      max-width:760px; margin:0 0 1.6rem; color:#eaf4f1;
+      max-width:760px; margin:0 0 1.2rem; color:#eaf4f1;
       font-size:clamp(1rem,1.2vw,1.1rem);
     }
     .hero-cta{ display:flex; gap:.75rem; flex-wrap:wrap; }
@@ -96,7 +101,8 @@
     .btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow); }
 
     /* ====== SERVICIOS ====== */
-    #servicios{ scroll-margin-top: calc(var(--header-h) + 16px); }
+    /* Aseguramos que al hacer click en #servicios no quede oculto bajo el header grande */
+    #servicios{ scroll-margin-top: calc(var(--header-h) + 24px); }
     .services{ background:var(--beige); padding:3rem 1.25rem; }
     .container{ max-width:1100px; margin:0 auto; }
     .services h2{ text-align:center; margin:0 0 1.75rem; font-size:clamp(1.8rem,2.6vw,2.2rem); letter-spacing:.2px; color:#222; }
@@ -147,9 +153,9 @@
   <!-- ===== HEADER (claro) ===== -->
   <header class="site-header">
     <nav class="top-nav" aria-label="Principal">
-      <!-- LOGO oscuro x3 -->
+      <!-- LOGO oscuro x3 (sin sombra) -->
       <a class="brand" href="/" aria-label="Resolutiva – Inicio" title="Resolutiva">
-        <img src="/assets/logo-resolutiva-dark.svg?v=4" alt="Resolutiva" height="240">
+        <img src="/assets/logo-resolutiva-dark.svg?v=6" alt="Resolutiva" height="240">
       </a>
 
       <!-- Menú -->
@@ -207,4 +213,86 @@
               <line x1="12" y1="17" x2="12" y2="20"></line>
               <line x1="4" y1="12" x2="7" y2="12"></line>
               <line x1="17" y1="12" x2="20" y2="12"></line>
-              <line x1="6.2" y1="6.2" x2="8.4" y2="8.4"
+              <line x1="6.2" y1="6.2" x2="8.4" y2="8.4"></line>
+              <line x1="15.6" y1="15.6" x2="17.8" y2="17.8"></line>
+              <line x1="6.2" y1="17.8" x2="8.4" y2="15.6"></line>
+              <line x1="15.6" y1="8.4" x2="17.8" y2="6.2"></line>
+            </svg>
+          </div>
+          <h3>Mantenimiento y planes anuales</h3>
+          <p>Diseñamos y ejecutamos planes de mantenimiento preventivo y correctivo, así como planes anuales de mantenimiento que garantizan continuidad y reducen costos imprevistos.</p>
+        </article>
+
+        <!-- 3 -->
+        <article class="card">
+          <div class="icon-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(45 12 12)"></rect>
+              <rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(-45 12 12)"></rect>
+            </svg>
+          </div>
+          <h3>Reparaciones generales</h3>
+          <p>Solucionamos averías en estructuras e instalaciones con respuesta rápida y mano de obra calificada.</p>
+        </article>
+
+        <!-- 4 -->
+        <article class="card">
+          <div class="icon-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="11" y="4" width="2" height="10" rx="1"></rect>
+              <polygon points="7,16 17,16 15,20 9,20"></polygon>
+            </svg>
+          </div>
+          <h3>Limpieza de propiedades</h3>
+          <p>Servicios de limpieza interna y externa para oficinas, comercios, residencias y áreas comunes.</p>
+        </article>
+
+        <!-- 5 -->
+        <article class="card">
+          <div class="icon-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <polygon points="6,6 6,16 16,16 6,6"></polygon>
+              <line x1="8" y1="12" x2="12" y2="12"></line>
+              <line x1="10" y1="14" x2="14" y2="14"></line>
+            </svg>
+          </div>
+          <h3>Presupuestos y planos</h3>
+          <p>Elaboramos presupuestos precisos y presupuestos anuales de mantenimiento, junto con planos arquitectónicos y renderizados profesionales 3D.</p>
+        </article>
+
+        <!-- 6 -->
+        <article class="card">
+          <div class="icon-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="6" y="4" width="12" height="16" rx="2"></rect>
+              <polyline points="9,13 11,15 15,10"></polyline>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+            </svg>
+          </div>
+          <h3>Procesos para licitaciones</h3>
+          <p>Gestionamos y acompañamos los procesos de licitación con soporte técnico y documentación completa.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Resolutiva. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- ===== JS: menú móvil ===== -->
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  </script>
+</body>
+</html>
