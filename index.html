@@ -33,17 +33,18 @@
     }
     .top-nav{
       max-width:1100px; margin:0 auto;
-      height:80px; padding:0 1.25rem;
+      height:96px; /* ↑ antes 80px */
+      padding:0 1.25rem;
       display:flex; align-items:center; justify-content:space-between; gap:12px;
       position:relative;
     }
-    @media (max-width:900px){ .top-nav{ height:72px; } }
+    @media (max-width:900px){ .top-nav{ height:88px; } }
 
-    /* LOGO (SVG oscuro) */
+    /* LOGO (SVG oscuro) – más grande */
     .brand{ display:inline-flex; align-items:center; text-decoration:none; }
-    .brand img{ height:60px; width:auto; display:block; }
-    @media (max-width:1024px){ .brand img{ height:56px; } }
-    @media (max-width:768px){ .brand img{ height:48px; } }
+    .brand img{ height:80px; width:auto; display:block; }   /* ↑ antes 60px */
+    @media (max-width:1024px){ .brand img{ height:68px; } } /* ↑ antes 56px */
+    @media (max-width:768px){ .brand img{ height:56px; } }  /* ↑ antes 48px */
 
     /* Menú */
     .menu{ list-style:none; display:flex; gap:1rem; margin:0; padding:0; align-items:center; }
@@ -65,7 +66,7 @@
       color:#1a1a1a; padding:.45rem .65rem; border-radius:10px; font-weight:600;
     }
 
-    /* ====== HERO (oscuro para contraste de la sección) ====== */
+    /* ====== HERO (oscuro) ====== */
     .hero{
       background: linear-gradient(180deg, var(--green-800) 0%, var(--green-900) 100%);
       color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
@@ -90,7 +91,7 @@
     .btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow); }
 
     /* ====== SERVICIOS ====== */
-    #servicios{ scroll-margin-top: 96px; }
+    #servicios{ scroll-margin-top: 120px; } /* ↑ para header de 96px */
     .services{ background:var(--beige); padding:3rem 1.25rem; }
     .container{ max-width:1100px; margin:0 auto; }
     .services h2{ text-align:center; margin:0 0 1.75rem; font-size:clamp(1.8rem,2.6vw,2.2rem); letter-spacing:.2px; color:#222; }
@@ -141,9 +142,9 @@
   <!-- ===== HEADER (claro) ===== -->
   <header class="site-header">
     <nav class="top-nav" aria-label="Principal">
-      <!-- LOGO oscuro (para fondo claro) -->
+      <!-- LOGO oscuro (más grande) -->
       <a class="brand" href="/" aria-label="Resolutiva – Inicio" title="Resolutiva">
-        <img src="/assets/logo-resolutiva-dark.svg?v=1" alt="Resolutiva" height="60">
+        <img src="/assets/logo-resolutiva-dark.svg?v=2" alt="Resolutiva" height="80">
       </a>
 
       <!-- Menú -->
