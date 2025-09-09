@@ -6,13 +6,12 @@
   <title>Resolutiva | Mantenimiento y construcción</title>
   <meta name="description" content="Su aliado confiable en mantenimiento y construcción. Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.">
 
-  <!-- Tipografía recomendada: Inter (limpia, corporativa, excelente legibilidad) -->
+  <!-- Fuente recomendada -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Ajusta --brand-green al HEX exacto del verde de tu logo si quieres máxima coherencia */
       --brand-green:#0b4743;
       --brand-green-dark:#083c38;
       --beige:#f4ecdf;
@@ -23,15 +22,15 @@
       --radius:16px;
       --shadow:0 8px 24px rgba(0,0,0,.12);
 
-      /* Header: alto controlado por el logo para evitar recortes */
-      --logo-h:140px;                          /* desktop */
-      --header-h:calc(var(--logo-h) + 24px);
+      /* Logo más grande y header más compacto para reducir la franja blanca */
+      --logo-h:160px;                         /* antes 140px */
+      --header-h:calc(var(--logo-h) + 16px);  /* antes +24px */
     }
     @media (max-width:1024px){
-      :root{ --logo-h:120px; --header-h:calc(var(--logo-h) + 20px); }
+      :root{ --logo-h:128px; --header-h:calc(var(--logo-h) + 14px); }
     }
     @media (max-width:768px){
-      :root{ --logo-h:96px;  --header-h:calc(var(--logo-h) + 18px); }
+      :root{ --logo-h:100px; --header-h:calc(var(--logo-h) + 12px); }
     }
 
     *{ box-sizing:border-box }
@@ -44,7 +43,7 @@
       text-rendering:optimizeLegibility;
     }
 
-    /* ===== HEADER / FRANJA SUPERIOR ===== */
+    /* ===== HEADER ===== */
     .site-header{
       position:sticky; top:0; z-index:1000;
       background:#fff; border-bottom:1px solid rgba(0,0,0,.06);
@@ -56,34 +55,37 @@
       display:flex; align-items:center; justify-content:space-between; gap:16px;
     }
 
-    /* Bloque de marca: logo + tagline */
+    /* Logo + tagline centrado en el espacio entre logo y menú */
     .brand{
       display:flex; align-items:center; gap:16px;
       text-decoration:none; color:inherit;
+      flex:1;                 /* ocupa todo el ancho izquierdo */
+      min-width:0;
     }
     .brand img{
       height:var(--logo-h); width:auto; display:block;
-
-      /* Forzar que NO haya sombras en el logo renderizado */
       box-shadow:none !important;
-      filter:drop-shadow(0 0 0 transparent) !important;
+      filter:drop-shadow(0 0 0 transparent) !important; /* forzar sin sombras */
+      flex:0 0 auto;
     }
-    /* Tagline: que realmente destaque en portada */
     .brand-tagline{
       color:var(--brand-green);
-      font-weight:700;                         /* resalta */
-      font-size:clamp(1.05rem, 1.25vw, 1.20rem);
-      line-height:1.25;
-      letter-spacing:.15px;
-      max-width:26ch;
+      font-weight:700;
+      font-size:clamp(1.15rem, 1.7vw, 1.55rem); /* más grande */
+      line-height:1.2;
+      letter-spacing:.2px;
       margin-top:2px;
+      flex:1;                 /* ocupa el espacio restante */
+      text-align:center;      /* centrado entre el logo y el menú */
+      white-space:normal;
     }
     @media (max-width:1024px){ .brand-tagline{ display:none; } }
 
-    /* Menú */
+    /* Menú (fijo a la derecha) */
     .menu{
-      list-style:none; display:flex; gap:1.1rem;
-      margin:0; padding:0; align-items:center;
+      list-style:none; margin:0; padding:0;
+      display:flex; gap:1.1rem; align-items:center;
+      flex:0 0 auto;            /* no crecer, no encoger */
     }
     .menu a{
       color:#161616; text-decoration:none; opacity:.95;
@@ -122,7 +124,7 @@
                color-mix(in srgb, var(--brand-green) 85%, black) 100%);
       color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
     }
-    .hero-inner{ max-width:1100px; margin:0 auto; padding:56px 1.25rem 48px; }
+    .hero-inner{ max-width:1100px; margin:0 auto; padding:48px 1.25rem 48px; } /* un pelín más compacto arriba */
     .hero h1{
       font-size:clamp(2.2rem,4.4vw,3.4rem);
       line-height:1.08; margin:0 0 1rem; font-weight:800; letter-spacing:.2px;
@@ -178,7 +180,6 @@
     .site-footer{ background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem; }
     .site-footer .container{ max-width:1100px; margin:0 auto; }
 
-    /* Accesibilidad foco */
     a:focus, button:focus{ outline:3px solid rgba(239,203,104,.55); outline-offset:2px; }
   </style>
 </head>
@@ -188,13 +189,10 @@
   <header class="site-header">
     <nav class="top-nav" aria-label="Principal">
       <a class="brand" href="./" aria-label="Resolutiva – Inicio" title="Resolutiva">
-        <!-- Logo DARK (ruta relativa para GitHub Pages) -->
-        <img src="assets/logo-resolutiva-dark.svg?v=2" alt="Resolutiva">
-        <!-- Tagline como texto real (visible en desktop; color de marca) -->
+        <img src="assets/logo-resolutiva-dark.svg?v=3" alt="Resolutiva">
         <span class="brand-tagline">Asesoría, proyectos y mantenimiento confiables</span>
       </a>
 
-      <!-- Menú -->
       <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false">Menú</button>
       <ul id="menu" class="menu">
         <li><a href="#servicios">Servicios</a></li>
