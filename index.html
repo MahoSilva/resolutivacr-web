@@ -6,7 +6,7 @@
   <title>Resolutiva | Mantenimiento y construcción</title>
   <meta name="description" content="Su aliado confiable en mantenimiento y construcción. Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.">
 
-  <!-- Fuente recomendada -->
+  <!-- Fuente -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
@@ -22,9 +22,9 @@
       --radius:16px;
       --shadow:0 8px 24px rgba(0,0,0,.12);
 
-      /* Logo más grande y header más compacto para reducir la franja blanca */
-      --logo-h:160px;                         /* antes 140px */
-      --header-h:calc(var(--logo-h) + 16px);  /* antes +24px */
+      /* Logo grande + header compacto */
+      --logo-h:160px;
+      --header-h:calc(var(--logo-h) + 16px);
     }
     @media (max-width:1024px){
       :root{ --logo-h:128px; --header-h:calc(var(--logo-h) + 14px); }
@@ -55,37 +55,36 @@
       display:flex; align-items:center; justify-content:space-between; gap:16px;
     }
 
-    /* Logo + tagline centrado en el espacio entre logo y menú */
+    /* Marca: logo + tagline centrado entre logo y menú */
     .brand{
       display:flex; align-items:center; gap:16px;
       text-decoration:none; color:inherit;
-      flex:1;                 /* ocupa todo el ancho izquierdo */
-      min-width:0;
+      flex:1; min-width:0;
     }
     .brand img{
       height:var(--logo-h); width:auto; display:block;
       box-shadow:none !important;
-      filter:drop-shadow(0 0 0 transparent) !important; /* forzar sin sombras */
+      filter:drop-shadow(0 0 0 transparent) !important;
       flex:0 0 auto;
     }
     .brand-tagline{
       color:var(--brand-green);
       font-weight:700;
-      font-size:clamp(1.15rem, 1.7vw, 1.55rem); /* más grande */
+      font-size:clamp(1.15rem, 1.7vw, 1.55rem);
       line-height:1.2;
       letter-spacing:.2px;
       margin-top:2px;
-      flex:1;                 /* ocupa el espacio restante */
-      text-align:center;      /* centrado entre el logo y el menú */
+      flex:1;
+      text-align:center;
       white-space:normal;
     }
     @media (max-width:1024px){ .brand-tagline{ display:none; } }
 
-    /* Menú (fijo a la derecha) */
+    /* Menú */
     .menu{
       list-style:none; margin:0; padding:0;
       display:flex; gap:1.1rem; align-items:center;
-      flex:0 0 auto;            /* no crecer, no encoger */
+      flex:0 0 auto;
     }
     .menu a{
       color:#161616; text-decoration:none; opacity:.95;
@@ -102,7 +101,7 @@
     }
     .menu .btn-cta:hover{ filter:brightness(1.06); transform:translateY(-1px); }
 
-    /* Responsive menu */
+    /* Menú responsive */
     .menu-toggle{ display:none; }
     @media (max-width:900px){
       .menu{ display:none; position:absolute; left:0; right:0; top:100%;
@@ -119,12 +118,11 @@
 
     /* ===== HERO ===== */
     .hero{
-      background:linear-gradient(180deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
       background:linear-gradient(180deg, var(--brand-green) 0%,
                color-mix(in srgb, var(--brand-green) 85%, black) 100%);
       color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
     }
-    .hero-inner{ max-width:1100px; margin:0 auto; padding:48px 1.25rem 48px; } /* un pelín más compacto arriba */
+    .hero-inner{ max-width:1100px; margin:0 auto; padding:48px 1.25rem 48px; }
     .hero h1{
       font-size:clamp(2.2rem,4.4vw,3.4rem);
       line-height:1.08; margin:0 0 1rem; font-weight:800; letter-spacing:.2px;
@@ -189,7 +187,7 @@
   <header class="site-header">
     <nav class="top-nav" aria-label="Principal">
       <a class="brand" href="./" aria-label="Resolutiva – Inicio" title="Resolutiva">
-        <img src="assets/logo-resolutiva-dark.svg?v=3" alt="Resolutiva">
+        <img src="assets/logo-resolutiva-dark-nohalo.svg?v=8" alt="Resolutiva">
         <span class="brand-tagline">Asesoría, proyectos y mantenimiento confiables</span>
       </a>
 
