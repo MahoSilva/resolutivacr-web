@@ -6,197 +6,191 @@
   <title>Resolutiva | Mantenimiento y construcción</title>
   <meta name="description" content="Su aliado confiable en mantenimiento y construcción. Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.">
 
-  <!-- Fuente -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
   <style>
     :root{
-      --brand-green:#0b4743;
-      --brand-green-dark:#083c38;
-      --beige:#f4ecdf;
-      --gold:#d1a72c;
-      --text:#0f0f0f;
+      /* Colores de marca (alineados al SVG final) */
+      --green-900:#0b4743;          /* header/hero y anti-halo del logo */
+      --green-800:#11534e;
+      --beige:#f4ecdf;              /* fondo sección servicios */
+      --gold:#d1a72c;               /* CTAs y acentos */
+      --ink:#0f0f0f;                /* texto principal */
+      --muted:#2a3a39;              /* texto sobre verde */
       --white:#ffffff;
 
+      /* Tamaños y layout */
       --radius:16px;
-      --shadow:0 8px 24px rgba(0,0,0,.12);
-
-      /* Logo grande + header compacto */
-      --logo-h:160px;
-      --header-h:calc(var(--logo-h) + 16px);
-    }
-    @media (max-width:1024px){
-      :root{ --logo-h:128px; --header-h:calc(var(--logo-h) + 14px); }
-    }
-    @media (max-width:768px){
-      :root{ --logo-h:100px; --header-h:calc(var(--logo-h) + 12px); }
+      --shadow:0 8px 24px rgba(0,0,0,.10);
+      --container:1100px;
+      --logo-h: 96px;               /* alto del logo; ajústalo si lo quieres mayor */
     }
 
-    *{ box-sizing:border-box }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0}
     body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
-      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+      color:var(--ink);
       line-height:1.6;
       background:#fff;
       text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
+    img{max-width:100%; height:auto; display:block}
 
     /* ===== HEADER ===== */
-    .site-header{
-      position:sticky; top:0; z-index:1000;
-      background:#fff; border-bottom:1px solid rgba(0,0,0,.06);
+    .topbar{
+      background:#fff;
+      border-bottom:1px solid rgba(0,0,0,.06);
     }
-    .top-nav{
-      max-width:1100px; margin:0 auto;
-      height:var(--header-h);
-      padding:0 1.25rem;
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    .topnav{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      gap:18px;
     }
-
-    /* Marca: logo + tagline centrado entre logo y menú */
     .brand{
-      display:flex; align-items:center; gap:16px;
-      text-decoration:none; color:inherit;
-      flex:1; min-width:0;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      text-decoration:none;
     }
     .brand img{
-      height:var(--logo-h); width:auto; display:block;
-      box-shadow:none !important;
-      filter:drop-shadow(0 0 0 transparent) !important;
-      flex:0 0 auto;
+      height:var(--logo-h);
+      width:auto;
+      /* sin sombras al logo */
+      filter:none;
     }
     .brand-tagline{
-      color:var(--brand-green);
+      color:var(--green-900);
       font-weight:700;
-      font-size:clamp(1.15rem, 1.7vw, 1.55rem);
-      line-height:1.2;
       letter-spacing:.2px;
-      margin-top:2px;
-      flex:1;
-      text-align:center;
-      white-space:normal;
+      line-height:1.2;
+      font-size:clamp(.95rem,1.2vw,1.05rem);
     }
-    @media (max-width:1024px){ .brand-tagline{ display:none; } }
-
-    /* Menú */
+    .spacer{flex:1}
     .menu{
+      display:flex; align-items:center; gap:18px;
       list-style:none; margin:0; padding:0;
-      display:flex; gap:1.1rem; align-items:center;
-      flex:0 0 auto;
     }
     .menu a{
-      color:#161616; text-decoration:none; opacity:.95;
-      font-size:clamp(1rem,1.05vw,1.125rem);
-      font-weight:600; letter-spacing:.1px; padding:.2rem 0;
+      color:#222; text-decoration:none; font-weight:600; opacity:.9;
     }
-    .menu a:hover{ opacity:1; color:var(--brand-green); }
-    .menu .btn-cta{
+    .menu a:hover{opacity:1}
+    .btn-cta{
       background:var(--gold); color:#1a1a1a;
-      padding:.68rem 1rem; border-radius:12px; border:1px solid transparent;
-      font-weight:700; font-size:clamp(.95rem,1vw,1.05rem);
-      box-shadow:0 8px 20px rgba(209,167,44,.18);
-      transition:filter .15s ease, transform .15s ease;
-    }
-    .menu .btn-cta:hover{ filter:brightness(1.06); transform:translateY(-1px); }
-
-    /* Menú responsive */
-    .menu-toggle{ display:none; }
-    @media (max-width:900px){
-      .menu{ display:none; position:absolute; left:0; right:0; top:100%;
-             background:#ffffff; padding:12px 20px; border-top:1px solid rgba(0,0,0,.06); }
-      .menu.open{ display:block; }
-      .menu li{ margin:8px 0; }
-      .menu a{ display:inline-block; padding:.4rem 0; }
-      .menu .btn-cta{ display:inline-block; }
-      .menu-toggle{
-        display:inline-block; background:transparent; border:1px solid rgba(0,0,0,.18);
-        color:#1a1a1a; padding:.45rem .65rem; border-radius:10px; font-weight:600;
-      }
+      border-radius:12px; padding:10px 16px;
+      text-decoration:none; font-weight:700;
+      box-shadow:0 4px 12px rgba(209,167,44,.25);
     }
 
     /* ===== HERO ===== */
     .hero{
-      background:linear-gradient(180deg, var(--brand-green) 0%,
-               color-mix(in srgb, var(--brand-green) 85%, black) 100%);
-      color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
+      background:var(--green-900);
+      color:var(--white);
     }
-    .hero-inner{ max-width:1100px; margin:0 auto; padding:48px 1.25rem 48px; }
+    .hero-inner{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:48px 16px 56px;
+    }
     .hero h1{
-      font-size:clamp(2.2rem,4.4vw,3.4rem);
-      line-height:1.08; margin:0 0 1rem; font-weight:800; letter-spacing:.2px;
+      margin:0 0 14px;
+      font-size:clamp(2.2rem,4.6vw,3.4rem);
+      line-height:1.12;
+      font-weight:900;
+      letter-spacing:.2px;
     }
     .hero-sub{
-      max-width:760px; margin:0 0 1.4rem; color:#eaf4f1;
-      font-size:clamp(1rem,1.2vw,1.1rem);
+      color:#dfeeed;
+      max-width:760px;
+      margin:0 0 20px;
+      font-size:clamp(1rem,1.15vw,1.06rem);
     }
-    .hero-cta{ display:flex; gap:.8rem; flex-wrap:wrap; }
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap}
     .btn{
-      display:inline-block; padding:.95rem 1.15rem; border-radius:12px;
-      text-decoration:none; font-weight:700; border:1.5px solid rgba(255,255,255,.25);
-      transition:.18s ease-in-out;
+      display:inline-block; text-decoration:none; border-radius:12px;
+      padding:12px 16px; font-weight:700; transition:.2s transform;
+      border:1.5px solid rgba(255,255,255,.28);
+      color:#fff;
     }
-    .btn-primary{ background:var(--gold); color:#1a1a1a; border-color:transparent; }
-    .btn-ghost{ background:transparent; color:#fff; }
-    .btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow); }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:var(--gold); color:#1a1a1a; border-color:transparent}
+    .btn-ghost{background:transparent; color:#fff}
 
     /* ===== SERVICIOS ===== */
-    #servicios{ scroll-margin-top: calc(var(--header-h) + 16px); }
-    .services{ background:var(--beige); padding:40px 1.25rem 56px; }
-    .container{ max-width:1100px; margin:0 auto; }
-    .services h2{
-      text-align:center; margin:0 0 24px;
-      font-size:clamp(1.9rem,2.6vw,2.25rem); letter-spacing:.2px; color:#222;
+    .services{
+      background:var(--beige);
     }
-
-    .cards{ display:grid; gap:24px; grid-template-columns:repeat(3, minmax(260px, 1fr)); }
-    @media (max-width:1024px){ .cards{ grid-template-columns:repeat(2, minmax(260px,1fr)); } }
-    @media (max-width:640px){ .cards{ grid-template-columns:1fr; } }
-
+    .container{
+      max-width:var(--container); margin:0 auto; padding:40px 16px;
+    }
+    .section-title{
+      text-align:center; margin:6px 0 24px;
+      font-weight:900; letter-spacing:.2px;
+      font-size:clamp(1.6rem,2.4vw,2.05rem);
+      color:#1a1a1a;
+    }
+    .cards{
+      display:grid; gap:16px;
+      grid-template-columns:repeat(3, minmax(260px, 1fr));
+    }
+    @media (max-width:1024px){
+      .brand-tagline{display:none}             /* oculta tagline en pantallas medianas */
+      .cards{grid-template-columns:repeat(2, minmax(260px,1fr))}
+    }
+    @media (max-width:640px){
+      :root{ --logo-h: 72px; }
+      .cards{grid-template-columns:1fr}
+    }
     .card{
-      background:#fff; border-radius:var(--radius);
-      padding:1.2rem 1.15rem; border:1px solid rgba(0,0,0,.05);
-      box-shadow:0 8px 18px rgba(0,0,0,.08);
-      display:flex; flex-direction:column; min-height:228px;
+      background:#fff;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px 16px 18px;
     }
-    @media (max-width:640px){ .card{ min-height:unset; } }
-    .card h3{ margin:.45rem 0 .55rem; font-size:clamp(1.18rem,1.6vw,1.32rem); font-weight:800; color:#1a1a1a; letter-spacing:.2px; }
-    .card p{ margin:0; color:#2c2c2c; font-size:1rem; line-height:1.65; }
-
-    .icon-badge{
-      width:48px; height:48px; border-radius:12px;
-      background:rgba(209,167,44,.10); border:1px solid rgba(209,167,44,.35);
-      display:grid; place-items:center; flex:0 0 auto;
+    .card h3{
+      display:flex; align-items:center; gap:10px;
+      margin:4px 0 6px;
+      font-size:1.06rem; font-weight:900; color:#1a1a1a;
     }
-    .icon-badge svg{
-      width:26px; height:26px; stroke:var(--gold); fill:none;
-      stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;
+    .card p{margin:0; color:#363636}
+    .icon{
+      width:28px; height:28px; border-radius:8px;
+      display:inline-grid; place-items:center;
+      background:rgba(209,167,44,.16);
+      border:1px solid rgba(209,167,44,.45);
     }
-
+    .icon svg{width:16px; height:16px; stroke:#8b6b0e}
     /* ===== FOOTER ===== */
-    .site-footer{ background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem; }
-    .site-footer .container{ max-width:1100px; margin:0 auto; }
-
-    a:focus, button:focus{ outline:3px solid rgba(239,203,104,.55); outline-offset:2px; }
+    .site-footer{
+      background:#0f2221; color:#cde0df;
+    }
+    .site-footer .container{padding:16px}
+    .site-footer small{opacity:.9}
+    /* Accesibilidad: foco visible en links/botones */
+    a:focus-visible{outline:3px solid #8bd2ff; outline-offset:2px; border-radius:6px}
   </style>
 </head>
 <body>
 
-  <!-- ===== FRANJA SUPERIOR ===== -->
-  <header class="site-header">
-    <nav class="top-nav" aria-label="Principal">
+  <!-- ===== TOP BAR ===== -->
+  <header class="topbar">
+    <nav class="topnav">
       <a class="brand" href="./" aria-label="Resolutiva – Inicio" title="Resolutiva">
-        <img src="assets/logo-resolutiva-dark-nohalo.svg?v=8" alt="Resolutiva">
+        <!-- Logo SVG con cache-bust -->
+        <img src="assets/logo-resolutiva-recorte.svg?v=17" alt="Resolutiva">
         <span class="brand-tagline">Asesoría, proyectos y mantenimiento confiables</span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false">Menú</button>
-      <ul id="menu" class="menu">
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="portafolio.html">Portafolio</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a class="btn-cta" href="contacto.html">Contacto</a></li>
+      <div class="spacer"></div>
+
+      <ul class="menu" role="menubar" aria-label="Navegación principal">
+        <li role="none"><a role="menuitem" href="#servicios">Servicios</a></li>
+        <li role="none"><a role="menuitem" href="/portafolio.html">Portafolio</a></li>
+        <li role="none"><a role="menuitem" href="/nosotros.html">Nosotros</a></li>
+        <li role="none"><a class="btn-cta" role="menuitem" href="/contacto.html">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -208,8 +202,8 @@
       <p class="hero-sub">
         Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.
       </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="contacto.html">Solicitar cotización</a>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="/contacto.html">Solicitar cotización</a>
         <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
         <a class="btn btn-ghost" href="https://wa.me/50689980551" target="_blank" rel="noopener">WhatsApp</a>
       </div>
@@ -219,54 +213,99 @@
   <!-- ===== SERVICIOS ===== -->
   <section id="servicios" class="services">
     <div class="container">
-      <h2>Nuestros servicios</h2>
+      <h2 class="section-title">Nuestros servicios</h2>
 
       <div class="cards">
+        <!-- 1 -->
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><line x1="4" y1="12" x2="20" y2="12"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="18" cy="12" r="2"/></svg>
-          </div>
-          <h3>Gestión de proyectos</h3>
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <!-- clipboard-check -->
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 6h6M9 3h6a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v0a2 2 0 0 1 2-2Z"/>
+                <path d="M19 9v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9"/>
+                <path d="m9 14 2 2 4-4"/>
+              </svg>
+            </span>
+            Gestión de proyectos
+          </h3>
           <p>Supervisamos y coordinamos su proyecto de inicio a fin con control de tiempos, costos y calidad.</p>
         </article>
 
+        <!-- 2 -->
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><line x1="12" y1="4" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="20"/><line x1="4" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="20" y2="12"/><line x1="6.2" y1="6.2" x2="8.4" y2="8.4"/><line x1="15.6" y1="15.6" x2="17.8" y2="17.8"/><line x1="6.2" y1="17.8" x2="8.4" y2="15.6"/><line x1="15.6" y1="8.4" x2="17.8" y2="6.2"/></svg>
-          </div>
-          <h3>Mantenimiento y planes anuales</h3>
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <!-- calendar-cog -->
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <path d="M16 2v4M8 2v4M3 10h18"/>
+                <path d="m14.5 17 .5 1 .9.2-.6.7.1 1-1-.4-1 .4.1-1-.6-.7.9-.2.6-1Z"/>
+              </svg>
+            </span>
+            Mantenimiento y planes anuales
+          </h3>
           <p>Diseñamos y ejecutamos planes de mantenimiento preventivo y correctivo, así como planes anuales de mantenimiento que garantizan continuidad y reducen costos imprevistos.</p>
         </article>
 
+        <!-- 3 -->
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(45 12 12)"/><rect x="6" y="10.5" width="12" height="3" rx="1.5" transform="rotate(-45 12 12)"/></svg>
-          </div>
-          <h3>Reparaciones generales</h3>
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <!-- wrench -->
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a5 5 0 1 0 3 3L22 5l-3-3-4.3 4.3Z"/>
+                <path d="M2 22l6-6"/>
+              </svg>
+            </span>
+            Reparaciones generales
+          </h3>
           <p>Solucionamos averías en estructuras e instalaciones con respuesta rápida y mano de obra calificada.</p>
         </article>
 
+        <!-- 4 -->
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="11" y="4" width="2" height="10" rx="1"/><polygon points="7,16 17,16 15,20 9,20"/></svg>
-          </div>
-          <h3>Limpieza de propiedades</h3>
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <!-- broom -->
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21s3-4 7-4 7 4 7 4"/>
+                <path d="M14 17 20 3"/>
+              </svg>
+            </span>
+            Limpieza de propiedades
+          </h3>
           <p>Servicios de limpieza interna y externa para oficinas, comercios, residencias y áreas comunes.</p>
         </article>
 
+        <!-- 5 -->
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><polygon points="6,6 6,16 16,16 6,6"/><line x1="8" y1="12" x2="12" y2="12"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-          </div>
-          <h3>Presupuestos y planos</h3>
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <!-- ruler-pencil -->
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m13 6 5 5L7 22H2v-5L13 6z"/>
+                <path d="m13 6 3-3 5 5-3 3"/>
+              </svg>
+            </span>
+            Presupuestos y planos
+          </h3>
           <p>Elaboramos presupuestos precisos y presupuestos anuales de mantenimiento, junto con planos arquitectónicos y renderizados profesionales 3D.</p>
         </article>
 
+        <!-- 6 -->
         <article class="card">
-          <div class="icon-badge" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="2"/><polyline points="9,13 11,15 15,10"/><line x1="9" y1="8" x2="15" y2="8"/></svg>
-          </div>
-          <h3>Procesos para licitaciones</h3>
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <!-- file-badge -->
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+                <path d="M14 2v6h6"/>
+                <path d="M12 12l1.2 2.4L16 15l-2 1.9.5 2.8L12 18l-2.5 1.7.5-2.8L8 15l2.8-.6Z"/>
+              </svg>
+            </span>
+            Procesos para licitaciones
+          </h3>
           <p>Gestionamos y acompañamos los procesos de licitación con soporte técnico y documentación completa.</p>
         </article>
       </div>
@@ -280,16 +319,5 @@
     </div>
   </footer>
 
-  <!-- JS: menú móvil -->
-  <script>
-    const btn = document.querySelector('.menu-toggle');
-    const menu = document.getElementById('menu');
-    if (btn && menu) {
-      btn.addEventListener('click', () => {
-        const open = menu.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-  </script>
 </body>
 </html>
