@@ -3,29 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Resolutiva | Mantenimiento y construcción</title>
-  <meta name="description" content="Su aliado confiable en mantenimiento y construcción. Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.">
+  <title>Resolutiva | Asesoría, planificación y solución efectiva</title>
+  <meta name="description" content="Asesoría, planificación y solución efectiva de sus necesidades. Planificación clara, control de costos, ejecución eficiente y seguimiento constante.">
 
   <style>
     :root{
-      /* Colores de marca (alineados al SVG final) */
+      /* Colores */
       --green-900:#0b4743;          /* header/hero y anti-halo del logo */
       --green-800:#11534e;
       --beige:#f4ecdf;              /* fondo sección servicios */
       --gold:#d1a72c;               /* CTAs y acentos */
       --ink:#0f0f0f;                /* texto principal */
-      --muted:#2a3a39;              /* texto sobre verde */
       --white:#ffffff;
 
-      /* Tamaños y layout */
+      /* Layout */
       --radius:16px;
       --shadow:0 8px 24px rgba(0,0,0,.10);
       --container:1100px;
-      --logo-h: 96px;               /* alto del logo; ajústalo si lo quieres mayor */
+      --logo-h:108px;               /* alto de logo: aumentado un poco */
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0; padding:0}
+    html,body{margin:0;padding:0}
     body{
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
       color:var(--ink);
@@ -35,43 +34,44 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-    img{max-width:100%; height:auto; display:block}
+    img{max-width:100%;height:auto;display:block}
 
     /* ===== HEADER ===== */
     .topbar{
       background:#fff;
-      border-bottom:1px solid rgba(0,0,0,.06);
+      border-bottom:none; /* quitamos línea blanca bajo el logo */
     }
     .topnav{
       max-width:var(--container);
       margin:0 auto;
       padding:12px 16px;
-      display:flex;
-      align-items:center;
-      gap:18px;
+      display:flex; align-items:center; gap:18px;
     }
     .brand{
-      display:flex;
-      align-items:center;
-      gap:16px;
+      display:flex; align-items:center; gap:16px;
       text-decoration:none;
+      min-width: 0;
     }
     .brand img{
       height:var(--logo-h);
       width:auto;
       filter:none;
+      flex: 0 0 auto;
     }
     .brand-tagline{
       color:var(--green-900);
-      font-weight:700;
+      font-weight:800;
       letter-spacing:.2px;
       line-height:1.2;
-      font-size:clamp(.95rem,1.2vw,1.05rem);
+      /* más grande y mejor equilibrio entre logo y menú */
+      font-size:clamp(1.05rem,1.6vw,1.25rem);
+      white-space:normal;
     }
     .spacer{flex:1}
     .menu{
       display:flex; align-items:center; gap:18px;
       list-style:none; margin:0; padding:0;
+      flex:0 0 auto;
     }
     .menu a{
       color:#222; text-decoration:none; font-weight:600; opacity:.9;
@@ -85,10 +85,7 @@
     }
 
     /* ===== HERO ===== */
-    .hero{
-      background:var(--green-900);
-      color:var(--white);
-    }
+    .hero{background:var(--green-900); color:var(--white)}
     .hero-inner{
       max-width:var(--container);
       margin:0 auto;
@@ -132,18 +129,16 @@
       grid-template-columns:repeat(3, minmax(260px, 1fr));
     }
     @media (max-width:1024px){
-      .brand-tagline{display:none}
+      .brand-tagline{display:none}             /* oculta tagline en medianas */
       .cards{grid-template-columns:repeat(2, minmax(260px,1fr))}
     }
     @media (max-width:640px){
-      :root{ --logo-h: 72px; }
+      :root{ --logo-h: 84px; }
       .cards{grid-template-columns:1fr}
     }
     .card{
-      background:#fff;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:16px 16px 18px;
+      background:#fff; border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:16px 16px 18px;
     }
     .card h3{
       display:flex; align-items:center; gap:10px;
@@ -164,16 +159,17 @@
     .site-footer .container{padding:16px}
     .site-footer small{opacity:.9}
 
+    /* Accesibilidad: foco visible */
     a:focus-visible{outline:3px solid #8bd2ff; outline-offset:2px; border-radius:6px}
   </style>
 </head>
 <body>
 
-  <!-- ===== TOP BAR ===== -->
+  <!-- ===== HEADER ===== -->
   <header class="topbar">
     <nav class="topnav">
       <a class="brand" href="./" aria-label="Resolutiva – Inicio" title="Resolutiva">
-        <!-- Logo SVG con cache-bust -->
+        <!-- Logo SVG (archivo: assets/recorte.svg) -->
         <img src="assets/recorte.svg?v=17" alt="Resolutiva">
         <span class="brand-tagline">Asesoría, proyectos y mantenimiento confiables</span>
       </a>
@@ -192,9 +188,9 @@
   <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-inner">
-      <h1>Su aliado confiable en mantenimiento y construcción</h1>
+      <h1>Asesoría, planificación y solución efectiva de sus necesidades.</h1>
       <p class="hero-sub">
-        Ejecutamos proyectos con seguridad, costos transparentes y entregas puntuales en Cartago y alrededores.
+        Atendemos sus necesidades con planificación clara, control de costos, ejecución eficiente y seguimiento constante.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="/contacto.html">Solicitar cotización</a>
@@ -210,7 +206,7 @@
       <h2 class="section-title">Nuestros servicios</h2>
 
       <div class="cards">
-        <!-- 1 -->
+        <!-- Fila superior -->
         <article class="card">
           <h3>
             <span class="icon" aria-hidden="true">
@@ -225,7 +221,6 @@
           <p>Supervisamos y coordinamos su proyecto de inicio a fin con control de tiempos, costos y calidad.</p>
         </article>
 
-        <!-- 2 -->
         <article class="card">
           <h3>
             <span class="icon" aria-hidden="true">
@@ -235,40 +230,11 @@
                 <path d="m14.5 17 .5 1 .9.2-.6.7.1 1-1-.4-1 .4.1-1-.6-.7.9-.2.6-1Z"/>
               </svg>
             </span>
-            Mantenimiento y planes anuales
+            Planes anuales de mantenimiento
           </h3>
-          <p>Diseñamos y ejecutamos planes de mantenimiento preventivo y correctivo, así como planes anuales de mantenimiento que garantizan continuidad y reducen costos imprevistos.</p>
+          <p>Diseñamos y ejecutamos planes de mantenimiento preventivo y correctivo, así como planes anuales que garantizan continuidad y reducen costos imprevistos.</p>
         </article>
 
-        <!-- 3 -->
-        <article class="card">
-          <h3>
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.7 6.3a5 5 0 1 0 3 3L22 5l-3-3-4.3 4.3Z"/>
-                <path d="M2 22l6-6"/>
-              </svg>
-            </span>
-            Reparaciones generales
-          </h3>
-          <p>Solucionamos averías en estructuras e instalaciones con respuesta rápida y mano de obra calificada.</p>
-        </article>
-
-        <!-- 4 -->
-        <article class="card">
-          <h3>
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 21s3-4 7-4 7 4 7 4"/>
-                <path d="M14 17 20 3"/>
-              </svg>
-            </span>
-            Limpieza de propiedades
-          </h3>
-          <p>Servicios de limpieza interna y externa para oficinas, comercios, residencias y áreas comunes.</p>
-        </article>
-
-        <!-- 5 -->
         <article class="card">
           <h3>
             <span class="icon" aria-hidden="true">
@@ -282,7 +248,7 @@
           <p>Elaboramos presupuestos precisos y presupuestos anuales de mantenimiento, junto con planos arquitectónicos y renderizados profesionales 3D.</p>
         </article>
 
-        <!-- 6 -->
+        <!-- Fila inferior -->
         <article class="card">
           <h3>
             <span class="icon" aria-hidden="true">
@@ -295,6 +261,32 @@
             Procesos para licitaciones
           </h3>
           <p>Gestionamos y acompañamos los procesos de licitación con soporte técnico y documentación completa.</p>
+        </article>
+
+        <article class="card">
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21s3-4 7-4 7 4 7 4"/>
+                <path d="M14 17 20 3"/>
+              </svg>
+            </span>
+            Limpieza de propiedades
+          </h3>
+          <p>Servicios de limpieza interna y externa para oficinas, comercios, residencias y áreas comunes.</p>
+        </article>
+
+        <article class="card">
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a5 5 0 1 0 3 3L22 5l-3-3-4.3 4.3Z"/>
+                <path d="M2 22l6-6"/>
+              </svg>
+            </span>
+            Mantenimiento general
+          </h3>
+          <p>Atendemos averías y necesidades generales en estructuras e instalaciones con respuesta rápida y mano de obra calificada.</p>
         </article>
       </div>
     </div>
