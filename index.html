@@ -8,7 +8,6 @@
 
   <style>
     :root{
-      /* Colores */
       --green-900:#0b4743;
       --green-800:#11534e;
       --beige:#f4ecdf;
@@ -16,11 +15,10 @@
       --ink:#0f0f0f;
       --white:#ffffff;
 
-      /* Layout */
       --radius:16px;
       --shadow:0 8px 24px rgba(0,0,0,.10);
       --container:1100px;
-      --logo-h:112px; /* ↑ tamaño para eliminar cualquier filete blanco */
+      --logo-h:112px;
     }
 
     *{box-sizing:border-box}
@@ -33,13 +31,13 @@
     }
     img{max-width:100%;height:auto;display:block}
 
-    /* ===== HEADER (grid: logo | tagline | menú) ===== */
+    /* ===== HEADER ===== */
     .topbar{background:#fff;border-bottom:none;position:relative;z-index:10}
     .topnav{
       max-width:var(--container); margin:0 auto; padding:12px 16px;
       display:grid; grid-template-columns:auto 1fr auto; column-gap:16px; align-items:center;
     }
-    .logo img{height:var(--logo-h); width:auto; filter:none}
+    .logo img{height:var(--logo-h); width:auto}
     .tagline{
       color:var(--green-900); font-weight:800; letter-spacing:.2px; line-height:1.2;
       font-size:clamp(1.05rem,1.7vw,1.3rem);
@@ -65,12 +63,9 @@
       margin:0 0 18px;
       font-size:clamp(2.2rem,4.6vw,3.4rem);
       line-height:1.12; font-weight:900; letter-spacing:.2px;
-      max-width:30ch; /* control de longitud óptima */
+      max-width:30ch;
     }
-    .hero-sub{
-      color:#dfeeed; max-width:760px; margin:0 0 22px;
-      font-size:clamp(1rem,1.15vw,1.06rem);
-    }
+    .hero-sub{color:#dfeeed; max-width:760px; margin:0 0 22px; font-size:clamp(1rem,1.15vw,1.06rem)}
     .cta-row{display:flex; gap:12px; flex-wrap:wrap}
     .btn{
       display:inline-block; text-decoration:none; border-radius:12px;
@@ -88,28 +83,17 @@
       text-align:center; margin:6px 0 26px; font-weight:900; letter-spacing:.2px;
       font-size:clamp(1.6rem,2.4vw,2.05rem); color:#1a1a1a;
     }
-    .cards{
-      display:grid; gap:16px;
-      grid-template-columns:repeat(3, minmax(260px, 1fr));
-    }
+    .cards{display:grid; gap:16px; grid-template-columns:repeat(3, minmax(260px, 1fr))}
     @media (min-width:1280px){ .cards{gap:20px} }
     @media (max-width:1024px){ .cards{grid-template-columns:repeat(2, minmax(260px,1fr))} }
     @media (max-width:640px){ .cards{grid-template-columns:1fr} :root{--logo-h:96px} }
 
-    .card{
-      background:#fff; border-radius:var(--radius);
-      box-shadow:var(--shadow); padding:16px 16px 18px;
-    }
-    .card h3{
-      display:flex; align-items:center; gap:10px;
-      margin:4px 0 8px; font-size:1.06rem; font-weight:900; color:#1a1a1a;
-    }
+    .card{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:16px 16px 18px}
+    .card h3{display:flex; align-items:center; gap:10px; margin:4px 0 8px; font-size:1.06rem; font-weight:900; color:#1a1a1a}
     .card p{margin:0; color:#363636}
     .icon{
-      width:28px; height:28px; border-radius:8px;
-      display:inline-grid; place-items:center;
-      background:rgba(209,167,44,.16);
-      border:1px solid rgba(209,167,44,.38);
+      width:28px; height:28px; border-radius:8px; display:inline-grid; place-items:center;
+      background:rgba(209,167,44,.16); border:1px solid rgba(209,167,44,.38);
     }
     .icon svg{width:20px; height:20px; stroke:#8b6b0e}
 
@@ -119,30 +103,21 @@
       display:none; align-items:center; justify-content:center; padding:16px; z-index:1000;
     }
     .modal[aria-hidden="false"], .modal:target { display:flex; } /* Fallback por hash */
-    .modal-card{
-      background:#fff; border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,.25);
-      width:min(640px, 92vw); overflow:hidden;
-    }
+    .modal-card{background:#fff; border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,.25); width:min(640px, 92vw); overflow:hidden}
     .modal-head{
       background:var(--green-900); color:#fff; padding:16px 18px; display:flex; align-items:center; justify-content:space-between;
     }
     .modal-head h3{margin:0; font-size:1.15rem}
-    .modal-close{
-      background:transparent; border:0; color:#fff; font-size:1.4rem; line-height:1; cursor:pointer; text-decoration:none;
-    }
+    .modal-close{background:transparent; border:0; color:#fff; font-size:1.4rem; line-height:1; cursor:pointer; text-decoration:none}
     .modal-body{padding:18px}
-    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:12px }
     @media (max-width:520px){ .grid-2{grid-template-columns:1fr} }
     .field{display:flex; flex-direction:column; gap:6px}
     .field label{font-weight:700; font-size:.95rem}
-    .field input,.field select,.field textarea{
-      border:1.5px solid rgba(0,0,0,.14); border-radius:10px; padding:10px 12px; font:inherit;
-    }
+    .field input,.field select,.field textarea{border:1.5px solid rgba(0,0,0,.14); border-radius:10px; padding:10px 12px; font:inherit}
     .field textarea{min-height:110px; resize:vertical}
     .form-actions{display:flex; gap:10px; justify-content:flex-end; margin-top:14px}
-    .btn-dark{
-      background:var(--green-900); color:#fff; border:0; border-radius:12px; padding:12px 16px; font-weight:700; cursor:pointer;
-    }
+    .btn-dark{background:var(--green-900); color:#fff; border:0; border-radius:12px; padding:12px 16px; font-weight:700; cursor:pointer}
     .note{font-size:.9rem; color:#444}
     .success, .error{display:none; margin-top:10px; padding:10px 12px; border-radius:8px}
     .success{background:#e8f7ec; color:#145a22}
@@ -153,7 +128,6 @@
     .site-footer .container{padding:16px}
     .site-footer small{opacity:.9}
 
-    /* Accesibilidad: foco visible */
     a:focus-visible, .btn:focus-visible, .btn-cta:focus-visible, .modal-close:focus-visible, .btn-dark:focus-visible{
       outline:3px solid #8bd2ff; outline-offset:2px; border-radius:6px
     }
@@ -174,7 +148,6 @@
         <li role="none"><a role="menuitem" href="#servicios">Servicios</a></li>
         <li role="none"><a role="menuitem" href="/portafolio.html">Portafolio</a></li>
         <li role="none"><a role="menuitem" href="/nosotros.html">Nosotros</a></li>
-        <!-- ahora abre por hash (funciona con o sin JS) -->
         <li role="none"><a id="open-contacto" class="btn-cta" role="menuitem" href="#contacto-modal">Contacto</a></li>
       </ul>
     </nav>
@@ -202,7 +175,6 @@
       <h2 class="section-title">Nuestros servicios</h2>
 
       <div class="cards">
-        <!-- Fila superior -->
         <article class="card">
           <h3>
             <span class="icon" aria-hidden="true">
@@ -244,7 +216,6 @@
           <p>Elaboramos presupuestos precisos y presupuestos anuales de mantenimiento, junto con planos arquitectónicos y renderizados profesionales 3D.</p>
         </article>
 
-        <!-- Fila inferior -->
         <article class="card">
           <h3>
             <span class="icon" aria-hidden="true">
@@ -293,32 +264,33 @@
     <div class="modal-card">
       <div class="modal-head">
         <h3 id="contacto-title">Solicitar cotización / Contacto</h3>
-        <!-- Enlace para cerrar (funciona sin JS) -->
         <a class="modal-close" href="#" aria-label="Cerrar">×</a>
       </div>
       <div class="modal-body">
-        <!-- Deja este action con YOUR_FORM_ID para usar mailto directo.
-             Si algún día usas Formspree, reemplázalo por tu endpoint real -->
-        <form id="contacto-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+
+        <!-- Mailto directo (funciona sin JS) -->
+        <form id="contacto-form"
+              action="mailto:msilva@resolutivacr.com?subject=Nuevo%20contacto%20%E2%80%93%20Resolutiva"
+              method="GET" enctype="text/plain" novalidate>
           <div class="grid-2">
             <div class="field">
               <label for="nombre">Nombre completo *</label>
-              <input id="nombre" name="nombre" type="text" required placeholder="Nombre y apellidos">
+              <input id="nombre" name="Nombre" type="text" required placeholder="Nombre y apellidos">
             </div>
             <div class="field">
               <label for="telefono">Teléfono / WhatsApp</label>
-              <input id="telefono" name="telefono" type="tel" placeholder="+506 8xx xx xx">
+              <input id="telefono" name="Telefono" type="tel" placeholder="+506 8xx xx xx">
             </div>
           </div>
 
           <div class="grid-2">
             <div class="field">
               <label for="email">Correo electrónico</label>
-              <input id="email" name="email" type="email" placeholder="nombre@correo.com">
+              <input id="email" name="Email" type="email" placeholder="nombre@correo.com">
             </div>
             <div class="field">
               <label for="servicio">Servicio de interés</label>
-              <select id="servicio" name="servicio">
+              <select id="servicio" name="Servicio">
                 <option value="">Seleccionar…</option>
                 <option>Gestión de proyectos</option>
                 <option>Planes anuales de mantenimiento</option>
@@ -332,7 +304,7 @@
 
           <div class="field">
             <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" placeholder="Cuéntenos brevemente su necesidad."></textarea>
+            <textarea id="mensaje" name="Mensaje" placeholder="Cuéntenos brevemente su necesidad."></textarea>
           </div>
 
           <p class="note">Campos marcados con * son obligatorios. Responderemos a la mayor brevedad.</p>
@@ -342,10 +314,10 @@
             <button type="submit" class="btn-dark">Enviar</button>
           </div>
 
-          <div class="success" id="contacto-ok">¡Gracias! Recibimos su mensaje y le contactaremos pronto.</div>
-          <div class="error" id="contacto-error">Ocurrió un problema al enviar. Intente de nuevo o escríbanos a msilva@resolutivacr.com.</div>
+          <div class="success" id="contacto-ok">Si tiene cliente de correo configurado, se abrirá con el mensaje listo.</div>
+          <div class="error" id="contacto-error">No se pudo abrir el correo. Escríbanos a msilva@resolutivacr.com.</div>
 
-          <input type="hidden" name="origen" value="Web Resolutiva - Portada" />
+          <input type="hidden" name="Origen" value="Web Resolutiva - Portada" />
         </form>
       </div>
     </div>
@@ -358,7 +330,7 @@
     </div>
   </footer>
 
-  <!-- ===== JS: abrir/cerrar modal + envío (mailto a msilva@resolutivacr.com) ===== -->
+  <!-- ===== JS opcional: mejora el mailto con formato (si JS carga) ===== -->
   <script>
     (function(){
       const modal = document.getElementById('contacto-modal');
@@ -388,39 +360,36 @@
       modal.addEventListener('click', overlayClose);
       window.addEventListener('keydown', escClose);
 
-      form.addEventListener('submit', async (e)=>{
+      // Mejora: si JS está disponible, armamos un correo formateado
+      form.addEventListener('submit', function(e){
         e.preventDefault();
-        ok.style.display='none';
-        err.style.display='none';
+        ok.style.display='none'; err.style.display='none';
 
-        const nombre = form.nombre.value.trim();
-        const email = form.email.value.trim();
-        const telefono = form.telefono.value.trim();
+        const nombre = (form.Nombre.value||'').trim();
+        const email = (form.Email.value||'').trim();
+        const tel   = (form.Telefono.value||'').trim();
 
-        // Validación mínima: nombre + (email o teléfono)
-        if(!nombre || (!email && !telefono)){
-          err.textContent = 'Por favor indique su nombre y al menos un medio de contacto (email o teléfono).';
+        if(!nombre || (!email && !tel)){
+          err.textContent = 'Indique su nombre y al menos un medio de contacto (email o teléfono).';
           err.style.display='block';
           return;
         }
 
-        // Envío por correo directo (mailto)
         const to = 'msilva@resolutivacr.com';
         const subject = encodeURIComponent('Nuevo contacto – Resolutiva');
         const body = encodeURIComponent(
 `Nombre: ${nombre}
 Email: ${email}
-Teléfono: ${telefono}
-Servicio: ${form.servicio.value}
+Teléfono: ${tel}
+Servicio: ${form.Servicio.value}
 
 Mensaje:
-${form.mensaje.value}
+${form.Mensaje.value}
 
 Origen: Web Resolutiva – Portada`
         );
 
         window.location.href = \`mailto:\${to}?subject=\${subject}&body=\${body}\`;
-        ok.textContent = 'Abriendo su cliente de correo…';
         ok.style.display='block';
       });
     })();
