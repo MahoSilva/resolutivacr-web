@@ -118,7 +118,7 @@
       position:fixed; inset:0; background:rgba(0,0,0,.55);
       display:none; align-items:center; justify-content:center; padding:16px; z-index:1000;
     }
-    .modal[aria-hidden="false"]{display:flex}
+    .modal[aria-hidden="false"], .modal:target { display:flex; } /* Fallback por hash */
     .modal-card{
       background:#fff; border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,.25);
       width:min(640px, 92vw); overflow:hidden;
@@ -128,12 +128,10 @@
     }
     .modal-head h3{margin:0; font-size:1.15rem}
     .modal-close{
-      background:transparent; border:0; color:#fff; font-size:1.4rem; line-height:1; cursor:pointer;
+      background:transparent; border:0; color:#fff; font-size:1.4rem; line-height:1; cursor:pointer; text-decoration:none;
     }
     .modal-body{padding:18px}
-    .grid-2{
-      display:grid; grid-template-columns:1fr 1fr; gap:12px;
-    }
+    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
     @media (max-width:520px){ .grid-2{grid-template-columns:1fr} }
     .field{display:flex; flex-direction:column; gap:6px}
     .field label{font-weight:700; font-size:.95rem}
@@ -176,8 +174,8 @@
         <li role="none"><a role="menuitem" href="#servicios">Servicios</a></li>
         <li role="none"><a role="menuitem" href="/portafolio.html">Portafolio</a></li>
         <li role="none"><a role="menuitem" href="/nosotros.html">Nosotros</a></li>
-        <!-- ACTIVADO: abre el modal -->
-        <li role="none"><a id="open-contacto" class="btn-cta" role="menuitem" href="#contacto">Contacto</a></li>
+        <!-- ahora abre por hash (funciona con o sin JS) -->
+        <li role="none"><a id="open-contacto" class="btn-cta" role="menuitem" href="#contacto-modal">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -190,7 +188,7 @@
         Atendemos sus necesidades con planificación clara, control de costos, ejecución eficiente y seguimiento constante.
       </p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#contacto" id="open-contacto-hero">Solicitar cotización</a>
+        <a class="btn btn-primary" href="#contacto-modal" id="open-contacto-hero">Solicitar cotización</a>
         <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
         <a class="btn btn-ghost" href="https://wa.me/50689980551" target="_blank" rel="noopener"
            aria-label="Abrir WhatsApp en nueva pestaña">WhatsApp</a>
@@ -295,7 +293,8 @@
     <div class="modal-card">
       <div class="modal-head">
         <h3 id="contacto-title">Solicitar cotización / Contacto</h3>
-        <button class="modal-close" type="button" aria-label="Cerrar">×</button>
+        <!-- Enlace para cerrar (funciona sin JS) -->
+        <a class="modal-close" href="#" aria-label="Cerrar">×</a>
       </div>
       <div class="modal-body">
         <!-- Deja este action con YOUR_FORM_ID para usar mailto directo.
@@ -339,7 +338,7 @@
           <p class="note">Campos marcados con * son obligatorios. Responderemos a la mayor brevedad.</p>
 
           <div class="form-actions">
-            <button type="button" class="btn" id="cancelar-contacto">Cancelar</button>
+            <a class="btn" href="#">Cancelar</a>
             <button type="submit" class="btn-dark">Enviar</button>
           </div>
 
@@ -364,8 +363,7 @@
     (function(){
       const modal = document.getElementById('contacto-modal');
       const openers = [document.getElementById('open-contacto'), document.getElementById('open-contacto-hero')].filter(Boolean);
-      const closeBtn = modal.querySelector('.modal-close');
-      const cancelBtn = document.getElementById('cancelar-contacto');
+      const closeLink = modal.querySelector('.modal-close');
       const form = document.getElementById('contacto-form');
       const ok = document.getElementById('contacto-ok');
       const err = document.getElementById('contacto-error');
@@ -374,18 +372,19 @@
       function openModal(e){
         if(e) e.preventDefault();
         modal.setAttribute('aria-hidden','false');
+        if(location.hash !== '#contacto-modal') history.replaceState(null,'','#contacto-modal');
         setTimeout(()=> firstInput && firstInput.focus(), 50);
       }
       function closeModal(e){
         if(e) e.preventDefault();
         modal.setAttribute('aria-hidden','true');
+        if(location.hash) history.replaceState(null,'','#');
       }
-      function overlayClose(e){ if(e.target === modal) closeModal(); }
-      function escClose(e){ if(e.key === 'Escape') closeModal(); }
+      function overlayClose(e){ if(e.target === modal) closeModal(e); }
+      function escClose(e){ if(e.key === 'Escape') closeModal(e); }
 
       openers.forEach(el => el && el.addEventListener('click', openModal));
-      closeBtn.addEventListener('click', closeModal);
-      cancelBtn.addEventListener('click', closeModal);
+      closeLink.addEventListener('click', closeModal);
       modal.addEventListener('click', overlayClose);
       window.addEventListener('keydown', escClose);
 
@@ -420,23 +419,9 @@ ${form.mensaje.value}
 Origen: Web Resolutiva – Portada`
         );
 
-        // Si en el futuro quieres usar Formspree, reemplaza el action del form y
-        // comenta las 3 líneas de mailto de arriba y descomenta el bloque fetch.
         window.location.href = \`mailto:\${to}?subject=\${subject}&body=\${body}\`;
         ok.textContent = 'Abriendo su cliente de correo…';
         ok.style.display='block';
-
-        /*  === Envío con Formspree (opcional futuro) ===
-        try{
-          const res = await fetch(form.action, {
-            method:'POST',
-            headers:{'Accept':'application/json'},
-            body: new FormData(form)
-          });
-          if(res.ok){ form.reset(); ok.style.display='block'; }
-          else{ err.style.display='block'; }
-        }catch(ex){ err.style.display='block'; }
-        */
       });
     })();
   </script>
