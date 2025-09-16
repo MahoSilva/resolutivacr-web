@@ -9,25 +9,28 @@
        Cuando esté lista, borra esta línea. -->
   <meta name="robots" content="noindex,follow" />
 
-  <meta name="description" content="Portafolio de trabajos de Resolutiva. Sección en construcción." />
+  <meta name="description" content="Portafolio de trabajos de Resolutiva. Sección en construcción. Muy pronto compartiremos casos de éxito y proyectos destacados.">
 
   <style>
     :root{
       --green-900:#0b4743;
+      --green-800:#105650;
       --beige:#f4ecdf;
       --gold:#d1a72c;
       --text:#0f0f0f;
+      --muted:#334945;
       --white:#ffffff;
       --radius:16px;
-      --shadow:0 8px 24px rgba(0,0,0,.10);
-      --shadow-soft:0 10px 30px rgba(0,0,0,.06);
-      --border:1px solid rgba(0,0,0,.06);
+      --shadow:0 8px 26px rgba(0,0,0,.12);
+      --shadow-soft:0 10px 30px rgba(0,0,0,.08);
+      --border:1px solid rgba(0,0,0,.08);
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;scroll-behavior:smooth}
     body{
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
       color:var(--text); line-height:1.8; background:#fff;
+      text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased;
     }
 
     /* NAV */
@@ -38,45 +41,60 @@
     .brand img{height:64px; width:auto; display:block}
     .tagline{color:var(--green-900); font-weight:700; letter-spacing:.2px; font-size:.98rem; line-height:1.2}
     .menu{list-style:none; display:flex; gap:1.2rem; margin:0; padding:0}
-    .menu a{color:#0f1f1e; text-decoration:none; font-weight:600; opacity:.95; padding:.25rem .25rem; border-radius:8px}
+    .menu a{color:#10201f; text-decoration:none; font-weight:600; opacity:.95; padding:.35rem .5rem; border-radius:8px}
     .menu a[aria-current="page"]{background:rgba(11,71,67,.08)}
     .menu a:hover{opacity:1}
     .btn-cta{background:var(--gold); color:#1a1a1a; padding:.55rem .9rem; border-radius:999px; border:1px solid rgba(0,0,0,.07); text-decoration:none; font-weight:700; box-shadow:0 8px 22px rgba(209,167,44,.18)}
-    @media (max-width:900px){ .tagline{display:none} .brand img{height:52px} .menu{gap:.9rem} }
+    @media (max-width:900px){ .tagline{display:none} .brand img{height:52px} .menu{gap:.8rem} }
 
     /* HERO */
-    .hero{background:var(--green-900); color:#fff; padding:2.6rem 0 2.1rem}
+    .hero{background:var(--green-900); color:#fff; padding:2.2rem 0 2rem}
     .container{max-width:1040px; margin:0 auto; padding:0 1.25rem}
-    .hero h1{font-size:clamp(2rem,4.2vw,3rem); line-height:1.15; margin:0 0 .6rem; font-weight:850}
-    .hero p{color:#eaf4f2; max-width:820px; margin:.2rem 0 0}
+    .hero h1{font-size:clamp(2rem,4vw,3rem); line-height:1.15; margin:0 0 .5rem; font-weight:850; letter-spacing:.2px}
+    .hero p{color:#eaf4f2; max-width:820px; margin:.2rem 0 0; font-size:clamp(.98rem,1.2vw,1.05rem)}
 
     /* CONTENT */
-    .content{padding:2.2rem 0 4rem}
+    .content{padding:2rem 0 4rem}
     .card{
       background:#fff; border-radius:var(--radius); box-shadow:var(--shadow-soft);
-      padding:1.2rem; border:var(--border);
-      display:grid; gap:1rem; grid-template-columns: 1fr;
+      padding:1.25rem 1.25rem 1.35rem; border:var(--border);
+      display:grid; gap:1.25rem;
     }
-    .card .media{
-      background:#fafafa; border:1px dashed rgba(0,0,0,.12); border-radius:12px;
-      display:grid; place-items:center; padding:1rem; overflow:hidden;
+    .row{
+      display:grid; grid-template-columns: 84px 1fr; gap:1rem; align-items:center;
     }
-    .card .media img{max-width:100%; height:auto; display:block}
-    .row{display:grid; gap:1rem; grid-template-columns: 140px 1fr; align-items:center}
-    .row img{height:64px; width:auto}
-    @media (max-width:640px){ .row{grid-template-columns:1fr; text-align:center} .row img{margin:auto} }
+    .row img.logo{height:64px; width:auto; display:block}
+    .row h2{margin:.1rem 0 .1rem; font-size:1.25rem}
+    .muted{color:var(--muted); font-size:.98rem}
 
-    .cta{display:flex; flex-wrap:wrap; gap:.8rem; margin-top:.3rem}
+    .media{
+      border:1px dashed rgba(0,0,0,.12);
+      border-radius:12px; overflow:hidden; background:#f8faf9;
+      height:clamp(160px, 34vw, 340px);
+      position:relative;
+    }
+    .media picture, .media img{display:block; width:100%; height:100%}
+    .media img{object-fit:cover}
+
+    .cta{display:flex; flex-wrap:wrap; align-items:center; gap:.9rem; margin-top:.1rem}
     .btn{
       display:inline-block; padding:.9rem 1.1rem; border-radius:12px; text-decoration:none; font-weight:800; border:1.5px solid transparent;
     }
     .btn-primary{background:var(--gold); color:#1a1a1a; box-shadow:var(--shadow)}
     .btn-ghost{background:transparent; color:var(--green-900); border-color:var(--green-900)}
-    .muted{color:#374b48; font-size:.96rem}
+    .cta small{color:var(--muted)}
+    .cta a.inline{color:var(--green-900); font-weight:800; text-decoration:none}
 
     /* FOOTER */
     .site-footer{background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem}
     .site-footer .container{max-width:1040px}
+
+    /* MOBILE tweaks */
+    @media (max-width:640px){
+      .row{grid-template-columns:1fr; gap:.75rem}
+      .row img.logo{height:56px; margin:auto}
+      .cta{gap:.7rem}
+    }
   </style>
 </head>
 <body>
@@ -113,9 +131,9 @@
     <div class="container">
       <article class="card" aria-labelledby="construccion">
         <div class="row">
-          <img src="assets/recorte.svg" alt="Logo Resolutiva">
+          <img class="logo" src="assets/recorte.svg" alt="Logo Resolutiva">
           <div>
-            <h2 id="construccion" style="margin:.2rem 0 .35rem;">Sección en construcción</h2>
+            <h2 id="construccion">Sección en construcción</h2>
             <p class="muted">Seguimos trabajando para presentarle una galería clara y ordenada con fotos, alcances y resultados de nuestros proyectos.</p>
           </div>
         </div>
@@ -123,14 +141,19 @@
         <!-- Imagen informativa (con alt). Si solo fuera decorativa,
              podrías usar alt="" y aria-hidden="true" en el contenedor. -->
         <div class="media">
-          <!-- Reemplaza 'placeholder.jpg' por tu imagen final: assets/sitio-construccion.jpg/png/svg -->
-          <img src="assets/placeholder.jpg" alt="Sección en construcción — Portafolio de Resolutiva">
+          <picture>
+            <!-- Cuando tengas tu imagen final, reemplaza por:
+                 <source srcset="assets/sitio-construccion.webp?v=1" type="image/webp">
+                 <img src="assets/sitio-construccion.jpg?v=1" alt="Sección en construcción — Portafolio de Resolutiva">
+            -->
+            <img src="assets/placeholder.jpg?v=2" alt="Sección en construcción — Portafolio de Resolutiva">
+          </picture>
         </div>
 
         <div class="cta">
           <a class="btn btn-primary" href="index.html#contacto">Solicitar una cotización</a>
           <a class="btn btn-ghost" href="https://wa.me/50662236038" target="_blank" rel="noopener">WhatsApp</a>
-          <span class="muted">¿Prefiere ver nuestros servicios? <a href="index.html#servicios" style="color:var(--green-900); font-weight:700; text-decoration:none">Ir a servicios</a></span>
+          <small>¿Prefiere ver nuestros servicios? <a class="inline" href="index.html#servicios">Ir a servicios</a></small>
         </div>
       </article>
     </div>
