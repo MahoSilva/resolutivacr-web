@@ -67,11 +67,22 @@
     .media{
       border:1px dashed rgba(0,0,0,.12);
       border-radius:12px; overflow:hidden; background:#f8faf9;
-      height:clamp(160px, 34vw, 340px);
+      height:clamp(200px, 34vw, 360px);
       position:relative;
+      display:grid;
+      place-items:center;
+      padding:1rem;
     }
-    .media picture, .media img{display:block; width:100%; height:100%}
-    .media img{object-fit:cover}
+    .sr-only{
+      position:absolute!important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+      clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+    .construction-icon{
+      width: min(260px, 50vw);
+      height: auto;
+      opacity:.95;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,.08));
+    }
 
     .cta{display:flex; flex-wrap:wrap; align-items:center; gap:.9rem; margin-top:.1rem}
     .btn{
@@ -130,16 +141,30 @@
           <p class="muted">Seguimos trabajando para presentarle una galería clara y ordenada con fotos, alcances y resultados de nuestros proyectos.</p>
         </div>
 
-        <!-- Imagen informativa (con alt). Si solo fuera decorativa,
-             podrías usar alt="" y aria-hidden="true" en el contenedor. -->
-        <div class="media" aria-label="Vista temporal: sección en construcción">
-          <picture>
-            <!-- Cuando tengas tu imagen final, reemplaza por:
-                 <source srcset="assets/sitio-construccion.webp?v=1" type="image/webp">
-                 <img src="assets/sitio-construccion.jpg?v=1" alt="Sección en construcción — Portafolio de Resolutiva">
-            -->
-            <img src="assets/placeholder.jpg?v=2" alt="Sección en construcción — Portafolio de Resolutiva">
-          </picture>
+        <!-- ICONO EN LUGAR DE IMAGEN -->
+        <div class="media" role="img" aria-label="Sección en construcción">
+          <svg class="construction-icon" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <!-- Base -->
+            <rect x="10" y="92" width="108" height="10" rx="5" fill="rgba(11,71,67,.10)"/>
+            <!-- Cono -->
+            <path d="M64 18 L90 92 H38 L64 18 Z" fill="url(#coneGrad)" stroke="var(--green-900)" stroke-width="2"/>
+            <!-- Franjas del cono -->
+            <path d="M57 38 H71 M52 54 H76 M47 70 H81" stroke="var(--green-900)" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+            <!-- Vallas -->
+            <g opacity=".85">
+              <rect x="8"  y="78" width="36" height="8" rx="3" fill="var(--gold)"/>
+              <rect x="84" y="78" width="36" height="8" rx="3" fill="var(--gold)"/>
+              <path d="M12 86 V96 M40 86 V96 M88 86 V96 M116 86 V96" stroke="var(--green-900)" stroke-width="2" stroke-linecap="round"/>
+            </g>
+            <defs>
+              <linearGradient id="coneGrad" x1="64" y1="18" x2="64" y2="92" gradientUnits="userSpaceOnUse">
+                <stop stop-color="var(--gold)" offset="0"/>
+                <stop stop-color="var(--gold)" offset=".55"/>
+                <stop stop-color="#c5971f" offset="1"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="sr-only">Sección en construcción — Portafolio de Resolutiva</span>
         </div>
 
         <div class="cta">
