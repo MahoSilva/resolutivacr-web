@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nosotros | Resolutiva</title>
+  <meta name="description" content="Conoce la misión, visión y valores de Resolutiva. 17 años de experiencia en administración de proyectos, planes y presupuestos anuales de mantenimiento en Costa Rica." />
+
+  <style>
+    :root{
+      --green-900:#0b4743;   /* cabecera / acentos */
+      --beige:#f4ecdf;       /* fondo secciones claras */
+      --gold:#d1a72c;        /* botón primario */
+      --text:#0f0f0f;
+      --muted:#2c3c3b;
+      --white:#ffffff;
+      --radius:16px;
+      --shadow:0 8px 24px rgba(0,0,0,.10);
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+      color:var(--text);
+      line-height:1.65;
+      background:#fff;
+    }
+
+    /* ====== NAV BAR ====== */
+    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.06)}
+    .top-nav{
+      max-width:1100px; margin:0 auto; padding:.9rem 1.25rem;
+      display:flex; align-items:center; gap:1.25rem;
+    }
+    .brand-wrap{display:flex; align-items:center; gap:1rem; flex:1}
+    .brand{
+      display:flex; align-items:center; gap:1rem; text-decoration:none;
+    }
+    .brand img{height:64px; width:auto; display:block}
+    .tagline{
+      color:var(--green-900); font-weight:700; letter-spacing:.2px;
+      font-size:.98rem; line-height:1.2;
+    }
+
+    .menu{list-style:none; display:flex; gap:1.2rem; margin:0; padding:0}
+    .menu a{
+      color:#0f1f1e; text-decoration:none; font-weight:600; opacity:.95
+    }
+    .menu a:hover{opacity:1}
+    .btn-cta{
+      background:var(--gold); color:#1a1a1a; padding:.55rem .9rem;
+      border-radius:999px; border:1px solid rgba(0,0,0,.07); text-decoration:none;
+      font-weight:700; box-shadow:0 8px 22px rgba(209,167,44,.18);
+    }
+
+    /* ====== HERO ====== */
+    .hero{
+      background:var(--green-900); color:#fff; padding:3rem 0;
+    }
+    .container{max-width:1100px; margin:0 auto; padding:0 1.25rem}
+    .hero h1{
+      font-size:clamp(1.9rem,4.2vw,3rem); line-height:1.15; margin:0 0 .75rem;
+      font-weight:850;
+    }
+    .hero p{color:#eaf4f2; max-width:850px; margin:.2rem 0 0}
+
+    /* ====== CONTENT ====== */
+    .content{padding:3rem 0 4rem}
+    .section{
+      background:#fff; border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:1.25rem 1.25rem 1.2rem; margin:0 0 1.25rem;
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .section h2{
+      display:flex; align-items:center; gap:.6rem;
+      font-size:1.35rem; margin:.15rem 0 .5rem; color:#0b1f1e
+    }
+    .section h2 .dot{font-size:1.25rem}
+    .section p{margin:.5rem 0; color:#152523}
+    .values ol{margin:.6rem 0 .2rem; padding-left:1.1rem}
+    .values li{margin:.45rem 0}
+    .muted{color:#3a514f}
+
+    /* ====== FOOTER ====== */
+    .site-footer{background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem}
+    .site-footer .container{max-width:1100px}
+
+    /* ====== MOBILE ====== */
+    @media (max-width:900px){
+      .tagline{display:none}
+      .brand img{height:52px}
+      .menu{gap:.9rem}
+    }
+    @media (max-width:640px){
+      .top-nav{flex-wrap:wrap; gap:.6rem}
+      .menu{width:100%; justify-content:flex-start; gap:1rem}
+      .hero{padding:2.25rem 0}
+      .hero h1{font-size:clamp(1.8rem,6vw,2.4rem)}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header class="site-header">
+    <nav class="top-nav">
+      <div class="brand-wrap">
+        <a class="brand" href="index.html">
+          <img src="assets/recorte.svg" alt="Resolutiva logo">
+        </a>
+        <div class="tagline">Asesoría, proyectos y mantenimiento confiables</div>
+      </div>
+
+      <ul class="menu">
+        <li><a href="index.html#servicios">Servicios</a></li>
+        <li><a href="#">Portafolio</a></li>
+        <li><a class="btn-cta" href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <h1>Nosotros</h1>
+      <p>17 años de experiencia gestionando proyectos y mantenimiento en Costa Rica. Especialistas en planes y presupuestos anuales, con control de costos y ejecución eficiente.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTENT ===== -->
+  <main class="content">
+    <div class="container">
+
+      <article class="section">
+        <h2><span class="dot">✨</span> Misión</h2>
+        <p>En <strong>Resolutiva</strong> ofrecemos soluciones integrales en construcción, mantenimiento y administración de proyectos, con un enfoque único basado en la <strong>inspección detallada y la programación de necesidades</strong>.</p>
+        <p>Realizamos <strong>diagnósticos completos de cada edificio</strong>, levantamos un <strong>listado anual de requerimientos con sus costos</strong>, elaboramos el <strong>presupuesto de mantenimiento del siguiente año</strong> y, llegado el momento, <strong>administramos y ejecutamos cada proyecto</strong> con control de gastos hasta su cierre.</p>
+        <p>Con <strong>17 años de experiencia</strong>, nos diferenciamos de la mayoría de empresas que reaccionan a emergencias, porque en Resolutiva <strong>anticipamos, planificamos y ejecutamos</strong> para garantizar a nuestros clientes <strong>orden, eficiencia y confianza en la gestión de sus propiedades</strong>.</p>
+      </article>
+
+      <article class="section">
+        <h2><span class="dot">🎯</span> Visión</h2>
+        <p>Ser reconocidos en Costa Rica como la <strong>empresa líder en gestión integral de proyectos y mantenimiento de propiedades</strong>, destacándonos por nuestra <strong>metodología preventiva</strong> de inspección y programación anual, que permite a empresas e instituciones <strong>anticipar costos, reducir emergencias y optimizar sus recursos</strong>.</p>
+        <p>Queremos consolidarnos como el <strong>aliado estratégico más confiable</strong>, capaz de transformar la forma en que se administra y mantiene la infraestructura en el país.</p>
+      </article>
+
+      <article class="section values">
+        <h2><span class="dot">💡</span> Valores</h2>
+        <ol>
+          <li><strong>Prevención</strong> → Anticipamos necesidades con inspecciones detalladas y <strong>planes anuales de mantenimiento</strong>.</li>
+          <li><strong>Transparencia</strong> → Generamos confianza mediante reportes claros, control de gastos y presupuestos verificables.</li>
+          <li><strong>Eficiencia</strong> → Optimizamos tiempos y recursos para reducir costos y evitar imprevistos.</li>
+          <li><strong>Calidad</strong> → Garantizamos resultados profesionales, respaldados por <strong>17 años de experiencia</strong>.</li>
+          <li><strong>Compromiso</strong> → Acompañamos a nuestros clientes como un verdadero aliado estratégico en todo el ciclo de sus proyectos.</li>
+          <li><strong>Integralidad</strong> → Ofrecemos un servicio 360° que une inspección, planificación, licitación, ejecución y cierre en una sola solución.</li>
+        </ol>
+        <p class="muted">Nota: brindamos servicios en todo el país.</p>
+      </article>
+
+      <p class="muted" style="margin-top:1.25rem">
+        ¿Quieres volver al inicio? <a href="index.html" style="color:var(--green-900); font-weight:700; text-decoration:none">Ir a la portada</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Resolutiva. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+</body>
+</html>
