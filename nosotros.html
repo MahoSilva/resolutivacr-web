@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nosotros | Resolutiva</title>
-  <meta name="description" content="Conoce la misión, visión y valores de Resolutiva. 17 años de experiencia en administración de proyectos, planes y presupuestos anuales de mantenimiento en Costa Rica." />
+  <meta name="description" content="Quiénes somos, historia, misión, visión y valores de Resolutiva. Casi 20 años de experiencia en administración de proyectos, planes y presupuestos anuales en Costa Rica." />
 
   <style>
     :root{
@@ -63,7 +63,7 @@
       font-size:clamp(1.9rem,4.2vw,3rem); line-height:1.15; margin:0 0 .75rem;
       font-weight:850;
     }
-    .hero p{color:#eaf4f2; max-width:850px; margin:.2rem 0 0}
+    .hero p{color:#eaf4f2; max-width:880px; margin:.2rem 0 0}
 
     /* ====== CONTENT ====== */
     .content{padding:3rem 0 4rem}
@@ -76,11 +76,31 @@
       display:flex; align-items:center; gap:.6rem;
       font-size:1.35rem; margin:.15rem 0 .5rem; color:#0b1f1e
     }
-    .section h2 .dot{font-size:1.25rem}
+    .section h3{margin:.4rem 0 .35rem; font-size:1.05rem; color:#0b1f1e}
     .section p{margin:.5rem 0; color:#152523}
     .values ol{margin:.6rem 0 .2rem; padding-left:1.1rem}
     .values li{margin:.45rem 0}
     .muted{color:#3a514f}
+
+    .quote{
+      background:var(--beige);
+      border-left:6px solid var(--gold);
+      padding:1rem 1.1rem; border-radius:12px; color:#183431
+    }
+
+    .cta-block{
+      display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; margin-top:.8rem
+    }
+    .btn-primary{
+      display:inline-block; background:var(--gold); color:#1a1a1a;
+      text-decoration:none; font-weight:800; padding:.9rem 1.15rem;
+      border-radius:12px; border:1.5px solid transparent; box-shadow:var(--shadow);
+    }
+    .btn-ghost{
+      display:inline-block; background:transparent; color:var(--green-900);
+      text-decoration:none; font-weight:700; padding:.85rem 1rem;
+      border-radius:12px; border:1.5px solid var(--green-900);
+    }
 
     /* ====== FOOTER ====== */
     .site-footer{background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem}
@@ -124,7 +144,7 @@
   <section class="hero">
     <div class="container">
       <h1>Nosotros</h1>
-      <p>17 años de experiencia gestionando proyectos y mantenimiento en Costa Rica. Especialistas en planes y presupuestos anuales, con control de costos y ejecución eficiente.</p>
+      <p>Quiénes somos, historia, misión, visión, valores y nuestra propuesta de valor. Casi 20 años de experiencia en Costa Rica.</p>
     </div>
   </section>
 
@@ -132,34 +152,91 @@
   <main class="content">
     <div class="container">
 
+      <!-- QUIÉNES SOMOS -->
       <article class="section">
-        <h2><span class="dot">✨</span> Misión</h2>
-        <p>En <strong>Resolutiva</strong> ofrecemos soluciones integrales en construcción, mantenimiento y administración de proyectos, con un enfoque único basado en la <strong>inspección detallada y la programación de necesidades</strong>.</p>
-        <p>Realizamos <strong>diagnósticos completos de cada edificio</strong>, levantamos un <strong>listado anual de requerimientos con sus costos</strong>, elaboramos el <strong>presupuesto de mantenimiento del siguiente año</strong> y, llegado el momento, <strong>administramos y ejecutamos cada proyecto</strong> con control de gastos hasta su cierre.</p>
-        <p>Con <strong>17 años de experiencia</strong>, nos diferenciamos de la mayoría de empresas que reaccionan a emergencias, porque en Resolutiva <strong>anticipamos, planificamos y ejecutamos</strong> para garantizar a nuestros clientes <strong>orden, eficiencia y confianza en la gestión de sus propiedades</strong>.</p>
+        <h2>Quiénes somos</h2>
+        <p>En <strong>Resolutiva</strong> somos una empresa costarricense con casi 20 años de experiencia en la administración de proyectos, mantenimiento y construcción. Nuestra esencia es brindar <strong>soluciones integrales</strong> que permitan a cada cliente confiar en un <strong>aliado único</strong> para planificar, ejecutar y mantener sus propiedades con <strong>eficiencia, transparencia</strong> y <strong>resultados comprobados</strong>.</p>
       </article>
 
+      <!-- HISTORIA -->
       <article class="section">
-        <h2><span class="dot">🎯</span> Visión</h2>
+        <h2>Historia</h2>
+        <p>Nacimos con la visión de cambiar la forma en que las empresas y organizaciones gestionan sus edificios e instalaciones. Mientras la mayoría de proveedores responde a emergencias sin planificación, en Resolutiva apostamos por un modelo <strong>preventivo y estratégico</strong>, donde la <strong>inspección detallada</strong> y la <strong>programación anual de necesidades</strong> son la base de un mantenimiento <strong>ordenado y rentable</strong>.</p>
+        <p>Con los años, hemos consolidado nuestra reputación como un <strong>socio confiable</strong> para empresas, instituciones y clientes particulares, gestionando proyectos de inicio a fin y asegurando el <strong>cumplimiento en tiempo, costo y calidad</strong>.</p>
+      </article>
+
+      <!-- MISIÓN -->
+      <article class="section">
+        <h2>Misión</h2>
+        <p>En Resolutiva brindamos soluciones integrales en construcción, mantenimiento y administración de proyectos, con un enfoque único basado en la <strong>inspección detallada</strong> y la <strong>programación de necesidades</strong>.</p>
+        <p>Realizamos diagnósticos completos de cada edificio, levantamos un <strong>listado anual de requerimientos con sus costos</strong>, elaboramos el <strong>presupuesto de mantenimiento del siguiente año</strong> y, llegado el momento, <strong>administramos y ejecutamos cada proyecto</strong> con control de gastos hasta su cierre.</p>
+        <p>Con casi 20 años de experiencia, nos diferenciamos de la mayoría de empresas que reaccionan a emergencias, porque en Resolutiva <strong>anticipamos, planificamos y ejecutamos</strong> para garantizar a nuestros clientes <strong>orden, eficiencia y confianza</strong> en la gestión de sus propiedades.</p>
+      </article>
+
+      <!-- VISIÓN -->
+      <article class="section">
+        <h2>Visión</h2>
         <p>Ser reconocidos en Costa Rica como la <strong>empresa líder en gestión integral de proyectos y mantenimiento de propiedades</strong>, destacándonos por nuestra <strong>metodología preventiva</strong> de inspección y programación anual, que permite a empresas e instituciones <strong>anticipar costos, reducir emergencias y optimizar sus recursos</strong>.</p>
         <p>Queremos consolidarnos como el <strong>aliado estratégico más confiable</strong>, capaz de transformar la forma en que se administra y mantiene la infraestructura en el país.</p>
       </article>
 
+      <!-- VALORES -->
       <article class="section values">
-        <h2><span class="dot">💡</span> Valores</h2>
+        <h2>Valores</h2>
         <ol>
-          <li><strong>Prevención</strong> → Anticipamos necesidades con inspecciones detalladas y <strong>planes anuales de mantenimiento</strong>.</li>
-          <li><strong>Transparencia</strong> → Generamos confianza mediante reportes claros, control de gastos y presupuestos verificables.</li>
-          <li><strong>Eficiencia</strong> → Optimizamos tiempos y recursos para reducir costos y evitar imprevistos.</li>
-          <li><strong>Calidad</strong> → Garantizamos resultados profesionales, respaldados por <strong>17 años de experiencia</strong>.</li>
-          <li><strong>Compromiso</strong> → Acompañamos a nuestros clientes como un verdadero aliado estratégico en todo el ciclo de sus proyectos.</li>
-          <li><strong>Integralidad</strong> → Ofrecemos un servicio 360° que une inspección, planificación, licitación, ejecución y cierre en una sola solución.</li>
+          <li><strong>Prevención:</strong> Anticipamos necesidades con inspecciones detalladas y planes anuales de mantenimiento.</li>
+          <li><strong>Transparencia:</strong> Generamos confianza mediante reportes claros, control de gastos y presupuestos verificables.</li>
+          <li><strong>Eficiencia:</strong> Optimizamos tiempos y recursos para reducir costos y evitar imprevistos.</li>
+          <li><strong>Calidad:</strong> Garantizamos resultados profesionales, respaldados por casi 20 años de experiencia.</li>
+          <li><strong>Compromiso:</strong> Acompañamos a nuestros clientes como un verdadero aliado estratégico en todo el ciclo de sus proyectos.</li>
+          <li><strong>Integralidad:</strong> Ofrecemos un servicio 360° que une inspección, planificación, licitación, ejecución y cierre en una sola solución.</li>
         </ol>
-        <p class="muted">Nota: brindamos servicios en todo el país.</p>
+      </article>
+
+      <!-- PROPUESTA DE VALOR -->
+      <article class="section">
+        <h2>Nuestra propuesta de valor</h2>
+        <p>En Resolutiva no solo resolvemos emergencias: <strong>planificamos el futuro</strong> de las propiedades de nuestros clientes. Nuestra metodología incluye:</p>
+        <ul>
+          <li>Inspección detallada de cada edificio.</li>
+          <li>Listado anual de necesidades con costos estimados.</li>
+          <li>Presupuestación anual de mantenimiento.</li>
+          <li>Gestión de licitaciones y administración de proyectos.</li>
+          <li>Ejecución y control de gastos hasta el cierre.</li>
+        </ul>
+        <p>De esta manera, aseguramos que nuestros clientes tengan <strong>control total de su inversión</strong> y la tranquilidad de contar con un <strong>aliado integral</strong>.</p>
+      </article>
+
+      <!-- EQUIPO -->
+      <article class="section">
+        <h2>Nuestro equipo</h2>
+        <p>Contamos con un equipo multidisciplinario de profesionales en administración de proyectos, ingeniería, supervisión técnica y servicios de mantenimiento. Cada uno de nuestros colaboradores comparte un mismo objetivo: trabajar con <strong>transparencia</strong> y <strong>compromiso</strong> para garantizar la satisfacción del cliente.</p>
+      </article>
+
+      <!-- CLIENTES Y SECTORES -->
+      <article class="section">
+        <h2>Clientes y sectores atendidos</h2>
+        <p>Hemos acompañado a empresas privadas, instituciones públicas y clientes particulares en la gestión de sus proyectos y propiedades. Nuestros servicios están diseñados para adaptarse a distintos sectores: <strong>corporativo, financiero, comercial, industrial y residencial</strong>.</p>
+      </article>
+
+      <!-- FRASE -->
+      <article class="section">
+        <h2>Frase inspiradora</h2>
+        <p class="quote"><em>"En Resolutiva creemos que prevenir siempre será más eficiente que reparar. Por eso acompañamos a nuestros clientes con planes claros, medibles y ejecutables."</em></p>
+      </article>
+
+      <!-- CTA -->
+      <article class="section">
+        <h2>Llamado a la acción</h2>
+        <p>👉 ¿Quiere transformar la forma en que su empresa administra el mantenimiento y los proyectos? Conversemos sobre cómo podemos ayudarle.</p>
+        <div class="cta-block">
+          <a class="btn-primary" href="https://wa.me/50662236038" target="_blank" rel="noopener">Solicitar una asesoría</a>
+          <a class="btn-ghost" href="index.html#contacto">Escríbanos desde el formulario</a>
+        </div>
       </article>
 
       <p class="muted" style="margin-top:1.25rem">
-        ¿Quieres volver al inicio? <a href="index.html" style="color:var(--green-900); font-weight:700; text-decoration:none">Ir a la portada</a>
+        ¿Desea volver al inicio? <a href="index.html" style="color:var(--green-900); font-weight:700; text-decoration:none">Ir a la portada</a>
       </p>
     </div>
   </main>
