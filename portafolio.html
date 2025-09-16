@@ -60,11 +60,8 @@
       padding:1.25rem 1.25rem 1.35rem; border:var(--border);
       display:grid; gap:1.25rem;
     }
-    .row{
-      display:grid; grid-template-columns: 84px 1fr; gap:1rem; align-items:center;
-    }
-    .row img.logo{height:64px; width:auto; display:block}
-    .row h2{margin:.1rem 0 .1rem; font-size:1.25rem}
+    .intro{display:block}
+    .intro h2{margin:.1rem 0 .15rem; font-size:1.25rem}
     .muted{color:var(--muted); font-size:.98rem}
 
     .media{
@@ -91,8 +88,6 @@
 
     /* MOBILE tweaks */
     @media (max-width:640px){
-      .row{grid-template-columns:1fr; gap:.75rem}
-      .row img.logo{height:56px; margin:auto}
       .cta{gap:.7rem}
     }
   </style>
@@ -130,17 +125,14 @@
   <main class="content">
     <div class="container">
       <article class="card" aria-labelledby="construccion">
-        <div class="row">
-          <img class="logo" src="assets/recorte.svg" alt="Logo Resolutiva">
-          <div>
-            <h2 id="construccion">Sección en construcción</h2>
-            <p class="muted">Seguimos trabajando para presentarle una galería clara y ordenada con fotos, alcances y resultados de nuestros proyectos.</p>
-          </div>
+        <div class="intro">
+          <h2 id="construccion">Sección en construcción</h2>
+          <p class="muted">Seguimos trabajando para presentarle una galería clara y ordenada con fotos, alcances y resultados de nuestros proyectos.</p>
         </div>
 
         <!-- Imagen informativa (con alt). Si solo fuera decorativa,
              podrías usar alt="" y aria-hidden="true" en el contenedor. -->
-        <div class="media">
+        <div class="media" aria-label="Vista temporal: sección en construcción">
           <picture>
             <!-- Cuando tengas tu imagen final, reemplaza por:
                  <source srcset="assets/sitio-construccion.webp?v=1" type="image/webp">
