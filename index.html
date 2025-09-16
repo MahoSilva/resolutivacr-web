@@ -31,52 +31,27 @@
     }
     img{max-width:100%;height:auto;display:block}
 
-    /* ===== HEADER (responsive: logo siempre visible) ===== */
-    .topbar{
-      background:#fff;
-      border-bottom:none;
-      position:relative;
-      z-index:10;
-    }
+    /* ===== HEADER ===== */
+    .topbar{ background:#fff; position:relative; z-index:10; }
     .topnav{
       max-width:var(--container);
-      margin:0 auto;
-      padding:12px 16px;
-
-      display:flex;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;               /* permite segunda línea si hace falta */
+      margin:0 auto; padding:12px 16px;
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
     }
     .logo{ flex:0 0 auto; }
-    .logo img{
-      height:var(--logo-h);
-      width:auto;
-      max-height:18vh;              /* seguridad en móviles muy bajos */
-    }
+    .logo img{ height:var(--logo-h); width:auto; max-height:18vh; }
     .tagline{
-      color:var(--green-900);
-      font-weight:800;
-      letter-spacing:.2px;
-      line-height:1.2;
-      font-size:clamp(1.05rem,1.7vw,1.3rem);
-      flex:1 1 320px;               /* puede crecer/encoger y bajar de línea */
-      min-width:220px;
+      color:var(--green-900); font-weight:800; letter-spacing:.2px; line-height:1.2;
+      font-size:clamp(1.05rem,1.7vw,1.3rem); flex:1 1 320px; min-width:220px;
+      text-align:center;
     }
     .menu{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      list-style:none;
-      margin-left:auto;             /* el menú se alinea a la derecha */
-      padding:0;
-      flex:0 0 auto;
+      display:flex; align-items:center; gap:18px; list-style:none; margin-left:auto; padding:0; flex:0 0 auto;
     }
     .menu a{color:#222; text-decoration:none; font-weight:600; opacity:.92}
     .menu a:hover{opacity:1}
     .btn-cta{
-      background:var(--gold); color:#1a1a1a;
-      border-radius:12px; padding:10px 16px; text-decoration:none; font-weight:700;
+      background:var(--gold); color:#1a1a1a; border-radius:12px; padding:10px 16px; text-decoration:none; font-weight:700;
       box-shadow:0 4px 12px rgba(209,167,44,.25);
     }
 
@@ -84,16 +59,12 @@
     .hero{background:var(--green-900); color:var(--white)}
     .hero-inner{max-width:var(--container); margin:0 auto; padding:48px 16px 56px}
     .hero h1{
-      margin:0 0 18px;
-      font-size:clamp(2.2rem,4.6vw,3.4rem);
-      line-height:1.12; font-weight:900; letter-spacing:.2px;
-      max-width:30ch;
+      margin:0 0 18px; font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.12; font-weight:900; letter-spacing:.2px; max-width:30ch;
     }
     .hero-sub{color:#dfeeed; max-width:760px; margin:0 0 22px; font-size:clamp(1rem,1.15vw,1.06rem)}
     .cta-row{display:flex; gap:12px; flex-wrap:wrap}
     .btn{
-      display:inline-block; text-decoration:none; border-radius:12px;
-      padding:12px 16px; font-weight:700; transition:.2s transform;
+      display:inline-block; text-decoration:none; border-radius:12px; padding:12px 16px; font-weight:700; transition:.2s transform;
       border:1.5px solid rgba(255,255,255,.28); color:#fff;
     }
     .btn:hover{transform:translateY(-1px)}
@@ -121,12 +92,12 @@
     }
     .icon svg{width:20px; height:20px; stroke:#8b6b0e}
 
-    /* ===== MODAL CONTACTO ===== */
+    /* ===== MODAL ===== */
     .modal{
       position:fixed; inset:0; background:rgba(0,0,0,.55);
       display:none; align-items:center; justify-content:center; padding:16px; z-index:1000;
     }
-    .modal[aria-hidden="false"], .modal:target { display:flex; } /* Fallback por hash */
+    .modal[aria-hidden="false"], .modal:target { display:flex; }
     .modal-card{background:#fff; border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,.25); width:min(640px, 92vw); overflow:hidden}
     .modal-head{
       background:var(--green-900); color:#fff; padding:16px 18px; display:flex; align-items:center; justify-content:space-between;
@@ -156,26 +127,16 @@
       outline:3px solid #8bd2ff; outline-offset:2px; border-radius:6px
     }
 
-    /* --- Franja de marca SOLO en pantallas pequeñas --- */
+    /* --- Franja de marca SOLO móvil --- */
     @media (max-width:560px){
       .logo{
-        order:-1;                 /* sube arriba del menú */
-        flex-basis:100%;          /* ancho completo */
-        background:var(--green-900);
-        margin-left:-16px;        /* sangra el fondo hasta los bordes (compensa padding) */
-        margin-right:-16px;
-        padding:10px 16px;        /* alto de la franja */
-        display:flex;
-        justify-content:center;   /* centra el logo dentro de la franja */
-        align-items:center;
-        border-bottom:1px solid rgba(0,0,0,.06); /* opcional */
+        order:-1; flex-basis:100%; background:var(--green-900);
+        margin-left:-16px; margin-right:-16px; padding:10px 16px;
+        display:flex; justify-content:center; align-items:center;
+        border-bottom:1px solid rgba(0,0,0,.06);
       }
-      .logo img{
-        height:72px;              /* ajusta 64–84 según prefieras */
-        width:auto;
-        max-height:18vh;
-      }
-      .menu{ gap:12px; }          /* menú un poco más compacto en móvil */
+      .logo img{ height:72px; width:auto; max-height:18vh; }
+      .menu{ gap:12px; }
     }
   </style>
 </head>
@@ -316,9 +277,9 @@
       </div>
       <div class="modal-body">
 
-        <!-- Envío por AJAX a Formspree (si hay Form ID); fallback a mailto si no se configuró -->
+        <!-- Endpoint de Formspree configurado -->
         <form id="contacto-form"
-              action="https://formspree.io/f/abcde123"  <!-- REEMPLAZA abcde123 POR TU FORM ID REAL DE FORMSPREE -->
+              action="https://formspree.io/f/mnnbywyn"
               method="POST" novalidate>
           <div class="grid-2">
             <div class="field">
@@ -365,7 +326,7 @@
           </div>
 
           <div class="success" id="contacto-ok">¡Gracias! Mensaje enviado correctamente.</div>
-          <div class="error" id="contacto-error">No se pudo enviar. Por favor, inténtelo de nuevo o escríbanos a msilva@resolutivacr.com.</div>
+          <div class="error" id="contacto-error">No se pudo enviar. Por favor, inténtelo de nuevo.</div>
         </form>
       </div>
     </div>
@@ -378,7 +339,7 @@
     </div>
   </footer>
 
-  <!-- ===== JS: abrir/cerrar modal + envío AJAX a Formspree con fallback ===== -->
+  <!-- ===== JS: modal + envío AJAX sin salir de la página ===== -->
   <script>
     (function(){
       const modal = document.getElementById('contacto-modal');
@@ -408,7 +369,7 @@
       modal.addEventListener('click', overlayClose);
       window.addEventListener('keydown', escClose);
 
-      // Envío: Formspree por AJAX si hay Form ID real; si no, fallback a mailto
+      // Envío AJAX a Formspree: sin abrir Outlook/Gmail ni redirigir
       form.addEventListener('submit', async function(e){
         e.preventDefault();
         ok.style.display='none';
@@ -416,44 +377,15 @@
 
         const nombre = (form.querySelector('[name="nombre"]').value||'').trim();
         const email  = (form.querySelector('[name="email"]').value ||'').trim();
-        const tel    = (form.querySelector('[name="telefono"]').value||'').trim();
-        const servicio = form.querySelector('[name="servicio"]').value || '';
-        const mensaje  = form.querySelector('[name="mensaje"]').value || '';
-
         if(!nombre || !email){
           err.textContent = 'Indique su nombre y correo electrónico.';
           err.style.display = 'block';
           return;
         }
 
-        const action = form.getAttribute('action') || '';
-        const looksPlaceholder = /\/f\/abcde123$/i.test(action) || /\/f\/YOUR_FORM_ID/i.test(action);
-
-        // Si el action aún es el placeholder → usamos mailto como respaldo
-        if(looksPlaceholder){
-          const to = 'msilva@resolutivacr.com';
-          const subject = encodeURIComponent('Nuevo contacto – Resolutiva');
-          const body = encodeURIComponent(
-`Nombre: ${nombre}
-Email: ${email}
-Teléfono: ${tel}
-Servicio: ${servicio}
-
-Mensaje:
-${mensaje}
-
-Origen: Web Resolutiva – Portada`
-          );
-          window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-          ok.textContent = 'Si tiene cliente de correo configurado, se abrirá con el mensaje listo.';
-          ok.style.display = 'block';
-          return;
-        }
-
-        // Envío a Formspree vía fetch (sin salir de la página)
         try{
           const fd = new FormData(form);
-          const res = await fetch(action, {
+          const res = await fetch(form.action, {
             method: 'POST',
             headers: { 'Accept': 'application/json' },
             body: fd
@@ -465,7 +397,7 @@ Origen: Web Resolutiva – Portada`
             ok.style.display = 'block';
           }else{
             const data = await res.json().catch(()=>({}));
-            err.textContent = (data?.errors?.[0]?.message) || 'No se pudo enviar. Verifique el Form ID de Formspree.';
+            err.textContent = (data?.errors?.[0]?.message) || 'No se pudo enviar. Intente nuevamente.';
             err.style.display = 'block';
           }
         }catch(_e){
