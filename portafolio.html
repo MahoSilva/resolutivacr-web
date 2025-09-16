@@ -80,7 +80,7 @@
     .construction-icon{
       width: min(260px, 50vw);
       height: auto;
-      opacity:.95;
+      opacity:.97;
       filter: drop-shadow(0 10px 24px rgba(0,0,0,.08));
     }
 
@@ -141,28 +141,34 @@
           <p class="muted">Seguimos trabajando para presentarle una galería clara y ordenada con fotos, alcances y resultados de nuestros proyectos.</p>
         </div>
 
-        <!-- ICONO EN LUGAR DE IMAGEN -->
+        <!-- ICONO DE CASCO -->
         <div class="media" role="img" aria-label="Sección en construcción">
           <svg class="construction-icon" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-            <!-- Base -->
-            <rect x="10" y="92" width="108" height="10" rx="5" fill="rgba(11,71,67,.10)"/>
-            <!-- Cono -->
-            <path d="M64 18 L90 92 H38 L64 18 Z" fill="url(#coneGrad)" stroke="var(--green-900)" stroke-width="2"/>
-            <!-- Franjas del cono -->
-            <path d="M57 38 H71 M52 54 H76 M47 70 H81" stroke="var(--green-900)" stroke-width="4" stroke-linecap="round" opacity=".85"/>
-            <!-- Vallas -->
-            <g opacity=".85">
-              <rect x="8"  y="78" width="36" height="8" rx="3" fill="var(--gold)"/>
-              <rect x="84" y="78" width="36" height="8" rx="3" fill="var(--gold)"/>
-              <path d="M12 86 V96 M40 86 V96 M88 86 V96 M116 86 V96" stroke="var(--green-900)" stroke-width="2" stroke-linecap="round"/>
-            </g>
+            <!-- Suelo -->
+            <rect x="10" y="100" width="108" height="10" rx="5" fill="rgba(11,71,67,.10)"/>
+
+            <!-- Casco -->
             <defs>
-              <linearGradient id="coneGrad" x1="64" y1="18" x2="64" y2="92" gradientUnits="userSpaceOnUse">
-                <stop stop-color="var(--gold)" offset="0"/>
-                <stop stop-color="var(--gold)" offset=".55"/>
-                <stop stop-color="#c5971f" offset="1"/>
+              <linearGradient id="hatFill" x1="64" y1="34" x2="64" y2="92" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="var(--gold)"/>
+                <stop offset=".6" stop-color="var(--gold)"/>
+                <stop offset="1" stop-color="#c5971f"/>
               </linearGradient>
             </defs>
+
+            <!-- Cúpula del casco -->
+            <path d="M24 76a40 32 0 0 1 80 0v10H24V76z" fill="url(#hatFill)" stroke="var(--green-900)" stroke-width="2" />
+
+            <!-- Visera del casco -->
+            <rect x="16" y="86" width="96" height="10" rx="5" fill="url(#hatFill)" stroke="var(--green-900)" stroke-width="2"/>
+
+            <!-- Nervaduras / refuerzos -->
+            <path d="M64 44v28" stroke="var(--green-900)" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+            <path d="M50 50v22M78 50v22" stroke="var(--green-900)" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+
+            <!-- Remaches laterales -->
+            <circle cx="28" cy="91" r="2" fill="var(--green-900)" />
+            <circle cx="100" cy="91" r="2" fill="var(--green-900)" />
           </svg>
           <span class="sr-only">Sección en construcción — Portafolio de Resolutiva</span>
         </div>
