@@ -9,28 +9,31 @@
   <style>
     :root{
       --green-900:#0b4743;   /* cabecera / acentos */
+      --green-700:#115a55;
       --beige:#f4ecdf;       /* fondo secciones claras */
-      --gold:#d1a72c;        /* botón primario */
+      --gold:#d1a72c;        /* botón primario / acento */
       --text:#0f0f0f;
-      --muted:#2c3c3b;
+      --muted:#304341;
       --white:#ffffff;
       --radius:16px;
       --shadow:0 8px 24px rgba(0,0,0,.10);
+      --shadow-soft:0 10px 30px rgba(0,0,0,.06);
+      --border:1px solid rgba(0,0,0,.06);
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
+    html,body{margin:0;padding:0;scroll-behavior:smooth}
     body{
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
       color:var(--text);
-      line-height:1.65;
+      line-height:1.8;
       background:#fff;
     }
 
     /* ====== NAV BAR ====== */
-    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.06)}
+    .site-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.06); position:sticky; top:0; z-index:30}
     .top-nav{
-      max-width:1100px; margin:0 auto; padding:.9rem 1.25rem;
+      max-width:1040px; margin:0 auto; padding:.9rem 1.25rem;
       display:flex; align-items:center; gap:1.25rem;
     }
     .brand-wrap{display:flex; align-items:center; gap:1rem; flex:1}
@@ -56,38 +59,59 @@
 
     /* ====== HERO ====== */
     .hero{
-      background:var(--green-900); color:#fff; padding:3rem 0;
+      background:var(--green-900); color:#fff; padding:2.75rem 0 2.25rem;
     }
-    .container{max-width:1100px; margin:0 auto; padding:0 1.25rem}
+    .container{max-width:1040px; margin:0 auto; padding:0 1.25rem}
     .hero h1{
-      font-size:clamp(1.9rem,4.2vw,3rem); line-height:1.15; margin:0 0 .75rem;
+      font-size:clamp(2rem,4.2vw,3rem); line-height:1.15; margin:0 0 .6rem;
       font-weight:850;
     }
     .hero p{color:#eaf4f2; max-width:880px; margin:.2rem 0 0}
 
+    /* Breadcrumb */
+    .crumbs{font-size:.92rem; margin:0 0 .75rem; opacity:.9}
+    .crumbs a{color:#cfe7e3; text-decoration:none}
+    .crumbs a:hover{text-decoration:underline}
+
+    /* ====== ANCHOR SUBNAV ====== */
+    .subnav{
+      background:#fff; border-bottom:var(--border);
+    }
+    .subnav .container{
+      display:flex; gap:.6rem; flex-wrap:wrap; padding:.8rem 1.25rem;
+    }
+    .chip{
+      display:inline-block; padding:.5rem .75rem; border-radius:999px;
+      border:1px solid rgba(0,0,0,.08); background:#fff;
+      text-decoration:none; color:#163331; font-weight:600; font-size:.92rem;
+    }
+    .chip:hover{background:#f7faf9}
+
     /* ====== CONTENT ====== */
-    .content{padding:3rem 0 4rem}
+    .content{padding:2.2rem 0 4rem}
     .section{
-      background:#fff; border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:1.25rem 1.25rem 1.2rem; margin:0 0 1.25rem;
-      border:1px solid rgba(0,0,0,.06);
+      background:#fff; border-radius:var(--radius); box-shadow:var(--shadow-soft);
+      padding:1.35rem 1.25rem 1.2rem; margin:0 0 1.25rem;
+      border:var(--border);
     }
     .section h2{
       display:flex; align-items:center; gap:.6rem;
-      font-size:1.35rem; margin:.15rem 0 .5rem; color:#0b1f1e
+      font-size:clamp(1.35rem,1.9vw,1.6rem);
+      margin:.15rem 0 .5rem; color:#0b1f1e; letter-spacing:.2px
     }
     .section h3{margin:.4rem 0 .35rem; font-size:1.05rem; color:#0b1f1e}
     .section p{margin:.5rem 0; color:#152523}
-    .values ol{margin:.6rem 0 .2rem; padding-left:1.1rem}
-    .values li{margin:.45rem 0}
     .muted{color:#3a514f}
 
-    .quote{
-      background:var(--beige);
-      border-left:6px solid var(--gold);
-      padding:1rem 1.1rem; border-radius:12px; color:#183431
+    .section--accent{
+      position:relative; overflow:hidden;
+    }
+    .section--accent:before{
+      content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+      background:var(--gold); border-radius:3px 0 0 3px;
     }
 
+    /* CTA block */
     .cta-block{
       display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; margin-top:.8rem
     }
@@ -102,11 +126,37 @@
       border-radius:12px; border:1.5px solid var(--green-900);
     }
 
+    /* Quote */
+    .quote{
+      background:var(--beige);
+      border-left:6px solid var(--gold);
+      padding:1rem 1.1rem; border-radius:12px; color:#183431
+    }
+
+    /* Values grid */
+    .values-grid{
+      display:grid; gap:1rem;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+    }
+    @media (max-width:900px){ .values-grid{grid-template-columns:repeat(2, minmax(0,1fr))} }
+    @media (max-width:560px){ .values-grid{grid-template-columns:1fr} }
+
+    .value-card{
+      border:var(--border); border-radius:14px; padding:1rem; background:#fff; box-shadow:var(--shadow-soft);
+      display:grid; grid-template-columns:40px 1fr; gap:.75rem; align-items:start;
+    }
+    .value-ico{
+      width:40px; height:40px; border-radius:12px; background:var(--beige);
+      display:grid; place-items:center; color:#7a5a00; font-size:1.15rem; border:1px solid rgba(0,0,0,.04)
+    }
+    .value-card h4{margin:.15rem 0 .25rem; font-size:1.05rem}
+    .value-card p{margin:0; color:#2c3c3b; font-size:.98rem}
+
     /* ====== FOOTER ====== */
     .site-footer{background:#0f2221; color:#cde0df; padding:1.2rem 1.25rem}
-    .site-footer .container{max-width:1100px}
+    .site-footer .container{max-width:1040px}
 
-    /* ====== MOBILE ====== */
+    /* ====== MOBILE HEADER ADJUST ====== */
     @media (max-width:900px){
       .tagline{display:none}
       .brand img{height:52px}
@@ -115,8 +165,29 @@
     @media (max-width:640px){
       .top-nav{flex-wrap:wrap; gap:.6rem}
       .menu{width:100%; justify-content:flex-start; gap:1rem}
-      .hero{padding:2.25rem 0}
-      .hero h1{font-size:clamp(1.8rem,6vw,2.4rem)}
+      .hero{padding:2.1rem 0}
+      .hero h1{font-size:clamp(1.9rem,6vw,2.4rem)}
+    }
+
+    /* Back to top */
+    .to-top{
+      position:fixed; right:16px; bottom:16px; z-index:40; opacity:0; pointer-events:none;
+      transform:translateY(8px); transition:all .25s ease;
+      background:#0b4743; color:#fff; border:none; border-radius:999px; padding:.7rem .9rem; box-shadow:var(--shadow);
+      font-weight:700;
+    }
+    .to-top.show{opacity:1; pointer-events:auto; transform:translateY(0)}
+    .to-top:hover{filter:brightness(1.1)}
+
+    /* Sticky WA only mobile */
+    .wa-sticky{
+      position:fixed; left:16px; bottom:16px; z-index:40; display:none;
+      background:#25D366; color:#0f0f0f; border-radius:999px; padding:.7rem 1rem; font-weight:800;
+      text-decoration:none; box-shadow:0 12px 30px rgba(37,211,102,.35)
+    }
+    .wa-sticky svg{vertical-align:-3px; margin-right:.45rem}
+    @media (max-width:900px){
+      .wa-sticky{display:inline-flex; align-items:center}
     }
   </style>
 </head>
@@ -126,7 +197,7 @@
   <header class="site-header">
     <nav class="top-nav">
       <div class="brand-wrap">
-        <a class="brand" href="index.html">
+        <a class="brand" href="index.html" aria-label="Ir a Inicio">
           <img src="assets/recorte.svg" alt="Resolutiva logo">
         </a>
         <div class="tagline">Asesoría, proyectos y mantenimiento confiables</div>
@@ -141,32 +212,55 @@
   </header>
 
   <!-- ===== HERO ===== -->
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="container">
+      <p class="crumbs"><a href="index.html">Inicio</a>  ›  Nosotros</p>
       <h1>Nosotros</h1>
       <p>Quiénes somos, historia, misión, visión, valores y nuestra propuesta de valor. Casi 20 años de experiencia en Costa Rica.</p>
     </div>
   </section>
+
+  <!-- ===== ANCHOR SUBNAV ===== -->
+  <div class="subnav">
+    <div class="container">
+      <a class="chip" href="#quienes">Quiénes somos</a>
+      <a class="chip" href="#historia">Historia</a>
+      <a class="chip" href="#mision">Misión</a>
+      <a class="chip" href="#vision">Visión</a>
+      <a class="chip" href="#valores">Valores</a>
+      <a class="chip" href="#propuesta">Propuesta de valor</a>
+      <a class="chip" href="#equipo">Equipo</a>
+      <a class="chip" href="#sectores">Sectores</a>
+      <a class="chip" href="#cta">Agenda / contacto</a>
+    </div>
+  </div>
 
   <!-- ===== CONTENT ===== -->
   <main class="content">
     <div class="container">
 
       <!-- QUIÉNES SOMOS -->
-      <article class="section">
+      <article class="section" id="quienes">
         <h2>Quiénes somos</h2>
         <p>En <strong>Resolutiva</strong> somos una empresa costarricense con casi 20 años de experiencia en la administración de proyectos, mantenimiento y construcción. Nuestra esencia es brindar <strong>soluciones integrales</strong> que permitan a cada cliente confiar en un <strong>aliado único</strong> para planificar, ejecutar y mantener sus propiedades con <strong>eficiencia, transparencia</strong> y <strong>resultados comprobados</strong>.</p>
+
+        <!-- CTA duplicado temprano -->
+        <div class="cta-block" style="margin-top:.8rem">
+          <a class="btn-primary" href="https://wa.me/50662236038" target="_blank" rel="noopener">Solicitar una asesoría</a>
+          <a class="btn-ghost" href="index.html#contacto">Escríbanos desde el formulario</a>
+          <span class="muted" style="font-size:.92rem">Respuesta en menos de 24&nbsp;horas.</span>
+        </div>
       </article>
 
       <!-- HISTORIA -->
-      <article class="section">
+      <article class="section" id="historia">
         <h2>Historia</h2>
         <p>Nacimos con la visión de cambiar la forma en que las empresas y organizaciones gestionan sus edificios e instalaciones. Mientras la mayoría de proveedores responde a emergencias sin planificación, en Resolutiva apostamos por un modelo <strong>preventivo y estratégico</strong>, donde la <strong>inspección detallada</strong> y la <strong>programación anual de necesidades</strong> son la base de un mantenimiento <strong>ordenado y rentable</strong>.</p>
         <p>Con los años, hemos consolidado nuestra reputación como un <strong>socio confiable</strong> para empresas, instituciones y clientes particulares, gestionando proyectos de inicio a fin y asegurando el <strong>cumplimiento en tiempo, costo y calidad</strong>.</p>
       </article>
 
       <!-- MISIÓN -->
-      <article class="section">
+      <article class="section section--accent" id="mision">
         <h2>Misión</h2>
         <p>En Resolutiva brindamos soluciones integrales en construcción, mantenimiento y administración de proyectos, con un enfoque único basado en la <strong>inspección detallada</strong> y la <strong>programación de necesidades</strong>.</p>
         <p>Realizamos diagnósticos completos de cada edificio, levantamos un <strong>listado anual de requerimientos con sus costos</strong>, elaboramos el <strong>presupuesto de mantenimiento del siguiente año</strong> y, llegado el momento, <strong>administramos y ejecutamos cada proyecto</strong> con control de gastos hasta su cierre.</p>
@@ -174,27 +268,70 @@
       </article>
 
       <!-- VISIÓN -->
-      <article class="section">
+      <article class="section section--accent" id="vision">
         <h2>Visión</h2>
         <p>Ser reconocidos en Costa Rica como la <strong>empresa líder en gestión integral de proyectos y mantenimiento de propiedades</strong>, destacándonos por nuestra <strong>metodología preventiva</strong> de inspección y programación anual, que permite a empresas e instituciones <strong>anticipar costos, reducir emergencias y optimizar sus recursos</strong>.</p>
         <p>Queremos consolidarnos como el <strong>aliado estratégico más confiable</strong>, capaz de transformar la forma en que se administra y mantiene la infraestructura en el país.</p>
       </article>
 
       <!-- VALORES -->
-      <article class="section values">
+      <article class="section" id="valores">
         <h2>Valores</h2>
-        <ol>
-          <li><strong>Prevención:</strong> Anticipamos necesidades con inspecciones detalladas y planes anuales de mantenimiento.</li>
-          <li><strong>Transparencia:</strong> Generamos confianza mediante reportes claros, control de gastos y presupuestos verificables.</li>
-          <li><strong>Eficiencia:</strong> Optimizamos tiempos y recursos para reducir costos y evitar imprevistos.</li>
-          <li><strong>Calidad:</strong> Garantizamos resultados profesionales, respaldados por casi 20 años de experiencia.</li>
-          <li><strong>Compromiso:</strong> Acompañamos a nuestros clientes como un verdadero aliado estratégico en todo el ciclo de sus proyectos.</li>
-          <li><strong>Integralidad:</strong> Ofrecemos un servicio 360° que une inspección, planificación, licitación, ejecución y cierre en una sola solución.</li>
-        </ol>
+
+        <div class="values-grid">
+          <!-- Prevención -->
+          <div class="value-card">
+            <div class="value-ico">🛡️</div>
+            <div>
+              <h4>Prevención</h4>
+              <p>Anticipamos necesidades con inspecciones detalladas y planes anuales de mantenimiento.</p>
+            </div>
+          </div>
+          <!-- Transparencia -->
+          <div class="value-card">
+            <div class="value-ico">📊</div>
+            <div>
+              <h4>Transparencia</h4>
+              <p>Generamos confianza con reportes claros, control de gastos y presupuestos verificables.</p>
+            </div>
+          </div>
+          <!-- Eficiencia -->
+          <div class="value-card">
+            <div class="value-ico">⏱️</div>
+            <div>
+              <h4>Eficiencia</h4>
+              <p>Optimizamos tiempos y recursos para reducir costos y evitar imprevistos.</p>
+            </div>
+          </div>
+          <!-- Calidad -->
+          <div class="value-card">
+            <div class="value-ico">✅</div>
+            <div>
+              <h4>Calidad</h4>
+              <p>Resultados profesionales respaldados por casi 20 años de experiencia.</p>
+            </div>
+          </div>
+          <!-- Compromiso -->
+          <div class="value-card">
+            <div class="value-ico">🤝</div>
+            <div>
+              <h4>Compromiso</h4>
+              <p>Nos integramos como aliado estratégico durante todo el ciclo de sus proyectos.</p>
+            </div>
+          </div>
+          <!-- Integralidad -->
+          <div class="value-card">
+            <div class="value-ico">🔄</div>
+            <div>
+              <h4>Integralidad</h4>
+              <p>Unimos inspección, planificación, licitación, ejecución y cierre en una sola solución.</p>
+            </div>
+          </div>
+        </div>
       </article>
 
-      <!-- PROPUESTA DE VALOR -->
-      <article class="section">
+      <!-- PROPUESTA -->
+      <article class="section" id="propuesta">
         <h2>Nuestra propuesta de valor</h2>
         <p>En Resolutiva no solo resolvemos emergencias: <strong>planificamos el futuro</strong> de las propiedades de nuestros clientes. Nuestra metodología incluye:</p>
         <ul>
@@ -208,15 +345,15 @@
       </article>
 
       <!-- EQUIPO -->
-      <article class="section">
+      <article class="section" id="equipo">
         <h2>Nuestro equipo</h2>
         <p>Contamos con un equipo multidisciplinario de profesionales en administración de proyectos, ingeniería, supervisión técnica y servicios de mantenimiento. Cada uno de nuestros colaboradores comparte un mismo objetivo: trabajar con <strong>transparencia</strong> y <strong>compromiso</strong> para garantizar la satisfacción del cliente.</p>
       </article>
 
-      <!-- CLIENTES Y SECTORES -->
-      <article class="section">
+      <!-- SECTORES -->
+      <article class="section" id="sectores">
         <h2>Clientes y sectores atendidos</h2>
-        <p>Hemos acompañado a empresas privadas, instituciones públicas y clientes particulares en la gestión de sus proyectos y propiedades. Nuestros servicios están diseñados para adaptarse a distintos sectores: <strong>corporativo, financiero, comercial, industrial y residencial</strong>.</p>
+        <p>Hemos acompañado a empresas privadas, instituciones públicas y clientes particulares en la gestión de sus proyectos y propiedades. Nuestros servicios se adaptan a distintos sectores: <strong>corporativo, financiero, comercial, industrial y residencial</strong>.</p>
       </article>
 
       <!-- FRASE -->
@@ -225,18 +362,19 @@
         <p class="quote"><em>"En Resolutiva creemos que prevenir siempre será más eficiente que reparar. Por eso acompañamos a nuestros clientes con planes claros, medibles y ejecutables."</em></p>
       </article>
 
-      <!-- CTA -->
-      <article class="section">
+      <!-- CTA FINAL -->
+      <article class="section" id="cta">
         <h2>Llamado a la acción</h2>
         <p>👉 ¿Quiere transformar la forma en que su empresa administra el mantenimiento y los proyectos? Conversemos sobre cómo podemos ayudarle.</p>
         <div class="cta-block">
           <a class="btn-primary" href="https://wa.me/50662236038" target="_blank" rel="noopener">Solicitar una asesoría</a>
           <a class="btn-ghost" href="index.html#contacto">Escríbanos desde el formulario</a>
+          <span class="muted" style="font-size:.92rem">Respuesta en menos de 24&nbsp;horas.</span>
         </div>
       </article>
 
       <p class="muted" style="margin-top:1.25rem">
-        ¿Desea volver al inicio? <a href="index.html" style="color:var(--green-900); font-weight:700; text-decoration:none">Ir a la portada</a>
+        ¿Desea volver al inicio? <a href="#top" style="color:var(--green-900); font-weight:700; text-decoration:none">Subir al comienzo</a>
       </p>
     </div>
   </main>
@@ -247,5 +385,29 @@
       <small>© Resolutiva. Todos los derechos reservados.</small>
     </div>
   </footer>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" aria-label="Volver arriba">↑ Arriba</button>
+
+  <!-- Sticky WhatsApp (solo móvil) -->
+  <a class="wa-sticky" href="https://wa.me/50662236038" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <!-- simple WA icon -->
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.02 0C5.43 0 .09 5.34.09 11.93c0 2.1.55 4.14 1.6 5.94L0 24l6.3-1.63a11.9 11.9 0 0 0 5.72 1.46h.01c6.59 0 11.93-5.34 11.93-11.93 0-3.18-1.24-6.17-3.44-8.42ZM12.03 21.5h-.01a9.6 9.6 0 0 1-4.9-1.34l-.35-.21-3.74.96 1-3.64-.23-.37a9.56 9.56 0 0 1-1.45-5.06c0-5.29 4.3-9.59 9.6-9.59 2.56 0 4.97 1 6.78 2.81a9.54 9.54 0 0 1 2.82 6.78c0 5.29-4.3 9.6-9.6 9.6Zm5.59-7.19c-.3-.15-1.75-.86-2.02-.95-.27-.1-.46-.15-.66.15-.2.3-.76.95-.93 1.14-.17.2-.34.22-.64.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.67-2.1-.17-.3-.02-.46.13-.61.14-.14.3-.37.45-.56.15-.2.2-.34.3-.57.1-.22.05-.42-.02-.57-.07-.15-.66-1.6-.9-2.2-.24-.58-.48-.5-.66-.5h-.57c-.2 0-.52.07-.8.37s-1.05 1.03-1.05 2.5 1.07 2.9 1.22 3.1c.15.2 2.11 3.23 5.12 4.53.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.75-.72 2-1.41.24-.7.24-1.3.17-1.41-.07-.12-.27-.2-.57-.35Z"/></svg>
+    WhatsApp
+  </a>
+
+  <script>
+    // Back-to-top visibility
+    const toTop = document.getElementById('toTop');
+    const toggleTop = () => {
+      if (window.scrollY > 600) {
+        toTop.classList.add('show');
+      } else {
+        toTop.classList.remove('show');
+      }
+    };
+    window.addEventListener('scroll', toggleTop);
+    toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+  </script>
 </body>
 </html>
