@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nosotros | Resolutiva – Planificación, mantenimiento y presupuestos anuales en todo el país</title>
-  <meta name="description" content="17 años de experiencia en planificación, mantenimiento y administración de proyectos. Diseñamos planes y presupuestos anuales, ejecutamos y controlamos costos con cobertura nacional.">
+  <title>Resolutiva | Asesoría, planificación y solución efectiva</title>
+  <meta name="description" content="Asesoría, planificación y solución efectiva de sus necesidades. Atendemos sus necesidades con planificación clara, control de costos, ejecución eficiente y seguimiento constante.">
 
   <style>
     :root{
@@ -30,7 +30,6 @@
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
     img{max-width:100%;height:auto;display:block}
-    a{color:inherit}
 
     /* ===== HEADER ===== */
     .topbar{ background:#fff; position:relative; z-index:10; }
@@ -50,53 +49,48 @@
       display:flex; align-items:center; gap:18px; list-style:none; margin-left:auto; padding:0; flex:0 0 auto;
     }
     .menu a{color:#222; text-decoration:none; font-weight:600; opacity:.92}
-    .menu a[aria-current="page"]{color:var(--green-900); text-decoration:underline; text-underline-offset:6px}
     .menu a:hover{opacity:1}
     .btn-cta{
       background:var(--gold); color:#1a1a1a; border-radius:12px; padding:10px 16px; text-decoration:none; font-weight:700;
       box-shadow:0 4px 12px rgba(209,167,44,.25);
     }
 
-    /* ===== HERO INTERNO ===== */
-    .page-hero{background:var(--green-900); color:var(--white)}
-    .page-hero .inner{max-width:var(--container); margin:0 auto; padding:48px 16px 56px}
-    .page-hero h1{margin:0 0 10px; font-size:clamp(2.2rem,4.6vw,3.1rem); line-height:1.12; font-weight:900; letter-spacing:.2px}
-    .page-hero p{color:#dfeeed; max-width:820px; margin:0 0 22px; font-size:clamp(1rem,1.15vw,1.06rem)}
+    /* ===== HERO ===== */
+    .hero{background:var(--green-900); color:var(--white)}
+    .hero-inner{max-width:var(--container); margin:0 auto; padding:48px 16px 56px}
+    .hero h1{
+      margin:0 0 18px; font-size:clamp(2.2rem,4.6vw,3.4rem); line-height:1.12; font-weight:900; letter-spacing:.2px; max-width:30ch;
+    }
+    .hero-sub{color:#dfeeed; max-width:760px; margin:0 0 22px; font-size:clamp(1rem,1.15vw,1.06rem)}
     .cta-row{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{display:inline-block; text-decoration:none; border-radius:12px; padding:12px 16px; font-weight:700; transition:.2s transform; border:1.5px solid rgba(255,255,255,.28); color:#fff;}
+    .btn{
+      display:inline-block; text-decoration:none; border-radius:12px; padding:12px 16px; font-weight:700; transition:.2s transform;
+      border:1.5px solid rgba(255,255,255,.28); color:#fff;
+    }
     .btn:hover{transform:translateY(-1px)}
     .btn-primary{background:var(--gold); color:#1a1a1a; border-color:transparent}
     .btn-ghost{background:transparent; color:#fff}
 
-    /* ===== SECCIONES ===== */
+    /* ===== SERVICIOS ===== */
+    .services{background:var(--beige)}
     .container{max-width:var(--container); margin:0 auto; padding:40px 16px}
-    .section{padding:10px 0}
-    .section h2{margin:0 0 10px; font-size:clamp(1.6rem,2.2vw,2rem); font-weight:900; letter-spacing:.2px; color:#1a1a1a}
-    .section p{margin:.4rem 0 1rem}
-    .bullets{display:grid; gap:10px; grid-template-columns:repeat(2,minmax(240px,1fr))}
-    @media (max-width:720px){ .bullets{grid-template-columns:1fr} }
+    .section-title{
+      text-align:center; margin:6px 0 26px; font-weight:900; letter-spacing:.2px;
+      font-size:clamp(1.6rem,2.4vw,2.05rem); color:#1a1a1a;
+    }
+    .cards{display:grid; gap:16px; grid-template-columns:repeat(3, minmax(260px, 1fr))}
+    @media (min-width:1280px){ .cards{gap:20px} }
+    @media (max-width:1024px){ .cards{grid-template-columns:repeat(2, minmax(260px,1fr))} }
+    @media (max-width:640px){ .cards{grid-template-columns:1fr} :root{--logo-h:96px} }
 
-    /* ===== METODOLOGÍA ===== */
-    .steps{display:grid; gap:14px; grid-template-columns:repeat(5, minmax(160px,1fr))}
-    @media (max-width:1024px){ .steps{grid-template-columns:repeat(3, minmax(160px,1fr))} }
-    @media (max-width:640px){ .steps{grid-template-columns:1fr} }
-    .step{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:14px 14px 16px}
-    .step strong{display:block; color:#0c0c0c; margin-bottom:4px}
-
-    /* ===== DESTACADO ===== */
-    .highlight{background:var(--beige)}
-    .highlight .card{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:16px 16px 18px}
-
-    /* ===== M/V/V ===== */
-    .about-block .mv-section{margin-bottom:20px}
-    .divider{border:0; border-top:1px solid rgba(0,0,0,.08); margin:18px 0}
-    .values-list{margin:0; padding-left:18px}
-    .values-list li{margin:.4rem 0}
-
-    /* ===== FOOTER ===== */
-    .site-footer{background:#0f2221; color:#cde0df}
-    .site-footer .container{padding:16px}
-    .site-footer small{opacity:.9}
+    .card{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:16px 16px 18px}
+    .card h3{display:flex; align-items:center; gap:10px; margin:4px 0 8px; font-size:1.06rem; font-weight:900; color:#1a1a1a}
+    .card p{margin:0; color:#363636}
+    .icon{
+      width:28px; height:28px; border-radius:8px; display:inline-grid; place-items:center;
+      background:rgba(209,167,44,.16); border:1px solid rgba(209,167,44,.38);
+    }
+    .icon svg{width:20px; height:20px; stroke:#8b6b0e}
 
     /* ===== MODAL ===== */
     .modal{
@@ -124,6 +118,11 @@
     .success{background:#e8f7ec; color:#145a22}
     .error{background:#fdeaea; color:#8b1e1e}
 
+    /* ===== FOOTER ===== */
+    .site-footer{background:#0f2221; color:#cde0df}
+    .site-footer .container{padding:16px}
+    .site-footer small{opacity:.9}
+
     a:focus-visible, .btn:focus-visible, .btn-cta:focus-visible, .modal-close:focus-visible, .btn-dark:focus-visible{
       outline:3px solid #8bd2ff; outline-offset:2px; border-radius:6px
     }
@@ -146,153 +145,125 @@
   <!-- ===== HEADER ===== -->
   <header class="topbar">
     <nav class="topnav" aria-label="Cabecera">
-      <a class="logo" href="/"
-         aria-label="Resolutiva – Inicio" title="Resolutiva">
-        <img src="/assets/recorte.svg?v=17" alt="Resolutiva">
+      <a class="logo" href="index.html" aria-label="Resolutiva – Inicio" title="Resolutiva">
+        <img src="assets/recorte.svg?v=17" alt="Resolutiva">
       </a>
 
-      <div class="tagline">Asesoría, planificación y mantenimiento confiables</div>
+      <div class="tagline">Asesoría, proyectos y mantenimiento confiables</div>
 
       <ul class="menu" role="menubar" aria-label="Navegación principal">
-        <li role="none"><a role="menuitem" href="/#servicios">Servicios</a></li>
-        <li role="none"><a role="menuitem" href="/portafolio.html">Portafolio</a></li>
-        <li role="none"><a role="menuitem" aria-current="page" href="/nosotros.html">Nosotros</a></li>
+        <li role="none"><a role="menuitem" href="#servicios">Servicios</a></li>
+        <li role="none"><a role="menuitem" href="portafolio.html">Portafolio</a></li>
+        <li role="none"><a role="menuitem" href="nosotros.html">Nosotros</a></li>
         <li role="none"><a id="open-contacto" class="btn-cta" role="menuitem" href="#contacto-modal">Contacto</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ===== HERO INTERNO ===== -->
-  <section class="page-hero">
-    <div class="inner">
-      <h1>Sobre Resolutiva</h1>
-      <p>
-        Asesoría, planificación y ejecución confiable para sus proyectos y propiedades, con cobertura <strong>en todo el país</strong>.<br>
-        <strong>17 años de experiencia</strong> en administración de proyectos, planes anuales y presupuestos con control de costos.
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Asesoría, planificación y solución efectiva de sus necesidades.</h1>
+      <p class="hero-sub">
+        Atendemos sus necesidades con planificación clara, control de costos, ejecución eficiente y seguimiento constante.
       </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#contacto-modal" id="open-contacto-hero">Solicitar cotización</a>
-        <a class="btn btn-ghost" href="/#servicios">Ver servicios</a>
+        <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
         <a class="btn btn-ghost" href="https://wa.me/50662236038" target="_blank" rel="noopener"
            aria-label="Abrir WhatsApp en nueva pestaña">WhatsApp</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== QUIÉNES SOMOS ===== -->
-  <section class="section container">
-    <h2>Quiénes somos</h2>
-    <p>
-      En <strong>Resolutiva</strong> ayudamos a empresas y propietarios a <strong>planificar, presupuestar y ejecutar</strong> el mantenimiento y la construcción con
-      <strong>claridad de costos</strong>, <strong>cronogramas definidos</strong> y <strong>seguimiento constante</strong>.
-      Nuestro diferencial es la metodología <strong>preventiva</strong>: realizamos <strong>inspecciones detalladas</strong>, levantamos un <strong>listado anual de requerimientos</strong> y construimos un
-      <strong>presupuesto anual por prioridades</strong>, para luego <strong>programar</strong>, <strong>ejecutar</strong> y <strong>controlar</strong> cada intervención hasta el cierre.
-    </p>
-  </section>
-
-  <!-- ===== POR QUÉ ELEGIRNOS ===== -->
-  <section class="section container">
-    <h2>Por qué elegirnos</h2>
-    <div class="bullets">
-      <p>• <strong>Planes y presupuestos anuales</strong>: visibilidad de costos, prioridades y continuidad operativa.</p>
-      <p>• <strong>Planificación clara</strong>: alcance, cronograma e hitos por etapa.</p>
-      <p>• <strong>Ejecución supervisada</strong>: estándares de calidad y seguridad.</p>
-      <p>• <strong>Transparencia</strong>: reportes periódicos y control de gastos verificable.</p>
-      <p>• <strong>Cobertura nacional</strong>: atención en todo el país.</p>
-      <p>• <strong>17 años</strong> de experiencia en administración de proyectos y mantenimiento.</p>
-    </div>
-  </section>
-
-  <!-- ===== DESTACADO PLANES Y PRESUPUESTOS ===== -->
-  <section class="highlight">
+  <!-- ===== SERVICIOS ===== -->
+  <section id="servicios" class="services">
     <div class="container">
-      <div class="card">
-        <h2>Planes y presupuestos anuales</h2>
-        <p>
-          Diseñamos <strong>planes anuales de mantenimiento</strong> y <strong>presupuestos</strong> que permiten <strong>proyectar costos</strong>,
-          <strong>reducir imprevistos</strong> y <strong>optimizar recursos</strong>. Nuestro enfoque evita el “apaga-incendios” y garantiza
-          <strong>orden</strong>, <strong>continuidad</strong> y <strong>decisiones informadas</strong> durante todo el año.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#contacto-modal">Solicitar diagnóstico</a>
-          <a class="btn btn-ghost" href="/#servicios">Ver servicios</a>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h2 class="section-title">Nuestros servicios</h2>
 
-  <!-- ===== METODOLOGÍA ===== -->
-  <section class="section container">
-    <h2>Metodología de trabajo</h2>
-    <div class="steps">
-      <div class="step"><strong>1) Diagnóstico</strong> Inspección técnica e inventario de necesidades.</div>
-      <div class="step"><strong>2) Plan y presupuesto anual</strong> Priorización, cronograma y costos proyectados.</div>
-      <div class="step"><strong>3) Preparación</strong> Logística, compras y permisos necesarios.</div>
-      <div class="step"><strong>4) Ejecución</strong> Supervisión en sitio, control de calidad y seguridad.</div>
-      <div class="step"><strong>5) Cierre y seguimiento</strong> Entrega, garantía y actualización del plan anual.</div>
-    </div>
-  </section>
+      <div class="cards">
+        <!-- fila superior -->
+        <article class="card">
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 6h6M9 3h6a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v0a2 2 0 0 1 2-2Z"/>
+                <path d="M19 9v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9"/>
+                <path d="m9 14 2 2 4-4"/>
+              </svg>
+            </span>
+            Gestión de proyectos
+          </h3>
+          <p>Supervisamos y coordinamos su proyecto de inicio a fin con control de tiempos, costos y calidad.</p>
+        </article>
 
-  <!-- ===== COBERTURA Y SECTORES ===== -->
-  <section class="section container">
-    <h2>Cobertura y sectores</h2>
-    <p>
-      Trabajamos <strong>en todo el país</strong>. Atendemos <strong>comercios</strong>, <strong>oficinas</strong>, <strong>residenciales</strong>, <strong>pymes</strong> e <strong>industria ligera</strong>,
-      con soluciones a la medida según el uso y el nivel de complejidad del sitio.
-    </p>
-  </section>
+        <article class="card">
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <path d="M16 2v4M8 2v4M3 10h18"/>
+                <path d="m14.5 17 .5 1 .9.2-.6.7.1 1-1-.4-1 .4.1-1-.6-.7.9-.2.6-1Z"/>
+              </svg>
+            </span>
+            Planes anuales de mantenimiento
+          </h3>
+          <p>Diseñamos y ejecutamos planes de mantenimiento preventivo y correctivo, así como planes anuales que garantizan continuidad y reducen costos imprevistos.</p>
+        </article>
 
-  <!-- ===== EXPERIENCIA ===== -->
-  <section class="section container">
-    <h2>Experiencia</h2>
-    <p>
-      <strong>17 años</strong> de trayectoria en administración de proyectos, mantenimiento y construcción.
-      Enfoque en <strong>metodología preventiva</strong>, <strong>control de costos</strong> y <strong>cumplimiento de cronogramas</strong>.
-      Integración de servicios: <em>inspección → presupuesto → licitación → ejecución → control de gastos</em>.
-    </p>
-  </section>
+        <article class="card">
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m13 6 5 5L7 22H2v-5L13 6z"/>
+                <path d="m13 6 3-3 5 5-3 3"/>
+              </svg>
+            </span>
+            Presupuestos y planos
+          </h3>
+          <p>Elaboramos presupuestos precisos y presupuestos anuales de mantenimiento, junto con planos arquitectónicos y renderizados profesionales 3D.</p>
+        </article>
 
-  <!-- ===== MISIÓN / VISIÓN / VALORES (transcripción exacta) ===== -->
-  <section id="mision-vision-valores" class="about-block container">
-    <div class="mv-section">
-      <h2>💡 Misión</h2>
-      <p>En <strong>Resolutiva</strong> ofrecemos soluciones integrales en construcción, mantenimiento y administración de proyectos, con un enfoque único basado en la <strong>inspección detallada</strong> y la <strong>programación de necesidades</strong>.</p>
-      <p>Realizamos <strong>diagnósticos completos de cada edificio</strong>, levantamos un <strong>listado anual de requerimientos</strong> con <strong>sus costos</strong>, elaboramos el <strong>presupuesto de mantenimiento del siguiente año</strong> y, llegado el momento, <strong>administramos y ejecutamos</strong> cada proyecto con <strong>control de gastos</strong> hasta su cierre.</p>
-      <p>Con <strong>casi 20 años de experiencia</strong>, nos diferenciamos de la mayoría de empresas que reaccionan a emergencias, porque en Resolutiva <strong>anticipamos, planificamos y ejecutamos</strong> para garantizar a nuestros clientes <strong>orden, eficiencia y confianza</strong> en la gestión de sus propiedades.</p>
-    </div>
+        <!-- fila inferior -->
+        <article class="card">
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+                <path d="M14 2v6h6"/>
+                <path d="M12 12l1.2 2.4L16 15l-2 1.9.5 2.8L12 18l-2.5 1.7.5-2.8L8 15l2.8-.6Z"/>
+              </svg>
+            </span>
+            Procesos para licitaciones
+          </h3>
+          <p>Gestionamos y acompañamos los procesos de licitación con soporte técnico y documentación completa.</p>
+        </article>
 
-    <hr class="divider">
+        <article class="card">
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21s3-4 7-4 7 4 7 4"/>
+                <path d="M14 17 20 3"/>
+              </svg>
+            </span>
+            Limpieza de propiedades
+          </h3>
+          <p>Servicios de limpieza interna y externa para oficinas, comercios, residencias y áreas comunes.</p>
+        </article>
 
-    <div class="mv-section">
-      <h2>🚀 Visión</h2>
-      <p>Ser reconocidos en Costa Rica como la <strong>empresa líder en gestión integral de proyectos y mantenimiento de propiedades</strong>, destacándonos por nuestra <strong>metodología preventiva de inspección y programación anual</strong>, que permite a empresas e instituciones <strong>anticipar costos, reducir emergencias y optimizar sus recursos</strong>.</p>
-      <p>Queremos consolidarnos como el <strong>aliado estratégico más confiable</strong>, capaz de transformar la forma en que se administra y mantiene la infraestructura en el país.</p>
-    </div>
-
-    <hr class="divider">
-
-    <div class="mv-section">
-      <h2>🏅 Valores</h2>
-      <ol class="values-list">
-        <li><strong>Prevención</strong> → Anticipamos necesidades con inspecciones detalladas y planes anuales de mantenimiento.</li>
-        <li><strong>Transparencia</strong> → Generamos confianza mediante reportes claros, control de gastos y presupuestos verificables.</li>
-        <li><strong>Eficiencia</strong> → Optimizamos tiempos y recursos para reducir costos y evitar imprevistos.</li>
-        <li><strong>Calidad</strong> → Garantizamos resultados profesionales, respaldados por casi 20 años de experiencia.</li>
-        <li><strong>Compromiso</strong> → Acompañamos a nuestros clientes como un verdadero aliado estratégico en todo el ciclo de sus proyectos.</li>
-        <li><strong>Integralidad</strong> → Ofrecemos un servicio 360° que une inspección, planificación, licitación, ejecución y cierre en una sola solución.</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ===== CTA FINAL ===== -->
-  <section class="highlight">
-    <div class="container">
-      <div class="card">
-        <h2>¿Empezamos con su plan anual o una cotización puntual?</h2>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#contacto-modal">Solicitar cotización</a>
-          <a class="btn btn-ghost" href="https://wa.me/50662236038" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
+        <article class="card">
+          <h3>
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a5 5 0 1 0 3 3L22 5l-3-3-4.3 4.3Z"/>
+                <path d="M2 22l6-6"/>
+              </svg>
+            </span>
+            Mantenimiento general
+          </h3>
+          <p>Atendemos averías y necesidades generales en estructuras e instalaciones con respuesta rápida y mano de obra calificada.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -343,7 +314,7 @@
             <textarea id="mensaje" name="mensaje" placeholder="Cuéntenos brevemente su necesidad."></textarea>
           </div>
 
-          <input type="hidden" name="_subject" value="Nuevo contacto – Resolutiva (Nosotros)" />
+          <input type="hidden" name="_subject" value="Nuevo contacto – Resolutiva" />
 
           <p class="note">Campos marcados con * son obligatorios. Responderemos a la mayor brevedad.</p>
 
